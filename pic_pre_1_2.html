@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+
+<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title> PiC Online </title>
+  <style>
+    .pattern {
+      display: inline-grid;
+      grid-template-columns: auto auto auto auto auto auto;
+      grid-gap: 75px;
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    .box {
+      display: inline-grid;
+      grid-template-columns: auto auto auto auto auto auto;
+      grid-gap: 55px;
+      padding: 50px;
+      border: 1px solid #aaaaaa;
+      z-index: -1;
+    }
+
+    .shape_selection {
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      grid-gap: 50px;
+      cursor: grab;
+    }
+
+    .shape_selection:active {
+      cursor: grabbing;
+      animation: rotation 2s infinite 0s linear;
+    }
+
+    #div1,
+    #div2,
+    #div3,
+    #div4,
+    #div5,
+    #div6 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #aaaaaa;
+      padding: 10px;
+    }
+
+    #yellow_triangle
+
+    /* triangle bottom-left https://css-tricks.com/the-grid-item-of-css/*/
+      {
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid #ffff02;
+      border-right: 100px solid transparent;
+    }
+
+    #pink_diamond
+
+    /* diamond narrow */
+      {
+      width: 0;
+      height: 0;
+      border: 50px solid transparent;
+      border-bottom-color: #ff22ff;
+      position: relative;
+      top: -50px;
+    }
+
+    #pink_diamond:after {
+      content: '';
+      position: absolute;
+      left: -50px;
+      top: 50px;
+      width: 0;
+      height: 0;
+      border: 50px solid transparent;
+      border-top-color: #ff22ff;
+    }
+
+    #red_circle {
+      width: 100px;
+      height: 100px;
+      background: red;
+      border-radius: 50%
+    }
+
+    #green_hexagon {
+      width: 100px;
+      height: 55px;
+      background: #a9d18e;
+      position: relative;
+      top: 25px;
+      transform: rotateZ(90deg);
+    }
+
+    #green_hexagon:before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 25px solid #a9d18e;
+
+    }
+
+    #green_hexagon:after {
+      content: "";
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 25px solid #a9d18e;
+
+    }
+
+    .button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-family: arial;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    .button:hover,
+    .button:active {
+      background-color: grey;
+    }
+
+
+    .pretest2 {
+      display: none;
+    }
+
+
+  </style>
+
+  <script type="text/javascript">
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("Text", ev.target.id);
+    }
+
+    function drop(ev) {
+      var data = ev.dataTransfer.getData("Text");
+      ev.target.appendChild(document.getElementById(data).cloneNode(true));
+      ev.preventDefault();
+    }
+  </script>
+
+<body>
+  <center>
+    <div class="welcome">
+      <div id=""
+    </div>
+
+    <div class="pattern">
+      <div class="pretest1" id="yellow_triangle"></div>
+      <div class="pretest1" id="yellow_triangle"></div>
+      <div class="pretest1" id="pink_diamond"></div>
+      <div class="pretest1" id="yellow_triangle"></div>
+      <div class="pretest1" id="yellow_triangle"></div>
+      <div class="pretest1" id="pink_diamond"></div>
+
+      <div class="pretest2" id="red_circle"></div>
+      <div class="pretest2" id="red_circle"></div>
+      <div class="pretest2" id="green_hexagon"></div>
+      <div class="pretest2" id="red_circle"></div>
+      <div class="pretest2" id="red_circle"></div>
+      <div class="pretest2" id="green_hexagon"></div>
+    </div>
+
+    <br>
+
+    <div class="box">
+      <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+      <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+      <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+      <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+      <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+      <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <br>
+
+    <div class="shape_selection">
+      <!-- pretest1 -->
+      <div class="pretest1" id="yellow_triangle" draggable="true" ondragstart="drag(event)"></div>
+      <div class="pretest1" id="pink_diamond" draggable="true" ondragstart="drag(event)"></div>
+      <!-- pretest2 -->
+      <div class="pretest2" id="red_circle" draggable="true" ondragstart="drag(event)"></div>
+      <div class="pretest2" id="green_hexagon" draggable="true" ondragstart="drag(event)"></div>
+    </div>
+
+    <br>
+
+    <button class="button" id="startpre2" onclick="startPretest2()"> NEXT </button>
+
+  </center>
+
+</body>
+
+  <script type="text/javascript">
+    function startPretest2() {
+      $(".pretest1").hide();
+      $(".pretest2").show();
+    };
+
+
+  </script>
+
+</head>
+
+</html>
