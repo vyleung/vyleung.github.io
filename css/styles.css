@@ -1,0 +1,293 @@
+/* body {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    } */
+/*this is a comment*/
+/* https://stackoverflow.com/questions/19201715/how-do-i-get-a-page-to-auto-fit-to-a-window user: JSW189 */
+.welcome {
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pattern {
+  padding-top: 10px;
+  margin: auto;
+}
+
+.houses {
+  margin: auto;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.square {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /*padding-bottom: 100%;*/
+}
+
+.shape {
+  width: 10.5vw;
+  height: auto;
+}
+
+.test-shape {
+  width: 90%;
+  height: auto;
+  cursor: pointer;
+}
+
+/* .test-shape:active {
+  cursor: grabbing;
+  animation: rotation 2s infinite 0s linear;
+} */
+
+.box {
+  display: block;
+  border: 1px solid;
+  width: 12vw;
+  height: 12vw;
+}
+
+.small_house1, .small_house2 {
+  width: 90%;
+  height: auto;
+  margin: -3px;
+}
+
+.big_house1, .big_house2 {
+  width: 100%;
+  height: auto;
+}
+
+.small_car1, .small_car2 {
+  width: 80%;
+  height: auto;
+}
+
+.big_car1, .big_car2 {
+  width: 100%;
+  height: auto;
+}
+
+.training_smallhouse {
+  width: 60%;
+  height: auto;
+  margin: -3px;
+  cursor: pointer;
+}
+
+.training_bighouse {
+  width: 75%;
+  height: auto;
+  cursor: pointer;
+}
+
+.star1, .star2 {
+  width: 80%;
+  height: auto;
+}
+
+.red_x1, .red_x2 {
+  width: 60%;
+  height: auto;
+}
+
+.star1_gen, .star2_gen {
+  width: 65%;
+  height: auto;
+}
+
+.red_x1_gen, .red_x2_gen {
+  width: 50%;
+  height: auto;
+}
+
+.training_star {
+  width: 40%;
+  height: auto;
+}
+
+.training_x {
+  width: 33%;
+  height: auto;
+}
+
+.small_house2, .big_house2, .small_car2, .big_car2 {
+  cursor: pointer;
+}
+
+.small_house2:hover, .big_house2:hover, .small_car2:hover, .big_car2:hover {
+  opacity: 85%;
+}
+
+.tokens {
+  padding-top: 10px;
+}
+
+.cars, .tokens_gen, .star2, .red_x2, .star2_gen, .red_x2_gen, .training_x, .training_star, .buttons, #houses_demo2, #pattern_demo2, #pattern_demo3, .tries_gen {
+  display: none;
+}
+
+#houses_demo1 {
+  width: 40%;
+  height: auto;
+  position: relative;
+  animation: demo1 1.5s linear infinite;
+}
+
+@keyframes demo1 {
+  0% {
+    left: -200%;
+    bottom: 65%;
+  }
+
+  100% {
+    left: -200%;
+    bottom: 90%;
+  }
+}
+
+#houses_demo2 {
+  width: 40%;
+  height: auto;
+  position: relative;
+  animation: demo2 1.5s linear infinite;
+}
+
+@keyframes demo2 {
+  0% {
+    right: 100%;
+    bottom: 125%;
+  }
+
+  100% {
+    right: 100%;
+    bottom: 150%;
+  }
+}
+
+#pattern_demo {
+  width: 40%;
+  height: auto;
+  position: relative;
+  animation: pattern_demo 1.5s linear 3;
+}
+
+@keyframes pattern_demo {
+  0% {
+    left: 0%;
+    bottom: 0%;
+  }
+
+  100% {
+    left: 0%;
+    bottom: 225%;
+  }
+}
+
+
+#pattern_demo1 {
+  width: 40%;
+  height: auto;
+  position: relative;
+  animation: pattern_demo1 1.5s linear infinite;
+}
+
+@keyframes pattern_demo1 {
+  0% {
+    left: 0%;
+    bottom: 125%;
+  }
+
+  100% {
+    left: 100%;
+    bottom: 300%;
+  }
+}
+
+#pattern_demo2 {
+  width: 40%;
+  height: auto;
+  position: relative;
+  animation: pattern_demo2 1.5s linear infinite;
+}
+
+@keyframes pattern_demo2 {
+  0% {
+    left: 0%;
+    bottom: 125%;
+  }
+
+  100% {
+    left: 100%;
+    bottom: 300%;
+  }
+}
+
+#pattern_demo3 {
+  width: 40%;
+  height: auto;
+  position: relative;
+  animation: pattern_demo3 1.5s linear infinite;
+}
+
+@keyframes pattern_demo3 {
+  0% {
+    left: 0%;
+    bottom: 125%;
+  }
+
+  100% {
+    left: -200%;
+    bottom: 300%;
+  }
+}
+
+.tries, .tries_gen {
+  font-family: Arial;
+  font-size: 20px;
+  width: 18%;
+  color: white;
+  background-color: #157DEC;
+}
+
+.number, .number_gen {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+.buttons {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.buttons:hover {
+  background-color: grey;
+}
