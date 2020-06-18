@@ -35,9 +35,16 @@ function allowDrop(event) {
 
   // if the child makes a mistake, they can click on the shape to remove it
   // https://stackoverflow.com/questions/30492918/how-to-remove-last-element-from-div user: Cliff Gunn and https://stackoverflow.com/questions/4469059/remove-elements-onclick-including-the-remove-button-itself-with-jquery user: xandy
-  $(".box").click(function() {
+  // $(".box").click(function() {
+  //   $(this).children().remove();
+  // });
+
+  $(".box").on("click touch", function() {
+  // Do things
     $(this).children().remove();
-  });
+
+  return false;
+});
 
   // showing token/no token under training houses
   $("#training_house1").click(function() {
