@@ -26,7 +26,6 @@
   display: flex;
   justify-content: center;
   padding: 0;
-  background-color: transparent;
 }
 
 .row {
@@ -52,6 +51,7 @@
   width: 90%;
   height: auto;
   cursor: pointer;
+  z-index: 1;
 }
 
 /* .test-shape:active {
@@ -60,7 +60,7 @@
 } */
 
 .box {
-  display: block;
+  display: flex;
   border: 1px solid;
   width: 12vw;
   height: 12vw;
@@ -202,7 +202,6 @@
     bottom: 225%;
   }
 }
-
 
 #pattern_demo1 {
   width: 40%;
