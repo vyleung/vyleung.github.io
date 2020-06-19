@@ -149,57 +149,22 @@
   width: 40%;
   height: auto;
   position: relative;
-  -webkit-animation: demo1 1.5s linear infinite;
+  /* -webkit-animation: demo1 1.5s linear infinite;
   -moz-animation: demo1 1.5s linear infinite;
-  -o-animation:  demo1 1.5s linear infinite;
+  -o-animation:  demo1 1.5s linear infinite; */
   animation: demo1 1.5s linear infinite;
 }
 
-@-webkit-keyframes demo1 {
-  0% {
-    left: -200%;
-    bottom: 65%;
-  }
-
-  100% {
-    left: -200%;
-    bottom: 90%;
-  }
-}
-
-@-moz-keyframes demo1 {
-  0% {
-    left: -200%;
-    bottom: 65%;
-  }
-
-  100% {
-    left: -200%;
-    bottom: 90%;
-  }
-}
-
-@-o-keyframes demo1 {
-  0% {
-    left: -200%;
-    bottom: 65%;
-  }
-
-  100% {
-    left: -200%;
-    bottom: 90%;
-  }
-}
 
 @keyframes demo1 {
-  0% {
-    left: -200%;
-    bottom: 65%;
+  from {
+    left: -375px;
+    bottom: 125px;
   }
 
-  100% {
-    left: -200%;
-    bottom: 90%;
+  to {
+    left: -375px;
+    bottom: 150px;
   }
 }
 
