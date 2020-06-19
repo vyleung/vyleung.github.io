@@ -67,13 +67,15 @@
 
 .small_house1, .small_house2 {
   width: 90%;
-  height: 90%;
+  height: auto;
   margin: -3px;
+  cursor: pointer;
 }
 
 .big_house1, .big_house2 {
   width: 100%;
-  height: 100%;
+  height: auto;
+  cursor: pointer;
 }
 
 .small_car1, .small_car2 {
@@ -102,31 +104,37 @@
 .star1, .star2 {
   width: 80%;
   height: auto;
+  cursor: pointer;
 }
 
 .red_x1, .red_x2 {
   width: 60%;
   height: auto;
+  cursor: pointer;
 }
 
 .star1_gen, .star2_gen {
   width: 65%;
   height: auto;
+  cursor: pointer;
 }
 
 .red_x1_gen, .red_x2_gen {
   width: 50%;
   height: auto;
+  cursor: pointer;
 }
 
 .training_star {
   width: 40%;
   height: auto;
+  cursor: pointer;
 }
 
 .training_x {
   width: 33%;
   height: auto;
+  cursor: pointer;
 }
 
 .small_house2, .big_house2, .small_car2, .big_car2 {
@@ -147,7 +155,7 @@
 
 #houses_demo1 {
   width: 6vw;
-  height: auto;
+  height: 8vw;
   position: relative;
   -webkit-animation: demo1 1.5s linear infinite;
   -moz-animation: demo1 1.5s linear infinite;
