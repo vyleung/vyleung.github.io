@@ -142,7 +142,7 @@
 }
 
 .small_house2:hover, .big_house2:hover, .small_car2:hover, .big_car2:hover {
-  opacity: 85%;
+  opacity: 75%;
 }
 
 .tokens {
@@ -154,8 +154,8 @@
 }
 
 #houses_demo1 {
-  width: 6vw;
-  height: 8vw;
+  width: 40%;
+  height: 40%;
   position: relative;
   -webkit-animation: demo1 1.5s linear infinite;
   -moz-animation: demo1 1.5s linear infinite;
@@ -187,7 +187,7 @@
   }
 }
 
-@keyframes demo1 {
+@-o-keyframes demo1 {
   from {
     left: -30.5vw;
     bottom: 12vw;
@@ -199,8 +199,7 @@
   }
 }
 
-
-@@-o-keyframes demo1 {
+@keyframes demo1 {
   from {
     left: -30.5vw;
     bottom: 12vw;
@@ -214,20 +213,59 @@
 
 #houses_demo2 {
   width: 40%;
-  height: auto;
+  height: 40%;
   position: relative;
+  -webkit-animation: demo2 1.5s linear infinite;
+  -moz-animation: demo2 1.5s linear infinite;
+  -o-animation:  demo2 1.5s linear infinite;
   animation: demo2 1.5s linear infinite;
+}
+
+@-webkit-keyframes demo2 {
+  0% {
+    right: 15vw;
+    bottom: 17vw;
+  }
+
+  100% {
+    right: 15vw;
+    bottom: 19vw;
+  }
+}
+
+@-moz-keyframes demo2 {
+  0% {
+    right: 15vw;
+    bottom: 17vw;
+  }
+
+  100% {
+    right: 15vw;
+    bottom: 19vw;
+  }
+}
+
+@-o-keyframes demo2 {
+  0% {
+    right: 15vw;
+    bottom: 17vw;
+  }
+
+  100% {
+    right: 15vw;
+    bottom: 19vw;
+  }
 }
 
 @keyframes demo2 {
   0% {
-    right: 100%;
-    bottom: 125%;
+    right: 15vw;
+    bottom: 17vw;
   }
 
   100% {
-    right: 100%;
-    bottom: 150%;
+    right: 15vw;
+    bottom: 19vw;
   }
 }
 
