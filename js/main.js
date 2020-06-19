@@ -211,6 +211,7 @@ function showDemos() {
   if (drags == 0) {
     $("#pattern_demo3").hide();
     $("#startPretest1").show();
+    $("#startPretest1").show();
   }
 }
 
@@ -222,9 +223,22 @@ function num_drops() {
   drops += 1;
   if (drops == 6) {
     $("#startPretest2").show();
-    $("#startAABLearning").show();
+    $("#startAABabs2").show();
+    $("#startAABpost").show();
+    $("#startEnd").show();
   }
 }
+
+// for training kids on houses task
+var clicks = 0;
+
+$(".training_houses").click(function() {
+  clicks += 1;
+  if (clicks >= 2) {
+    $("#startAABLearning").show();
+    $(".training_smallhouse, .training_bighouse").off('click');
+  }
+});
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
