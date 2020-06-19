@@ -13,7 +13,7 @@ function allowDrop(event) {
     event.target.style.backgroundColor = "";
     event.target.style.border = "";
 
-    showDemos();
+    startPatternTraining();
     num_drops();
   }
 
@@ -197,7 +197,7 @@ $(".small_car2, .big_car2").click(function() {
 // for training kids how to drag and drop patterns
 var drags = 3;
 
-function showDemos() {
+function startPatternTraining() {
   drags -= 1;
   if (drags == 2) {
     $("#pattern_demo2").show();
