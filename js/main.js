@@ -210,7 +210,8 @@ function startPatternTraining() {
 
   if (drags == 0) {
     $("#pattern_demo3").hide();
-    $("#startPretest1").show();
+    $("#startPretest1_EG").show();
+    $("#startPretest1_V").show();
   }
 }
 
@@ -221,7 +222,8 @@ var drops = 0;
 function num_drops() {
   drops += 1;
   if (drops == 6) {
-    $("#startPretest2").show();
+    $("#startPretest2_EG").show();
+    $("#startPretest2_V").show();
     $("#startHousesTraining").show();
     $("#startAABabs1").show();
     $("#startAABabs2").show();
