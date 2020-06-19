@@ -228,3 +228,16 @@ function num_drops() {
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
+$(document).on('touchstart', function() {
+    detectTap = true; // Detects all touch events
+});
+$(document).on('touchmove', function() {
+    detectTap = false; // Excludes the scroll events from touch events
+});
+$(document).on('click touchend', function(event) {
+    if (event.type == "click") detectTap = true; // Detects click events
+       if (detectTap){
+          // Here you can write the function or codes you want to execute on tap
+
+       }
+ });
