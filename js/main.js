@@ -11,6 +11,8 @@ function allowDrop(event) {
     event.target.appendChild(document.getElementById(data).cloneNode(true));
     event.preventDefault();
     event.target.style.backgroundColor = "";
+    event.target.style.border = "";
+
     showDemos();
     num_drops();
   }
@@ -22,14 +24,16 @@ function allowDrop(event) {
   }
 
   function dragEnter(event) {
-    if (event.target.className == "box justify-content-center align-items-center") {
+    if (event.target.className == "box") {
       event.target.style.backgroundColor = "lightgrey";
+      event.target.style.border = "dashed";
     }
   }
 
   function dragLeave(event) {
-    if (event.target.className == "box justify-content-center align-items-center") {
+    if (event.target.className == "box") {
       event.target.style.backgroundColor = "";
+      event.target.style.border = "";
     }
   }
 
