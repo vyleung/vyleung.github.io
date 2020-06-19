@@ -4,6 +4,23 @@ function allowDrop(event) {
 
   function drag(event) {
     event.dataTransfer.setData("Text", event.target.id);
+    if (active) {
+
+      e.preventDefault();
+
+      if (e.type === "touchmove") {
+        currentX = e.touches[0].clientX - initialX;
+        currentY = e.touches[0].clientY - initialY;
+      } else {
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+      }
+
+      xOffset = currentX;
+      yOffset = currentY;
+
+      setTranslate(currentX, currentY, dragItem);
+    }
   }
 
   function drop(event) {
@@ -21,6 +38,17 @@ function allowDrop(event) {
 
   function dragStart(event) {
     event.dataTransfer.setData("Text", event.target.id);
+    if (e.type === "touchstart") {
+      initialX = e.touches[0].clientX - xOffset;
+      initialY = e.touches[0].clientY - yOffset;
+    } else {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+    }
+
+    if (e.target === dragItem) {
+      active = true;
+    }
   }
 
   function dragEnter(event) {
@@ -35,6 +63,10 @@ function allowDrop(event) {
       event.target.style.backgroundColor = "";
       event.target.style.border = "";
     }
+    initialX = currentX;
+    initialY = currentY;
+
+    active = false;
   }
 
 // if the child makes a mistake, they can click on the shape to remove it
@@ -228,22 +260,31 @@ function num_drops() {
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
-function touchHandler(event){
-  var	event = event.originalEvent,
-    touches = event.changedTouches,
-    first = touches[0],
-    simulatedEvent = document.createEvent("MouseEvent"),
-    types={touchstart:"mousedown",touchmove:"mousemove",touchend:"mouseup"},
-    type = types[event.type]
-  if(type){
-    simulatedEvent.initMouseEvent(type, true, true, window, 1,
-      first.screenX, first.screenY,
-      first.clientX, first.clientY, false,
-      false, false, false, 0/*left*/, null);
-    first.target.dispatchEvent(simulatedEvent);
-    event.preventDefault();
-  }
-}
+
+    var dragItem = document.querySelectorAll("#yellow_triangle");
+    var container = document.querySelector("#box1");
+
+    var active = false;
+    var currentX;
+    var currentY;
+    var initialX;
+    var initialY;
+    var xOffset = 0;
+    var yOffset = 0;
+
+    container.addEventListener("touchstart", dragStart, false);
+    container.addEventListener("touchend", dragLeave, false);
+    container.addEventListener("touchmove", drag, false);
+
+    container.addEventListener("mousedown", dragStart, false);
+    container.addEventListener("mouseup", dragLeave, false);
+    container.addEventListener("mousemove", drag, false);
+
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    }
+
 
 // document.addEventListener('touchmove', function(e) {
 //     e.preventDefault();
