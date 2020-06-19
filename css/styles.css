@@ -55,11 +55,6 @@
   cursor: pointer;
 }
 
-.finger {
-  user-select: none;
-  /* z-index: -1; */
-}
-
 .box {
   border: 3px solid;
   width: 14vw;
