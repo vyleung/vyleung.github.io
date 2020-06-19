@@ -1,10 +1,6 @@
-/* body {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    } */
+body {
+      overflow:hidden;
+    }
 /*this is a comment*/
 /* https://stackoverflow.com/questions/19201715/how-do-i-get-a-page-to-auto-fit-to-a-window user: JSW189 */
 
