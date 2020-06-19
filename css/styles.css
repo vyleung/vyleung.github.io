@@ -40,14 +40,14 @@ body, html {
 }
 
 .shape {
-  width: 12vw;
+  width: 80%;
   height: auto;
 }
 
 .test-shape {
   width: 90%;
   height: auto;
-  cursor: pointer;
+  cursor: grab;
 }
 
 .box {
