@@ -59,13 +59,9 @@
 } */
 
 .box {
-  display: flex;
   border: 3px solid;
-  width: 12vw;
-  height: 12vw;
-  /* justify-content: center;
-  align-items: center; */
-
+  width: 14vw;
+  height: 14vw;
 }
 
 .small_house1, .small_house2 {

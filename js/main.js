@@ -24,14 +24,14 @@ function allowDrop(event) {
   }
 
   function dragEnter(event) {
-    if (event.target.className == "box justify-content-center align-items-center") {
+    if (event.target.className == "box d-flex justify-content-center align-items-center") {
       event.target.style.backgroundColor = "lightgrey";
       event.target.style.border = "dashed";
     }
   }
 
   function dragLeave(event) {
-    if (event.target.className == "box justify-content-center align-items-center") {
+    if (event.target.className == "box d-flex justify-content-center align-items-center") {
       event.target.style.backgroundColor = "";
       event.target.style.border = "";
     }
