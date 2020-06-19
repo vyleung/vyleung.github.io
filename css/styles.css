@@ -146,7 +146,7 @@
 }
 
 #houses_demo1 {
-  width: 75px;
+  width: 6vw;
   height: auto;
   position: relative;
   /* -webkit-animation: demo1 1.5s linear infinite;
@@ -158,13 +158,13 @@
 
 @keyframes demo1 {
   from {
-    left: -315px;
-    bottom: 125px;
+    left: -30.5vw;
+    bottom: 12vw;
   }
 
   to {
-    left: -315px;
-    bottom: 150px;
+    left: -30.5vw;
+    bottom: 14vw;
   }
 }
 
