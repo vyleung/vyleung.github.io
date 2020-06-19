@@ -195,20 +195,20 @@ $(".small_car2, .big_car2").click(function() {
 });
 
 // for training kids how to drag and drop patterns
-var drags = 3;
+var drags = 0;
 
 function PatternTraining() {
-  drags -= 1;
-  if (drags == 2) {
+  drags += 1;
+  if (drags == 1) {
     $("#pattern_demo2").show();
     $("#pattern_demo1").hide();
   }
-  if (drags == 1) {
+  if (drags == 2) {
     $("#pattern_demo3").show();
     $("#pattern_demo2").hide();
   }
 
-  if (drags == 0) {
+  if (drags == 3) {
     $("#pattern_demo3").hide();
     $("#startPretest1_EG").show();
     $("#startPretest1_V").show();
