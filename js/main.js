@@ -4,9 +4,6 @@ function allowDrop(event) {
 
   function drag(event) {
     event.dataTransfer.setData("Text", event.target.id);
-    if (event.target.className == "test-shape") {
-      event.target.style.border = "dashed";
-    }
   }
 
   function drop(event) {
@@ -29,16 +26,13 @@ function allowDrop(event) {
   function dragEnter(event) {
     if (event.target.className == "box d-flex justify-content-center align-items-center") {
       event.target.style.background = "lightgrey";
-      event.target.style.border = "thick solid black";
+      event.target.style.border = "5px dashed";
     }
   }
 
   function dragLeave(event) {
     if (event.target.className == "box d-flex justify-content-center align-items-center") {
       event.target.style.background = "";
-      event.target.style.border = "";
-    }
-    if (event.target.className == "test-shape") {
       event.target.style.border = "";
     }
   }
