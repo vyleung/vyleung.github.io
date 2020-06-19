@@ -183,7 +183,7 @@ $(".houses").click(function() {
 // keeps track of # of tries left for AAB houses gen
 var number_gen = 3;
 
-$(".cars").click(function() {
+$(".small_car2, .big_car2").click(function() {
   number_gen -= 1;
   $(".number_gen")[0].innerHTML = number_gen;
   if (number_gen <= 0) {
@@ -211,7 +211,6 @@ function showDemos() {
   if (drags == 0) {
     $("#pattern_demo3").hide();
     $("#startPretest1").show();
-    $("#startPretest1").show();
   }
 }
 
@@ -223,6 +222,7 @@ function num_drops() {
   drops += 1;
   if (drops == 6) {
     $("#startPretest2").show();
+    $("#startHousesTraining").show();
     $("#startAABabs2").show();
     $("#startAABpost").show();
     $("#startEnd").show();
@@ -232,7 +232,7 @@ function num_drops() {
 // for training kids on houses task
 var clicks = 0;
 
-$(".training_houses").click(function() {
+$(".training_smallhouse, .training_bighouse").click(function() {
   clicks += 1;
   if (clicks >= 2) {
     $("#startAABLearning").show();
