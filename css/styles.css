@@ -17,6 +17,7 @@
 .pattern {
   padding-top: 10px;
   margin: auto;
+  user-select: none;
 }
 
 .houses {
@@ -158,13 +159,13 @@
   width: 40%;
   height: 40%;
   position: relative;
-  -webkit-animation: demo1 1.5s linear infinite;
+  /* -webkit-animation: demo1 1.5s linear infinite;
   -moz-animation: demo1 1.5s linear infinite;
-  -o-animation:  demo1 1.5s linear infinite;
+  -o-animation:  demo1 1.5s linear infinite; */
   animation: demo1 1.5s linear infinite;
 }
 
-@-webkit-keyframes demo1 {
+/* @-webkit-keyframes demo1 {
   from {
     left: -30.5vw;
     bottom: 12vw;
@@ -198,7 +199,7 @@
     left: -30.5vw;
     bottom: 14vw;
   }
-}
+} */
 
 @keyframes demo1 {
   from {
