@@ -223,6 +223,7 @@ function num_drops() {
   if (drops == 6) {
     $("#startPretest2").show();
     $("#startHousesTraining").show();
+    $("#startAABabs1").show();
     $("#startAABabs2").show();
     $("#startAABpost").show();
     $("#startEnd").show();
