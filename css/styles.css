@@ -43,7 +43,7 @@ body, html {
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
-  user-select: none; 
+  user-select: none;
 }
 
 .shape {
@@ -54,7 +54,7 @@ body, html {
 .test-shape {
   width: 90%;
   height: auto;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .box {
