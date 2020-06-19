@@ -67,13 +67,13 @@
 
 .small_house1, .small_house2 {
   width: 90%;
-  height: auto;
+  height: 90%;
   margin: -3px;
 }
 
 .big_house1, .big_house2 {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .small_car1, .small_car2 {
