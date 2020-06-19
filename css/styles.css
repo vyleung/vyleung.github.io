@@ -39,6 +39,10 @@ body, html {
   /*padding-bottom: 100%;*/
 }
 
+.finger {
+  pointer-events: none;
+}
+
 .shape {
   width: 80%;
   height: auto;
