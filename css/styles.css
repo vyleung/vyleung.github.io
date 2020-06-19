@@ -63,6 +63,7 @@
   border: 3px solid;
   width: 14vw;
   height: 14vw;
+  user-select: none;
 }
 
 .small_house1, .small_house2 {
