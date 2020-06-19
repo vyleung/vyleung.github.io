@@ -55,10 +55,10 @@
   cursor: pointer;
 }
 
-/* .test-shape:active {
-  cursor: grabbing;
-  animation: rotation 2s infinite 0s linear;
-} */
+.finger {
+  user-select: none;
+  /* z-index: -1; */
+}
 
 .box {
   border: 3px solid;
