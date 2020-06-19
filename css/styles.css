@@ -216,9 +216,9 @@
   width: 40%;
   height: 40%;
   position: relative;
-  -webkit-animation: demo2 1.5s linear infinite;
+  /* -webkit-animation: demo2 1.5s linear infinite;
   -moz-animation: demo2 1.5s linear infinite;
-  -o-animation:  demo2 1.5s linear infinite;
+  -o-animation:  demo2 1.5s linear infinite; */
   animation: demo2 1.5s linear infinite;
 }
 
@@ -274,7 +274,7 @@
   width: 40%;
   height: auto;
   position: relative;
-  animation: pattern_demo 1.5s linear 3;
+  animation: pattern_demo 1.5s linear infinite;
 }
 
 @keyframes pattern_demo {
