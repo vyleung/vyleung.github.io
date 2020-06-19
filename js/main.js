@@ -228,17 +228,25 @@ function num_drops() {
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
-var dragging = false;
-$("body").on("touchmove", function(){
-      dragging = true;
-});
-$("body").on("touchend", function(){
-      if (dragging)
-          return;
+function touchHandler(event){
+  var	event = event.originalEvent,
+    touches = event.changedTouches,
+    first = touches[0],
+    simulatedEvent = document.createEvent("MouseEvent"),
+    types={touchstart:"mousedown",touchmove:"mousemove",touchend:"mouseup"},
+    type = types[event.type]
+  if(type){
+    simulatedEvent.initMouseEvent(type, true, true, window, 1,
+      first.screenX, first.screenY,
+      first.clientX, first.clientY, false,
+      false, false, false, 0/*left*/, null);
+    first.target.dispatchEvent(simulatedEvent);
+    event.preventDefault();
+  }
+}
 
-      // wasn't a drag, just a tap
-      // more code here
-});
-$("body").on("touchstart", function(){
-    dragging = false;
-});
+// document.addEventListener('touchmove', function(e) {
+//     e.preventDefault();
+//     var touch = e.touches[0];
+//     alert(touch.pageX + " - " + touch.pageY);
+// }, false);
