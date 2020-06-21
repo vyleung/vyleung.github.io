@@ -15,6 +15,7 @@ function allowDrop(event) {
 
     PatternTraining();
     num_drops();
+    feedback();
   }
 
   // https://www.geeksforgeeks.org/html-dom-ondragenter-event/ and https://www.w3schools.com/jsref/event_ondragenter.asp
@@ -85,7 +86,7 @@ function allowDrop(event) {
       $("#startAABLearning").show();
     }
   });
-  
+
   // after 3 clicks/taps (houses task), "NEXT" button show for AAB abs
   $(".small_car2, .big_car2").click(function() {
     clicks += 1;
@@ -263,7 +264,11 @@ $("#houses_demo").on('ended',function(){
   $("#startHousesTask").show();
 });
 
-
+// feedback for AAB AAB AAB abs
+function feedback () {
+   var x = $(".test-shape").position();
+    console.log("Top: " + x.top + " Left: " + x.left);
+}
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
