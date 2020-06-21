@@ -39,13 +39,6 @@ body, html {
   /*padding-bottom: 100%;*/
 }
 
-.finger {
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  user-select: none;
-}
-
 .shape {
   width: 80%;
   height: auto;
@@ -153,48 +146,48 @@ body, html {
   padding-top: 10px;
 }
 
-.cars, .tokens_gen, .star2, .red_x2, .star2_gen, .red_x2_gen, .training_x, .training_star, #houses_demo2, #pattern_demo2, #pattern_demo3, .tries_gen {
+.cars, .tokens_gen, .star2, .red_x2, .star2_gen, .red_x2_gen, .training_x, .training_star, #pattern_demo2, #pattern_demo3, .tries_gen {
   display: none;
 }
 
-#houses_demo1 {
+/* houses training */
+.finger1 {
   width: 40%;
   height: 40%;
   position: relative;
   animation: demo1 1.5s linear infinite;
+
+}
+
+.finger2 {
+  width: 40%;
+  height: 40%;
+  position: relative;
+  display: none;
+  animation: demo2 1.5s linear infinite;
 }
 
 @keyframes demo1 {
   from {
-    left: -30.5vw;
     bottom: 8vw;
   }
 
   to {
-    left: -30.5vw;
     bottom: 10vw;
   }
 }
 
-#houses_demo2 {
-  width: 40%;
-  height: 40%;
-  position: relative;
-  animation: demo2 1.5s linear infinite;
-}
-
 @keyframes demo2 {
   0% {
-    right: 15vw;
     bottom: 13vw;
   }
 
   100% {
-    right: 15vw;
     bottom: 15vw;
   }
 }
 
+/* pattern training */
 #pattern_demo1 {
   width: 40%;
   height: 40%;
@@ -233,6 +226,7 @@ body, html {
   }
 }
 
+/* pattern training */
 #pattern_demo3 {
   width: 40%;
   height: 40%;
@@ -283,4 +277,9 @@ body, html {
 
 .buttons:hover {
   background-color: grey;
+}
+
+#houses_complete {
+  width: 100%;
+  height: 100%;
 }

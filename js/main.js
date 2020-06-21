@@ -52,28 +52,53 @@ function allowDrop(event) {
   });
 
   $("#training_house2").click(function() {
-    $("#training_x2").show();
-  });
-
-  $("#training_house3").click(function() {
-    $("#training_star1").show();
+    $("#training_x2, #houses_demo3").show();
     $("#houses_demo2").hide();
   });
 
+  $("#training_house3").click(function() {
+    $("#training_star1, #houses_demo4").show();
+    $("#houses_demo3").hide();
+  });
+
   $("#training_house4").click(function() {
-    $("#training_x3").show();
+    $("#training_x3, #houses_demo5").show();
+    $("#houses_demo4").hide();
   });
 
   $("#training_house5").click(function() {
-    $("#training_x4").show();
+    $("#training_x4, #houses_demo6").show();
+    $("#houses_demo5").hide();
   });
 
   $("#training_house6").click(function() {
     $("#training_star2").show();
+    $("#houses_demo6").hide();
   });
 
-  // showing token/no token under houses
+  // after 6 clicks/taps (houses training), "NEXT" button shows for houses task
+  var clicks = 0;
 
+  $(".training_smallhouse, .training_bighouse").click(function() {
+    clicks += 1;
+    if (clicks == 6) {
+      $("#startAABLearning").show();
+    }
+  });
+  
+  // after 3 clicks/taps (houses task), "NEXT" button show for AAB abs
+  $(".small_car2, .big_car2").click(function() {
+    clicks += 1;
+    if (clicks == 3) {
+      $("#startAABabs1").show();
+      $(".small_car2, .big_car2").off('click');
+    }
+  });
+
+  // show button for AAB gen
+  $("#AABGen").show();
+
+  // showing token/no token under houses
   $("#house7").click(function() {
     $("#star3").show();
   });
@@ -154,17 +179,17 @@ function allowDrop(event) {
   });
 
   // random assignment of conditions
-
-  function getCondition() {
-
-  var condition = Math.floor((Math.random() * 2) + 1);
-    if (condition == 1) {
-     location.href = "houses.html";
-    }
-    else {
-       location.href = "AABabs1_EG.html";
-    }
-}
+  //
+  //   function getCondition() {
+  //
+  //   var condition = Math.floor((Math.random() * 2) + 1);
+  //     if (condition == 1) {
+  //      location.href = "houses.html";
+  //     }
+  //     else {
+  //        location.href = "AABabs1_EG.html";
+  //     }
+  // }
 
 // keep tracks of # of tries left for AAB houses
 var number = 6;
@@ -232,23 +257,13 @@ function num_drops() {
   }
 }
 
-// for training kids on houses task
-var clicks = 0;
-
-$(".training_smallhouse, .training_bighouse").click(function() {
-  clicks += 1;
-  if (clicks >= 2) {
-    $("#startAABLearning").show();
-    $(".training_smallhouse, .training_bighouse").off('click');
-  }
+// after houses demo plays, show button to go to houses task
+// https://stackoverflow.com/questions/14517639/executing-function-at-end-of-html5-video user: fboes
+$("#houses_demo").on('ended',function(){
+  $("#startHousesTask").show();
 });
+
+
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
-
-
-// document.addEventListener('touchmove', function(e) {
-//     e.preventDefault();
-//     var touch = e.touches[0];
-//     alert(touch.pageX + " - " + touch.pageY);
-// }, false);
