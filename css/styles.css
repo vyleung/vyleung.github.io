@@ -64,6 +64,11 @@ body, html {
   user-select: none;
 }
 
+#houses_demo {
+  width: 100%;
+  height: 100%;
+}
+
 .small_house1, .small_house2 {
   width: 90%;
   height: 100%;
@@ -90,13 +95,13 @@ body, html {
 .training_smallhouse {
   width: 60%;
   height: 60%;
-  margin: -3px;
+  /* margin: -3px; */
   cursor: pointer;
 }
 
 .training_bighouse {
-  width: 75%;
-  height: 75%;
+  width: 85%;
+  height: 85%;
   cursor: pointer;
 }
 
