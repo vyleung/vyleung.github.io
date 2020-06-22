@@ -264,11 +264,11 @@ $("#houses_demo").on('ended',function(){
   $("#startHousesTask").show();
 });
 
-// feedback for AAB AAB AAB abs
+// feedback for AAB abs
+// https://stackoverflow.com/questions/865486/how-can-i-check-if-an-element-is-within-another-one-in-jquery user: Paolo Bergantino
 function feedback () {
-   var x = $(".test-shape").position();
-    console.log("Top: " + x.top + " Left: " + x.left);
+if ($('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1)
+    alert("Good job!");
 }
-
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
