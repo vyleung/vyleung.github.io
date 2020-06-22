@@ -152,7 +152,7 @@ function allowDrop(event) {
   // next button to show AAB generalization task
   function showAABGen() {
     $(".cars, .tokens_gen, .tries_gen").show();
-    $("#AABGen, .tries").hide();
+    $("#AABGen1, #AABGen2, #AABGen3, .tries").hide();
   }
 
 // showing tokens/no tokens under cars
