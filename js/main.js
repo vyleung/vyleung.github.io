@@ -47,6 +47,13 @@ function allowDrop(event) {
   });
 
   // showing token/no token under training houses
+  $("#startHousesIntro").show();
+
+  $("#startHousesIntro").click(function() {
+    $(".training_houses, #houses_demo1").show();
+    $("#startHousesIntro, #houses").hide();
+  });
+
   $("#training_house1").click(function() {
     $("#training_x1, #houses_demo2").show();
     $("#houses_demo1").hide();
@@ -192,7 +199,7 @@ function allowDrop(event) {
   //     }
   // }
 
-// keep tracks of # of tries left for AAB houses
+// keeps track of # of tries left for AAB houses
 var number = 6;
 
 $(".houses").click(function() {

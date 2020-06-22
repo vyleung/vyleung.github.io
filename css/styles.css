@@ -146,7 +146,7 @@ body, html {
   padding-top: 10px;
 }
 
-.cars, .tokens_gen, .star2, .red_x2, .star2_gen, .red_x2_gen, .training_x, .training_star, #pattern_demo2, #pattern_demo3, .tries_gen {
+.cars, .tokens_gen, .star2, .red_x2, .star2_gen, .red_x2_gen, .training_x, .training_star, #pattern_demo2, #pattern_demo3, .tries_gen, .training_houses, .finger1, .finger2 {
   display: none;
 }
 
@@ -169,21 +169,21 @@ body, html {
 
 @keyframes demo1 {
   from {
-    bottom: 8vw;
+    bottom: 5vw;
   }
 
   to {
-    bottom: 10vw;
+    bottom: 7vw;
   }
 }
 
 @keyframes demo2 {
   0% {
-    bottom: 13vw;
+    bottom: 10vw;
   }
 
   100% {
-    bottom: 15vw;
+    bottom: 12vw;
   }
 }
 
@@ -280,7 +280,7 @@ body, html {
 }
 
 
-#houses_complete {
+.images {
   width: 100%;
   height: 100%;
 }
