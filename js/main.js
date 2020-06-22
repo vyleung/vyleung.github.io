@@ -15,7 +15,7 @@ function allowDrop(event) {
 
     PatternTraining();
     num_drops();
-    feedback();
+    // feedback();
   }
 
   // https://www.geeksforgeeks.org/html-dom-ondragenter-event/ and https://www.w3schools.com/jsref/event_ondragenter.asp
@@ -271,14 +271,21 @@ $("#houses_demo").on('ended',function(){
   $("#startHousesTask").show();
 });
 
-// feedback for AAB abs
+// feedback for AAB pretests
 // https://stackoverflow.com/questions/865486/how-can-i-check-if-an-element-is-within-another-one-in-jquery user: Paolo Bergantino
-function feedback () {
-if ($('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1)
-    alert("Good job!");
-    if ($('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1)
-        alert("Good job!");
-}
+// if they don't pass either pretest, go to "end.html"
+// function feedback () {
+//   var id =  $(".test-shape").attr("id");
+//   var box_number = $(".box").attr("id");
+//
+//   if ($('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1)
+//       alert("Good job!");
+//   if ($('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1)
+//       alert("Good job!");
+//   else {
+//     console.log(id + " is in " + box_number)
+//   }
+// }
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
