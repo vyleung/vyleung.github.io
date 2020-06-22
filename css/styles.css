@@ -279,6 +279,9 @@ body, html {
   background-color: grey;
 }
 
+.btn {
+  color: blue;
+}
 
 .images {
   width: 100%;
