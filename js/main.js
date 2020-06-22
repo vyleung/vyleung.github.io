@@ -93,8 +93,14 @@ function allowDrop(event) {
       $("#startAABLearning").show();
     }
   });
-
-  // after 3 clicks/taps (houses task), "NEXT" button show for AAB abs
+  // after 1+ clicks (unconstrained exp), "NEXT" button shows
+  $(".small_house2, .big_house2").click(function() {
+    clicks += 1;
+    if (clicks == 1) {
+      $("#AABGen3").show();
+    }
+  });
+  // after 3 clicks/taps (houses task), "NEXT" button shows for AAB abs
   $(".small_car2, .big_car2").click(function() {
     clicks += 1;
     if (clicks == 3) {
@@ -104,7 +110,7 @@ function allowDrop(event) {
   });
 
   // show button for AAB gen
-  $("#AABGen").show();
+  $("#AABGen1").show();
 
   // showing token/no token under houses
   $("#house7").click(function() {
@@ -199,7 +205,7 @@ function allowDrop(event) {
   //     }
   // }
 
-// keeps track of # of tries left for AAB houses
+// keeps track of # of tries left for AAB houses (constrained exp)
 var number = 6;
 
 $(".houses").click(function() {
@@ -209,7 +215,7 @@ $(".houses").click(function() {
     $(".number")[0].innerHTML = 0;
     // make houses unclickable after 6 tries
     $(".small_house2, .big_house2").off('click');
-    $("#AABGen").show();
+    $("#AABGen2").show();
   }
 });
 
