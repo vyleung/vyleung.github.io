@@ -1,6 +1,6 @@
-body, html {
+/* body, html {
       overflow:hidden;
-    }
+    } */
 /* prevents scrolling on safari ios https://stackoverflow.com/questions/7768269/ipad-safari-disable-scrolling-and-bounce-effect user: Ben Bos*/
 
 .welcome {
@@ -76,13 +76,13 @@ body, html {
 }
 
 .small_car1, .small_car2 {
-  width: 80%;
-  height: 80%;
+  width: 50%;
+  height: 50%;
 }
 
 .big_car1, .big_car2 {
-  width: 100%;
-  height: 100%;
+  width: 60%;
+  height: 60%;
 }
 
 .training_smallhouse {
@@ -111,14 +111,14 @@ body, html {
 }
 
 .star1_gen, .star2_gen {
-  width: 65%;
-  height: 65%;
+  width: 25%;
+  height: 25%;
   cursor: pointer;
 }
 
 .red_x1_gen, .red_x2_gen {
-  width: 50%;
-  height: 50%;
+  width: 20%;
+  height: 20%;
   cursor: pointer;
 }
 
@@ -146,7 +146,8 @@ body, html {
   padding-top: 10px;
 }
 
-.cars, .tokens_gen, .star2, .red_x2, .star2_gen, .red_x2_gen, .training_x, .training_star, #pattern_demo2, #pattern_demo3, .tries_gen, .training_houses, .finger1, .finger2 {
+.cars, .tokens_gen,  .star2_gen, .red_x2_gen,
+.star2, .red_x2,  .training_x, .training_star, #pattern_demo2, #pattern_demo3, .tries_gen, .training_houses, .finger1, .finger2 {
   display: none;
 }
 
