@@ -170,21 +170,21 @@
 
 @keyframes demo1 {
   from {
-    bottom: 5vw;
+    bottom: 8vw;
   }
 
   to {
-    bottom: 7vw;
+    bottom: 10vw;
   }
 }
 
 @keyframes demo2 {
   0% {
-    bottom: 10vw;
+    bottom: 13vw;
   }
 
   100% {
-    bottom: 12vw;
+    bottom: 15vw;
   }
 }
 
