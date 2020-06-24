@@ -15,7 +15,7 @@ function allowDrop(event) {
 
     PatternTraining();
     num_drops();
-    // feedback();
+    feedback();
   }
 
   // https://www.geeksforgeeks.org/html-dom-ondragenter-event/ and https://www.w3schools.com/jsref/event_ondragenter.asp
@@ -158,38 +158,47 @@ function allowDrop(event) {
 // showing tokens/no tokens under cars
   $("#car7").click(function() {
     $("#star3_gen").show();
+    $(".houses_textbox").show().text("Token!");
   });
 
   $("#car8").click(function() {
     $("#x5_gen").show();
+    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car9").click(function() {
     $("#x6_gen").show();
+    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car10").click(function() {
     $("#star4_gen").show();
+    $(".houses_textbox").show().text("Token!");
   });
 
   $("#car11").click(function() {
     $("#x7_gen").show();
+    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car12").click(function() {
     $("#x8_gen").show();
+    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car13").click(function() {
     $("#star5_gen").show();
+    $(".houses_textbox").show().text("Token!");
   });
 
   $("#car14").click(function() {
     $("#x9_gen").show();
+    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car15").click(function() {
     $("#x10_gen").show();
+    $(".houses_textbox").show().text("No Token!");
   });
 
   // random assignment of conditions
@@ -219,16 +228,23 @@ $(".houses").click(function() {
   }
 });
 
-// keeps track of # of tries left for AAB houses gen
+// keeps track of # of tries left for AAB houses gen + what 3 houses are clicked on
+// for var id: https://stackoverflow.com/questions/41373686/event-target-id-or-this-attrid-not-working-in-firefox user: tao
 var number_gen = 3;
 
 $(".small_car2, .big_car2").click(function() {
+  var id = $(event.target).attr("id");
+
   number_gen -= 1;
+
   $(".number_gen")[0].innerHTML = number_gen;
+
+  console.log(id + " is clicked");
+
   if (number_gen <= 0) {
     $(".number_gen")[0].innerHTML = 0;
     // make cars unclickable after 3 tries
-    $(".small_car2, .big_car2").off('click');
+    $(".small_car2, .big_car2").off("click");
     $("#startAABabs1").show();
   }
 });
@@ -280,18 +296,38 @@ $("#houses_demo").on('ended',function(){
 // feedback for AAB pretests
 // https://stackoverflow.com/questions/865486/how-can-i-check-if-an-element-is-within-another-one-in-jquery user: Paolo Bergantino
 // if they don't pass either pretest, go to "end.html"
-// function feedback () {
-//   var id =  $(".test-shape").attr("id");
-//   var box_number = $(".box").attr("id");
-//
-//   if ($('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1)
-//       alert("Good job!");
-//   if ($('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1)
-//       alert("Good job!");
-//   else {
-//     console.log(id + " is in " + box_number)
-//   }
-// }
+
+function feedback() {
+  var shape = $(event.target).children().attr("id");
+  var box_number = $(event.target).attr("id");
+
+  $(".textbox").text(shape + " is dropped in " + box_number);
+
+  // var correctPretest1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
+  // var correctPretest2 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
+  //
+  //   if (correctPretest1) {
+  //     $("#startPretest2_EG").show();
+  //     $("#startPretest2_V").show();
+  //   }
+  //
+  //   else {
+  //     // $("#startEnd").show(); - doesn't work
+  //   }
+  //
+  //
+  // if (correctPretest2) {
+  //   $("#startHousesTraining").show();
+  //   $("#startAABabs1").show();
+  // }
+  //
+  // else {
+  //   // $("#startEnd").show();
+  // }
+}
+
+
+
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
