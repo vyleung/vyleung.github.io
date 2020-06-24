@@ -289,7 +289,7 @@ function num_drops() {
 
 // after houses demo plays, show button to go to houses task
 // https://stackoverflow.com/questions/14517639/executing-function-at-end-of-html5-video user: fboes
-$("#houses_demo").on('ended',function(){
+$("#houses_demo").on("ended",function(){
   $("#startHousesTask").show();
 });
 
@@ -325,6 +325,116 @@ function feedback() {
   //   // $("#startEnd").show();
   // }
 }
+
+
+function validateForm() {
+  var x, y, z;
+  x = document.getElementById('part_num').value;
+  y = document.getElementById('first_name').value;
+  z = document.getElementById('last_name').value;
+
+
+  if (x == "" && y == "" && z == "") {
+    document.getElementById('text').innerHTML= "All fields must be filled out";
+
+    document.getElementById('part_num').style.border = "1px solid red";
+    document.getElementById('first_name').style.border = "1px solid red";
+    document.getElementById('last_name').style.border = "1px solid red";
+    return false;
+  }
+
+  else if (x == "" && y == "") {
+    document.getElementById('text').innerHTML= "Participant # and First name must be filled out";
+
+    document.getElementById('part_num').style.border = "1px solid red";
+    document.getElementById('first_name').style.border = "1px solid red";
+
+    document.getElementById('last_name').style.border = "";
+
+    return false;
+  }
+
+  else if (x == "" && z == "") {
+    document.getElementById('text').innerHTML= "Participant # and Last name must be filled out";
+
+    document.getElementById('part_num').style.border = "1px solid red";
+    document.getElementById('last_name').style.border = "1px solid red";
+
+    document.getElementById('first_name').style.border = "";
+
+    return false;
+  }
+
+  else if (y == "" && z == "") {
+    document.getElementById('text').innerHTML= "First and Last name must be filled out";
+
+    document.getElementById('first_name').style.border = "1px solid red";
+    document.getElementById('last_name').style.border = "1px solid red";
+
+    document.getElementById('part_num').style.border = "";
+
+    return false;
+  }
+
+  else if (x == "") {
+    document.getElementById('text').innerHTML= "Participant # must be filled out";
+
+    document.getElementById('part_num').style.border = "1px solid red";
+
+    document.getElementById('first_name').style.border = "";
+    document.getElementById('last_name').style.border = "";
+
+    return false;
+  }
+
+  else if (y == "") {
+    document.getElementById('text').innerHTML= "First name must be filled out";
+
+
+    document.getElementById('first_name').style.border = "1px solid red";
+
+    document.getElementById('part_num').style.border = "";
+    document.getElementById('last_name').style.border = "";
+    return false;
+  }
+
+  else if (z == "") {
+    document.getElementById('text').innerHTML= "Last name must be filled out";
+
+    document.getElementById('last_name').style.border = "1px solid red";
+
+    document.getElementById('part_num').style.border = "";
+    document.getElementById('first_name').style.border = "";
+    return false;
+  }
+
+  else {
+    return true;
+  }
+}
+
+
+// https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript user: Sebastian S
+// var getUrlParameter = function getUrlParameter(sParam) {
+//     var sPageURL = window.location.search.substring(1),
+//         sURLVariables = sPageURL.split('&'),
+//         sParameterName,
+//         i;
+//
+//     for (i = 0; i < sURLVariables.length; i++) {
+//         sParameterName = sURLVariables[i].split('=');
+//
+//         if (sParameterName[0] === sParam) {
+//             return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+//         }
+//     }
+// };
+//
+// var pnum = getUrlParameter('part_num');
+// var fname = getUrlParameter('first_name');
+// var lname = getUrlParameter('last_name');
+//
+// document.getElementById("data").innerHTML = getUrlParameter();
 
 
 
