@@ -111,14 +111,14 @@
 }
 
 .star1_gen, .star2_gen {
-  width: 35%;
-  height: 35%;
+  width: 30%;
+  height: 30%;
   cursor: pointer;
 }
 
 .red_x1_gen, .red_x2_gen {
-  width: 30%;
-  height: 30%;
+  width: 25%;
+  height: 25%;
   cursor: pointer;
 }
 
