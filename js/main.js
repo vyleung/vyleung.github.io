@@ -315,7 +315,7 @@ function patternFeedback() {
   var shape = $(event.target).children().attr("id");
   var box_number = $(event.target).attr("id");
 
-  // $(".textbox").text(shape + " is dropped in " + box_number);
+  $(".textbox").text(shape + " in " + box_number);
   console.log(shape + " is dropped in " + box_number);
 }
 
