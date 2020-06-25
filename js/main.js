@@ -15,8 +15,9 @@ function allowDrop(event) {
 
     PatternTraining();
     num_drops();
-    patternFeedback();
+    patternLog();
     pretestsFeedback();
+    AABabsFeedback();
   }
 
   // https://www.geeksforgeeks.org/html-dom-ondragenter-event/ and https://www.w3schools.com/jsref/event_ondragenter.asp
@@ -296,8 +297,8 @@ function num_drops() {
   drops += 1;
 
   if (drops == 6) {
-      $("#startAABabs2").show();
-      $("#startAABpost").show();
+      // $("#startAABabs2").show();
+      // $("#startAABpost").show();
       $("#end_page").show();
   }
 }
@@ -309,9 +310,9 @@ $("#houses_demo").on("ended",function(){
 });
 
 // feedback for AAB pretests
-// https://stackoverflow.com/questions/865486/how-can-i-check-if-an-element-is-within-another-one-in-jquery user: Paolo Bergantino
+// for $('...').length == 1 https://stackoverflow.com/questions/865486/how-can-i-check-if-an-element-is-within-another-one-in-jquery user: Paolo Bergantino
 // if they don't pass either pretest, go to "end.html"
-function patternFeedback() {
+function patternLog() {
   var shape = $(event.target).children().attr("id");
   var box_number = $(event.target).attr("id");
 
@@ -352,6 +353,46 @@ function pretestsFeedback() {
  if ((correctPretest1_1 == false && drops >= 6) && (correctPretest1_2 == false && drops >= 6) && (correctPretest2_1 == false && drops >= 6) || (correctPretest2_2 == false && drops >= 6)) {
     $("#incorrectPretests").show();
     $("#startHousesTraining, #startAABabs1").hide();
+  }
+}
+
+function AABabsFeedback() {
+  // 1st pattern unit = ai/bi; 2nd pattern unit = aii/bii
+  var correctAABabs1_a = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#orange_square','#box6').length == 1;
+  var correctAABabs1_ai = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1;
+  var correctAABabs1_aii = $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#orange_square','#box6').length == 1;
+
+  var correctAABabs1_b = $('#orange_square','#box1').length == 1 && $('#orange_square','#box2').length == 1 && $('#yellow_triangle','#box3').length == 1 && $('#orange_square','#box4').length == 1 && $('#orange_square','#box5').length == 1 && $('#yellow_triangle','#box6').length == 1;
+  var correctAABabs1_bi = $('#orange_square','#box1').length == 1 && $('#orange_square','#box2').length == 1 && $('#yellow_triangle','#box3').length == 1;
+  var correctAABabs1_bii = $('#orange_square','#box4').length == 1 && $('#orange_square','#box5').length == 1 && $('#yellow_triangle','#box6').length == 1;
+
+  var correctAABabs2_a = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1 && $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
+  var correctAABabs2_ai = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1;
+  var correctAABabs2_aii = $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
+
+  var correctAABabs2_b = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1 && $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
+  var correctAABabs2_bi = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1;
+  var correctAABabs2_bii = $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
+
+  if ((correctAABabs1_a == true || correctAABabs1_b == true && drops >= 6) || (correctAABabs2_a == true || correctAABabs2_b == true && drops >= 6)) {
+    $("#startAABabs2").show();
+    console.log("Correct!");
+  }
+
+  else if (((correctAABabs1_ai == true && drops >= 6) || (correctAABabs1_aii == true && drops >= 6) || (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6)) || ((correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) || (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6))) {
+    $("#startAABabs2").show();
+    console.log("Still correct, but not quite!");
+    //play video w/ audio feedback
+  }
+
+  else if (((correctAABabs1_a == false && drops >= 6) || (correctAABabs1_b == false && drops >= 6)) || ((correctAABabs2_a == false && drops >= 6) || (correctAABabs2_b == false && drops >= 6))) {
+    $("#startAABabs2").show();
+    console.log("Not correct");
+    //play video w/ audio feedback
+  }
+
+  else {
+    // nothing
   }
 }
 
@@ -418,7 +459,6 @@ function validateForm() {
   else if (y == "") {
     document.getElementById('text').innerHTML= "First name must be filled out";
 
-
     document.getElementById('first_name').style.border = "1px solid red";
 
     document.getElementById('part_num').style.border = "";
@@ -463,9 +503,6 @@ function validateForm() {
 // var lname = getUrlParameter('last_name');
 //
 // document.getElementById("data").innerHTML = getUrlParameter();
-
-
-
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
