@@ -15,7 +15,8 @@ function allowDrop(event) {
 
     PatternTraining();
     num_drops();
-    feedback();
+    patternFeedback();
+    pretestsFeedback();
   }
 
   // https://www.geeksforgeeks.org/html-dom-ondragenter-event/ and https://www.w3schools.com/jsref/event_ondragenter.asp
@@ -245,6 +246,23 @@ $(".small_car2, .big_car2").click(function() {
     $(".number_gen")[0].innerHTML = 0;
     // make cars unclickable after 3 tries
     $(".small_car2, .big_car2").off("click");
+    $("#housesFeedback").show();
+  }
+});
+
+// AAB cars feedback: after the child clicks on 3 houses, they 'reveal' where all the tokens are
+// after all tokens are shown, show button to start AABabs1
+
+$('#housesFeedback').on('click', function() {
+  if ($("#star3_gen" && "#star4_gen" && "#star5_gen").is(":visible")) {
+    $("#star3_gen, #star4_gen, #star5_gen").css('border', '2px solid black').show();
+    $("#housesFeedback").hide();
+    $("#startAABabs1").show();
+  }
+
+  else {
+    $("#star3_gen, #star4_gen, #star5_gen").css('border', '2px solid black').show();
+    $("#housesFeedback").hide();
     $("#startAABabs1").show();
   }
 });
@@ -276,14 +294,11 @@ var drops = 0;
 
 function num_drops() {
   drops += 1;
+
   if (drops == 6) {
-    $("#startPretest2_EG").show();
-    $("#startPretest2_V").show();
-    $("#startHousesTraining").show();
-    $("#startAABabs1").show();
-    $("#startAABabs2").show();
-    $("#startAABpost").show();
-    $("#startEnd").show();
+      $("#startAABabs2").show();
+      $("#startAABpost").show();
+      $("#end_page").show();
   }
 }
 
@@ -296,36 +311,49 @@ $("#houses_demo").on("ended",function(){
 // feedback for AAB pretests
 // https://stackoverflow.com/questions/865486/how-can-i-check-if-an-element-is-within-another-one-in-jquery user: Paolo Bergantino
 // if they don't pass either pretest, go to "end.html"
-
-function feedback() {
+function patternFeedback() {
   var shape = $(event.target).children().attr("id");
   var box_number = $(event.target).attr("id");
 
-  $(".textbox").text(shape + " is dropped in " + box_number);
-
-  // var correctPretest1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
-  // var correctPretest2 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
-  //
-  //   if (correctPretest1) {
-  //     $("#startPretest2_EG").show();
-  //     $("#startPretest2_V").show();
-  //   }
-  //
-  //   else {
-  //     // $("#startEnd").show(); - doesn't work
-  //   }
-  //
-  //
-  // if (correctPretest2) {
-  //   $("#startHousesTraining").show();
-  //   $("#startAABabs1").show();
-  // }
-  //
-  // else {
-  //   // $("#startEnd").show();
-  // }
+  // $(".textbox").text(shape + " is dropped in " + box_number);
+  console.log(shape + " is dropped in " + box_number);
 }
 
+function pretestsFeedback() {
+  var correctPretest1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
+  var correctPretest1_1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1;
+  var correctPretest1_2 = $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
+
+  var correctPretest2 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
+  var correctPretest2_1 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1;
+  var correctPretest2_2 = $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
+
+// if at least one unit of pretest 1 is correct, the child moves onto pretest 2
+  if ((correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6)) {
+    $("#startPretest2_V, #startPretest2_EG").show();
+  }
+
+// if the child fails pretest 1, the child moves onto pretest 2
+  else if (correctPretest1 == false && drops >= 6) {
+    $("#startPretest2_V, #startPretest2_EG").show();
+  }
+
+// if the child fails pretest 1, but has at least one unit of pretest 2 correct, they can move onto houses task/AABabs1
+  if ((correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6)) {
+    $("#startHousesTraining, #startAABabs1").show();
+  }
+
+// if the child passes pretest 1, but fails pretest 2, they can move onto houses task/AABabs1
+  else if ((correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6) && (correctPretest2_1 == false && drops >= 6) || (correctPretest2_2 == false && drops >= 6)) {
+      $("#startHousesTraining, #startAABabs1").show();
+  }
+
+// if the child fails both pretests, they don't move onto houses task/AABabs1
+ if ((correctPretest1_1 == false && drops >= 6) && (correctPretest1_2 == false && drops >= 6) && (correctPretest2_1 == false && drops >= 6) || (correctPretest2_2 == false && drops >= 6)) {
+    $("#incorrectPretests").show();
+    $("#startHousesTraining, #startAABabs1").hide();
+  }
+}
 
 function validateForm() {
   var x, y, z;

@@ -284,6 +284,10 @@
   color: blue;
 }
 
+.btn {
+  display: none;
+}
+
 .images {
   width: 100%;
   height: 100%;
