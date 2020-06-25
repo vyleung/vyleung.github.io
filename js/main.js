@@ -379,7 +379,7 @@ function AABabsFeedback() {
     console.log("Correct!");
   }
 
-  else if (((correctAABabs1_ai == true && drops >= 6) || (correctAABabs1_aii == true && drops >= 6) || (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6)) || ((correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) || (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6))) {
+  else if ((correctAABabs1_ai == true && drops >= 6) || (correctAABabs1_aii == true && drops >= 6) || (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6) || ((correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) || (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6))) {
     $("#startAABabs2").show();
     console.log("Still correct, but not quite!");
     //play video w/ audio feedback
