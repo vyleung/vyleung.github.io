@@ -1,3 +1,5 @@
+$("#startPatternTraining").show();
+
 function allowDrop(event) {
     event.preventDefault();
   }
@@ -16,8 +18,7 @@ function allowDrop(event) {
     PatternTraining();
     num_drops();
     patternLog();
-    pretestsFeedback();
-    AABabsFeedback();
+    patternFeedback();
   }
 
   // https://www.geeksforgeeks.org/html-dom-ondragenter-event/ and https://www.w3schools.com/jsref/event_ondragenter.asp
@@ -43,10 +44,10 @@ function allowDrop(event) {
 // if the child makes a mistake, they can click on the shape to remove it
 // for "remove" function: https://stackoverflow.com/questions/30492918/how-to-remove-last-element-from-div user: Cliff Gunn and https://stackoverflow.com/questions/4469059/remove-elements-onclick-including-the-remove-button-itself-with-jquery user: xandy
 // for "click touch" function: https://stackoverflow.com/questions/7018919/how-to-bind-touchstart-and-click-events-but-not-respond-to-both users: Aamnah and Roy
-  $(".box").on("click touch", function() {
+  $(".box").click(function() {
     $(this).children().remove();
-  return false;
   });
+
 
   // showing token/no token under training houses
   $("#startHousesIntro").show();
@@ -317,10 +318,14 @@ function patternLog() {
   var box_number = $(event.target).attr("id");
 
   $(".textbox").text(shape + " in " + box_number);
-  console.log(shape + " is dropped in " + box_number);
+  // console.log(shape + " is dropped in " + box_number);
+  console.log(JSON.stringify(shape));
+  console.log(JSON.stringify(box_number));
+
+
 }
 
-function pretestsFeedback() {
+function patternFeedback() {
   var correctPretest1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
   var correctPretest1_1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1;
   var correctPretest1_2 = $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
@@ -329,34 +334,7 @@ function pretestsFeedback() {
   var correctPretest2_1 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1;
   var correctPretest2_2 = $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
 
-// if at least one unit of pretest 1 is correct, the child moves onto pretest 2
-  if ((correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6)) {
-    $("#startPretest2_V, #startPretest2_EG").show();
-  }
-
-// if the child fails pretest 1, the child moves onto pretest 2
-  else if (correctPretest1 == false && drops >= 6) {
-    $("#startPretest2_V, #startPretest2_EG").show();
-  }
-
-// if the child fails pretest 1, but has at least one unit of pretest 2 correct, they can move onto houses task/AABabs1
-  if ((correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6)) {
-    $("#startHousesTraining, #startAABabs1").show();
-  }
-
-// if the child passes pretest 1, but fails pretest 2, they can move onto houses task/AABabs1
-  else if ((correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6) && (correctPretest2_1 == false && drops >= 6) || (correctPretest2_2 == false && drops >= 6)) {
-      $("#startHousesTraining, #startAABabs1").show();
-  }
-
-// if the child fails both pretests, they don't move onto houses task/AABabs1
- if ((correctPretest1_1 == false && drops >= 6) && (correctPretest1_2 == false && drops >= 6) && (correctPretest2_1 == false && drops >= 6) || (correctPretest2_2 == false && drops >= 6)) {
-    $("#incorrectPretests").show();
-    $("#startHousesTraining, #startAABabs1").hide();
-  }
-}
-
-function AABabsFeedback() {
+  // AAB abs 1
   // 1st pattern unit = ai/bi; 2nd pattern unit = aii/bii
   var correctAABabs1_a = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#orange_square','#box6').length == 1;
   var correctAABabs1_ai = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1;
@@ -366,6 +344,7 @@ function AABabsFeedback() {
   var correctAABabs1_bi = $('#orange_square','#box1').length == 1 && $('#orange_square','#box2').length == 1 && $('#yellow_triangle','#box3').length == 1;
   var correctAABabs1_bii = $('#orange_square','#box4').length == 1 && $('#orange_square','#box5').length == 1 && $('#yellow_triangle','#box6').length == 1;
 
+  // AAB abs 2
   var correctAABabs2_a = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1 && $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
   var correctAABabs2_ai = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1;
   var correctAABabs2_aii = $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
@@ -374,27 +353,81 @@ function AABabsFeedback() {
   var correctAABabs2_bi = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1;
   var correctAABabs2_bii = $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
 
-  if ((correctAABabs1_a == true || correctAABabs1_b == true && drops >= 6) || (correctAABabs2_a == true || correctAABabs2_b == true && drops >= 6)) {
+  if (correctPretest1_1 || correctPretest1_2) {
+    $("#startPretest2_V, #startPretest2_EG").show();
+    console.log("passed 1");
+      if (correctPretest2_1 || correctPretest2_2)
+        $("#startHousesTraining, #startAABabs1").show();
+        console.log("passed 2");
+  }
+
+  // 2 units are correct
+  if (
+  (correctPretest1 == true && drops >= 6) ||
+  (correctPretest2 == true && drops >= 6) ||
+  (correctAABabs1_a == true || correctAABabs1_b == true && drops >= 6) ||
+  (correctAABabs2_a == true || correctAABabs2_b == true && drops >= 6)) {
+    // after pretest 1
+    $("#startPretest2_V, #startPretest2_EG").show();
+
+    // after pretest 2
+    $("#startHousesTraining, #startAABabs1").show();
+
+    // after AAB abs 1
     $("#startAABabs2").show();
+
     console.log("Correct!");
   }
 
-  else if ((correctAABabs1_ai == true && drops >= 6) || (correctAABabs1_aii == true && drops >= 6) || (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6) || ((correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) || (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6))) {
+  // either unit is correct
+  else if (
+  (correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6) ||
+  (correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6) ||
+  (correctAABabs1_ai == true && drops >= 6) || (correctAABabs1_aii == true && drops >= 6) ||
+  (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6) ||
+  (correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) ||
+  (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6)) {
+    $("#startPretest2_V, #startPretest2_EG").show();
+
+    // after pretest 2
+    $("#startHousesTraining, #startAABabs1").show();
+
+    // after AAB abs 1
     $("#startAABabs2").show();
+
     console.log("Still correct, but not quite!");
     //play video w/ audio feedback
   }
 
-  else if (((correctAABabs1_a == false && drops >= 6) || (correctAABabs1_b == false && drops >= 6)) || ((correctAABabs2_a == false && drops >= 6) || (correctAABabs2_b == false && drops >= 6))) {
+  // either unit in AAB abs 1 and 2 is incorrect
+  else if (
+  (correctPretest1 == false && drops >= 6) ||
+  (correctPretest2 == false && drops >= 6) ||
+  (correctAABabs1_a == false && drops >= 6) || (correctAABabs1_b == false && drops >= 6) ||
+  (correctAABabs2_a == false && drops >= 6) || (correctAABabs2_b == false && drops >= 6)) {
+    $("#startPretest2_V, #startPretest2_EG").show();
+    // $("#incorrectPretests").show();
+
     $("#startAABabs2").show();
-    console.log("Not correct");
+    console.log("Incorrect!");
     //play video w/ audio feedback
   }
-
-  else {
-    // nothing
+  //
+  // // child fails pretest 1, but passes pretest 2 - works if on its own
+  // if (correctPretest1 == false && drops >= 6) {
+  //   $("#startPretest2_V, #startPretest2_EG").show();
+  //     if ((correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6)) {
+  //       $("#startHousesTraining, #startAABabs1").show();
+  //       console.log("Failed pretest 1, but passed pretest 2");
+  //     }
+  // }
+  // if child passes pretest 1, but fails pretest 2 - doesn't work (always shows console log on pretest 1 page)
+    //  if ((correctPretest2 == false && drops >= 6) && ((correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6))) {
+    //     $("#startHousesTraining, #startAABabs1").show();
+    //     console.log("Failed pretest 2, but passed pretest 1");
+    //
+    // }
   }
-}
 
 function validateForm() {
   var x, y, z;
@@ -481,7 +514,6 @@ function validateForm() {
   }
 }
 
-
 // https://stackoverflow.com/questions/19491336/how-to-get-url-parameter-using-jquery-or-plain-javascript user: Sebastian S
 // var getUrlParameter = function getUrlParameter(sParam) {
 //     var sPageURL = window.location.search.substring(1),
@@ -506,3 +538,187 @@ function validateForm() {
 
 // touch screen
 // https://codepen.io/glaubercorreaarticles/pen/vRQYwZ from https://www.outsystems.com/blog/posts/drag-and-drop_gestures-glamour/ (touch works, but shape disappears when selected)
+/* Creates an array of draggable items */
+let draggableItems = document.querySelectorAll('.draggable-item');
+let dropAreas = document.querySelectorAll('.drop-area');
+
+let initialX;
+let initialY;
+let offsetX = 0;
+let offsetY = 0;
+let startingX;
+let startingY;
+let targetElement;
+let lastActiveDropArea = null;
+
+/* Creates and appends an element to keep the space of the moving item */
+let createKeeper = function(draggableItem) {
+  /* Define variables */
+  let draggableItemRect = draggableItem.getBoundingClientRect();
+  let keeper = document.createElement('div');
+
+  /* Sets element properties */
+  keeper.classList.add('keeper');
+  keeper.style.width = draggableItemRect.width + 'px';
+  keeper.style.height = draggableItemRect.height + 'px';
+
+  /* Appends the elment before the active draggable item */
+  draggableItem.parentElement.insertBefore(keeper, draggableItem);
+};
+
+let isNewActiveArea = function(currentActiveArea, newActiveArea) {
+  if(newActiveArea && !currentActiveArea || newActiveArea && currentActiveArea !== newActiveArea) {
+    return true;
+  }
+};
+
+let setLastActiveDropArea = function(targetDropArea) {
+  unsetLastActiveDropArea();
+  if(targetDropArea && !targetDropArea.classList.contains('active')) {
+    targetDropArea.classList.add('active');
+    lastActiveDropArea = targetDropArea;
+  }
+};
+
+let unsetLastActiveDropArea = function() {
+  if(lastActiveDropArea && lastActiveDropArea.classList.contains('active')) {
+    lastActiveDropArea.classList.remove('active');
+    lastActiveDropArea = null;
+  }
+};
+
+let resetTransitionEndHandler = function() {
+  // Removes the animatable class
+  if(this.classList.contains('animatable')) {
+    this.classList.remove('animatable');
+  }
+
+  // Removes the style
+  this.removeAttribute('style');
+
+  // Removes the keeper
+  if(this && this.parentElement && this.parentElement.querySelector('.keeper')) {
+    this.parentElement.removeChild(this.parentElement.querySelector('.keeper'));
+  }
+
+  // Removes active class
+  if(this.classList.contains('active')) {
+    this.classList.remove('active');
+  }
+
+  // Moves the element if it was dropped inside a drop area
+  if(targetElement && targetElement.classList.contains('drop-area') && this.parentElement) {
+    lastActiveDropArea.appendChild(this);
+  }
+
+  // Removes the transition end event listener
+  this.removeEventListener('transitionend', resetTransitionEndHandler);
+};
+
+/* Creates a handler for each event listener */
+let touchStartHandler = function(event) {
+  interactionStart(event.target, event.touches[0].pageX, event.touches[0].pageY);
+};
+
+let touchMovetHandler = function(event) {
+  interactionMove(event.target, event.touches[0].pageX, event.touches[0].pageY);
+};
+
+let touchEndtHandler = function(event) {
+  interactionEnd(event.target, event.changedTouches[0].pageX, event.changedTouches[0].pageY);
+};
+
+/* Create handlers to each interaction */
+let interactionStart = function(element, coordX, coordY) {
+
+  // Adds affordance in Drop Areas
+  dropAreas.forEach(function(dropArea) {
+    if(!dropArea.classList.contains('affordance')) {
+      dropArea.classList.add('affordance');
+    }
+  });
+
+  // Defines variables
+  let draggableItemRect = element.getBoundingClientRect();
+
+  /* Sets initial values */
+  initialX = coordX;
+  initialY = coordY;
+  startingX = draggableItemRect.left;
+  startingY = draggableItemRect.top;
+
+  /* Configures the size and position of the draggable-item */
+  element.style.width = draggableItemRect.width + 'px';
+  element.style.height = draggableItemRect.height + 'px';
+  element.style.transform = "translateX(" + draggableItemRect.left + "px) translateY( " + draggableItemRect.top + "px) translateZ(0)";
+
+  /* Creates the keeper */
+  createKeeper(element);
+
+  /* Adds active class */
+  if(!element.classList.contains('active')) {
+    element.classList.add('active');
+  }
+};
+
+let interactionMove = function(element, coordX, coordY) {
+  /* Sets offset values */
+  offsetX = coordX - initialX;
+  offsetY = coordY - initialY;
+
+  /* Transforms the UI to move the element */
+  element.style.transform = "translateX(" + (startingX + offsetX) + "px) translateY(" + (startingY + offsetY) + "px) translateZ(0) scale(1)";
+
+  // Gets target active drop area
+  targetElement = document.elementFromPoint(coordX, coordY);
+
+  if(targetElement && targetElement.closest('.drop-area')) {
+    targetElement = targetElement.closest('.drop-area');
+    setLastActiveDropArea(targetElement);
+  } else {
+    unsetLastActiveDropArea();
+  }
+};
+
+let interactionEnd = function(element, coordX, coordY) {
+  // Removes affordances
+  dropAreas.forEach(function(dropArea) {
+    // Removes active class
+    if(dropArea.classList.contains('active')) {
+      dropArea.classList.remove('active');
+    }
+
+    // Removes the affordance class
+    if(dropArea.classList.contains('affordance')) {
+      dropArea.classList.remove('affordance');
+    }
+  });
+
+  // Adds animatable class
+  if(!element.classList.contains('animatable')) {
+    element.classList.add('animatable');
+  }
+  
+  // Checks if the drop was done inside or outside a drop area
+  if(targetElement && targetElement.classList.contains('drop-area')) {
+    element.style.transform = "translateX(" + (startingX + offsetX) + "px) translateY(" + (startingY + offsetY) + "px) translateZ(0) scale(0)";
+  } else {
+    element.style.transform = "translateX(" + startingX + "px) translateY(" + startingY + "px) translateZ(0)";
+  }
+
+  element.addEventListener('transitionend', resetTransitionEndHandler);
+
+};
+
+/* Creates the necessary functions */
+let addEventListeners = function(element) {
+  /* Touch related events */
+  element.addEventListener('touchstart', touchStartHandler);
+  element.addEventListener('touchmove', touchMovetHandler);
+  element.addEventListener('touchend', touchEndtHandler);
+};
+
+/* Executes a function to create all event listeners */
+draggableItems.forEach(function(draggableItem) {
+  addEventListeners(draggableItem);
+});
