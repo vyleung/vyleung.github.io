@@ -48,7 +48,6 @@ function allowDrop(event) {
     $(this).children().remove();
   });
 
-
   // showing token/no token under training houses
   $("#startHousesIntro").show();
 
@@ -220,10 +219,18 @@ function allowDrop(event) {
 // keeps track of # of tries left for AAB houses (constrained exp)
 var number = 6;
 
-$(".houses").click(function() {
+$(".small_house2, .big_house2").click(function() {
+  var house_number = $(event.target).attr("id");
+
+  console.log(house_number + " is clicked");
+
   number -= 1;
-  $(".number")[0].innerHTML = number;
-  if (number <= 0) {
+  if (number > 0) {
+    $(".number")[0].innerHTML = number;
+    $(this).off('click');
+    // prevents houses from being clicked on multiple times
+  }
+  else if (number <= 0) {
     $(".number")[0].innerHTML = 0;
     // make houses unclickable after 6 tries
     $(".small_house2, .big_house2").off('click');
@@ -232,17 +239,17 @@ $(".houses").click(function() {
 });
 
 // keeps track of # of tries left for AAB houses gen + what 3 houses are clicked on
-// for var id: https://stackoverflow.com/questions/41373686/event-target-id-or-this-attrid-not-working-in-firefox user: tao
+// for var car_number (id): https://stackoverflow.com/questions/41373686/event-target-id-or-this-attrid-not-working-in-firefox user: tao
 var number_gen = 3;
 
 $(".small_car2, .big_car2").click(function() {
-  var id = $(event.target).attr("id");
+  var car_number = $(event.target).attr("id");
 
   number_gen -= 1;
 
   $(".number_gen")[0].innerHTML = number_gen;
 
-  console.log(id + " is clicked");
+  console.log(car_number + " is clicked");
 
   if (number_gen <= 0) {
     $(".number_gen")[0].innerHTML = 0;
@@ -254,7 +261,6 @@ $(".small_car2, .big_car2").click(function() {
 
 // AAB cars feedback: after the child clicks on 3 houses, they 'reveal' where all the tokens are
 // after all tokens are shown, show button to start AABabs1
-
 $('#housesFeedback').on('click', function() {
   if ($("#star3_gen" && "#star4_gen" && "#star5_gen").is(":visible")) {
     $("#star3_gen, #star4_gen, #star5_gen").css('border', '2px solid black').show();
@@ -319,9 +325,7 @@ function patternLog() {
 
   $(".textbox").text(shape + " in " + box_number);
   // console.log(shape + " is dropped in " + box_number);
-  console.log(JSON.stringify(shape));
-  console.log(JSON.stringify(box_number));
-
+  console.log(JSON.stringify(shape) + " in " + JSON.stringify(box_number));
 
 }
 
@@ -353,14 +357,6 @@ function patternFeedback() {
   var correctAABabs2_bi = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1;
   var correctAABabs2_bii = $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
 
-  if (correctPretest1_1 || correctPretest1_2) {
-    $("#startPretest2_V, #startPretest2_EG").show();
-    console.log("passed 1");
-      if (correctPretest2_1 || correctPretest2_2)
-        $("#startHousesTraining, #startAABabs1").show();
-        console.log("passed 2");
-  }
-
   // 2 units are correct
   if (
   (correctPretest1 == true && drops >= 6) ||
@@ -377,6 +373,7 @@ function patternFeedback() {
     $("#startAABabs2").show();
 
     console.log("Correct!");
+    //play video w/ audio feedback for AAB abs
   }
 
   // either unit is correct
@@ -387,6 +384,7 @@ function patternFeedback() {
   (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6) ||
   (correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) ||
   (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6)) {
+    // after pretest 1
     $("#startPretest2_V, #startPretest2_EG").show();
 
     // after pretest 2
@@ -395,8 +393,8 @@ function patternFeedback() {
     // after AAB abs 1
     $("#startAABabs2").show();
 
-    console.log("Still correct, but not quite!");
-    //play video w/ audio feedback
+    console.log("Correct, but not quite!");
+    //play video w/ audio feedback for AAB abs
   }
 
   // either unit in AAB abs 1 and 2 is incorrect
@@ -405,12 +403,16 @@ function patternFeedback() {
   (correctPretest2 == false && drops >= 6) ||
   (correctAABabs1_a == false && drops >= 6) || (correctAABabs1_b == false && drops >= 6) ||
   (correctAABabs2_a == false && drops >= 6) || (correctAABabs2_b == false && drops >= 6)) {
+    // after pretest 1
     $("#startPretest2_V, #startPretest2_EG").show();
-    // $("#incorrectPretests").show();
 
+    // after pretest 2
+    $("#startHousesTraining, #startAABabs1").show();
+
+    // after AAB abs 1
     $("#startAABabs2").show();
     console.log("Incorrect!");
-    //play video w/ audio feedback
+    //play video w/ audio feedback for AAB abs
   }
   //
   // // child fails pretest 1, but passes pretest 2 - works if on its own
