@@ -1,4 +1,5 @@
 $("#startPatternTraining").show();
+// $("#startVariety").show();
 
 function allowDrop(event) {
     event.preventDefault();
@@ -18,7 +19,7 @@ function allowDrop(event) {
     PatternTraining();
     num_drops();
     patternLog();
-    patternFeedback();
+    // patternFeedback();
   }
 
   // https://www.geeksforgeeks.org/html-dom-ondragenter-event/ and https://www.w3schools.com/jsref/event_ondragenter.asp
@@ -304,8 +305,11 @@ function num_drops() {
   drops += 1;
 
   if (drops == 6) {
-      // $("#startAABabs2").show();
-      // $("#startAABpost").show();
+        $("#startPretest2_V, #startPretest2_EG").show();
+        $("#startHousesTraining, #startAABabs1").show();
+
+      $("#startAABabs2").show();
+      $("#startAABpost").show();
       $("#end_page").show();
   }
 }
@@ -329,107 +333,107 @@ function patternLog() {
 
 }
 
-function patternFeedback() {
-  var correctPretest1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
-  var correctPretest1_1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1;
-  var correctPretest1_2 = $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
-
-  var correctPretest2 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
-  var correctPretest2_1 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1;
-  var correctPretest2_2 = $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
-
-  // AAB abs 1
-  // 1st pattern unit = ai/bi; 2nd pattern unit = aii/bii
-  var correctAABabs1_a = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#orange_square','#box6').length == 1;
-  var correctAABabs1_ai = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1;
-  var correctAABabs1_aii = $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#orange_square','#box6').length == 1;
-
-  var correctAABabs1_b = $('#orange_square','#box1').length == 1 && $('#orange_square','#box2').length == 1 && $('#yellow_triangle','#box3').length == 1 && $('#orange_square','#box4').length == 1 && $('#orange_square','#box5').length == 1 && $('#yellow_triangle','#box6').length == 1;
-  var correctAABabs1_bi = $('#orange_square','#box1').length == 1 && $('#orange_square','#box2').length == 1 && $('#yellow_triangle','#box3').length == 1;
-  var correctAABabs1_bii = $('#orange_square','#box4').length == 1 && $('#orange_square','#box5').length == 1 && $('#yellow_triangle','#box6').length == 1;
-
-  // AAB abs 2
-  var correctAABabs2_a = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1 && $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
-  var correctAABabs2_ai = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1;
-  var correctAABabs2_aii = $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
-
-  var correctAABabs2_b = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1 && $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
-  var correctAABabs2_bi = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1;
-  var correctAABabs2_bii = $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
-
-  // 2 units are correct
-  if (
-  (correctPretest1 == true && drops >= 6) ||
-  (correctPretest2 == true && drops >= 6) ||
-  (correctAABabs1_a == true || correctAABabs1_b == true && drops >= 6) ||
-  (correctAABabs2_a == true || correctAABabs2_b == true && drops >= 6)) {
-    // after pretest 1
-    $("#startPretest2_V, #startPretest2_EG").show();
-
-    // after pretest 2
-    $("#startHousesTraining, #startAABabs1").show();
-
-    // after AAB abs 1
-    $("#startAABabs2").show();
-
-    console.log("Correct!");
-    //play video w/ audio feedback for AAB abs
-  }
-
-  // either unit is correct
-  else if (
-  (correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6) ||
-  (correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6) ||
-  (correctAABabs1_ai == true && drops >= 6) || (correctAABabs1_aii == true && drops >= 6) ||
-  (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6) ||
-  (correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) ||
-  (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6)) {
-    // after pretest 1
-    $("#startPretest2_V, #startPretest2_EG").show();
-
-    // after pretest 2
-    $("#startHousesTraining, #startAABabs1").show();
-
-    // after AAB abs 1
-    $("#startAABabs2").show();
-
-    console.log("Correct, but not quite!");
-    //play video w/ audio feedback for AAB abs
-  }
-
-  // either unit in AAB abs 1 and 2 is incorrect
-  else if (
-  (correctPretest1 == false && drops >= 6) ||
-  (correctPretest2 == false && drops >= 6) ||
-  (correctAABabs1_a == false && drops >= 6) || (correctAABabs1_b == false && drops >= 6) ||
-  (correctAABabs2_a == false && drops >= 6) || (correctAABabs2_b == false && drops >= 6)) {
-    // after pretest 1
-    $("#startPretest2_V, #startPretest2_EG").show();
-
-    // after pretest 2
-    $("#startHousesTraining, #startAABabs1").show();
-
-    // after AAB abs 1
-    $("#startAABabs2").show();
-    console.log("Incorrect!");
-    //play video w/ audio feedback for AAB abs
-  }
-  //
-  // // child fails pretest 1, but passes pretest 2 - works if on its own
-  // if (correctPretest1 == false && drops >= 6) {
-  //   $("#startPretest2_V, #startPretest2_EG").show();
-  //     if ((correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6)) {
-  //       $("#startHousesTraining, #startAABabs1").show();
-  //       console.log("Failed pretest 1, but passed pretest 2");
-  //     }
-  // }
-  // if child passes pretest 1, but fails pretest 2 - doesn't work (always shows console log on pretest 1 page)
-    //  if ((correctPretest2 == false && drops >= 6) && ((correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6))) {
-    //     $("#startHousesTraining, #startAABabs1").show();
-    //     console.log("Failed pretest 2, but passed pretest 1");
-    //
-    // }
-  }
+// function patternFeedback() {
+//   var correctPretest1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
+//   var correctPretest1_1 = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#pink_diamond','#box3').length == 1;
+//   var correctPretest1_2 = $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#pink_diamond','#box6').length == 1;
+//
+//   var correctPretest2 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1 && $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
+//   var correctPretest2_1 = $('#green_hexagon','#box1').length == 1 && $('#red_circle','#box2').length == 1 && $('#red_circle','#box3').length == 1;
+//   var correctPretest2_2 = $('#green_hexagon','#box4').length == 1 && $('#red_circle','#box5').length == 1 && $('#red_circle','#box6').length == 1;
+//
+//   // AAB abs 1
+//   // 1st pattern unit = ai/bi; 2nd pattern unit = aii/bii
+//   var correctAABabs1_a = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1 && $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#orange_square','#box6').length == 1;
+//   var correctAABabs1_ai = $('#yellow_triangle','#box1').length == 1 && $('#yellow_triangle','#box2').length == 1 && $('#orange_square','#box3').length == 1;
+//   var correctAABabs1_aii = $('#yellow_triangle','#box4').length == 1 && $('#yellow_triangle','#box5').length == 1 && $('#orange_square','#box6').length == 1;
+//
+//   var correctAABabs1_b = $('#orange_square','#box1').length == 1 && $('#orange_square','#box2').length == 1 && $('#yellow_triangle','#box3').length == 1 && $('#orange_square','#box4').length == 1 && $('#orange_square','#box5').length == 1 && $('#yellow_triangle','#box6').length == 1;
+//   var correctAABabs1_bi = $('#orange_square','#box1').length == 1 && $('#orange_square','#box2').length == 1 && $('#yellow_triangle','#box3').length == 1;
+//   var correctAABabs1_bii = $('#orange_square','#box4').length == 1 && $('#orange_square','#box5').length == 1 && $('#yellow_triangle','#box6').length == 1;
+//
+//   // AAB abs 2
+//   var correctAABabs2_a = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1 && $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
+//   var correctAABabs2_ai = $('#blue_semicircle','#box1').length == 1 && $('#blue_semicircle','#box2').length == 1 && $('#black_trapezoid','#box3').length == 1;
+//   var correctAABabs2_aii = $('#blue_semicircle','#box4').length == 1 && $('#blue_semicircle','#box5').length == 1 && $('#black_trapezoid','#box6').length == 1;
+//
+//   var correctAABabs2_b = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1 && $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
+//   var correctAABabs2_bi = $('#black_trapezoid','#box1').length == 1 && $('#black_trapezoid','#box2').length == 1 && $('#blue_semicircle','#box3').length == 1;
+//   var correctAABabs2_bii = $('#black_trapezoid','#box4').length == 1 && $('#black_trapezoid','#box5').length == 1 && $('#blue_semicircle','#box6').length == 1;
+//
+//   // 2 units are correct
+//   if (
+//   (correctPretest1 == true && drops >= 6) ||
+//   (correctPretest2 == true && drops >= 6) ||
+//   (correctAABabs1_a == true || correctAABabs1_b == true && drops >= 6) ||
+//   (correctAABabs2_a == true || correctAABabs2_b == true && drops >= 6)) {
+//     // after pretest 1
+//     $("#startPretest2_V, #startPretest2_EG").show();
+//
+//     // after pretest 2
+//     $("#startHousesTraining, #startAABabs1").show();
+//
+//     // after AAB abs 1
+//     $("#startAABabs2").show();
+//
+//     console.log("Correct!");
+//     //play video w/ audio feedback for AAB abs
+//   }
+//
+//   // either unit is correct
+//   else if (
+//   (correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6) ||
+//   (correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6) ||
+//   (correctAABabs1_ai == true && drops >= 6) || (correctAABabs1_aii == true && drops >= 6) ||
+//   (correctAABabs1_bi == true && drops >= 6) || (correctAABabs1_bii == true && drops >= 6) ||
+//   (correctAABabs2_ai == true && drops >= 6) || (correctAABabs2_aii == true && drops >= 6) ||
+//   (correctAABabs2_bi == true && drops >= 6) || (correctAABabs2_bii == true && drops >= 6)) {
+//     // after pretest 1
+//     $("#startPretest2_V, #startPretest2_EG").show();
+//
+//     // after pretest 2
+//     $("#startHousesTraining, #startAABabs1").show();
+//
+//     // after AAB abs 1
+//     $("#startAABabs2").show();
+//
+//     console.log("Correct, but not quite!");
+//     //play video w/ audio feedback for AAB abs
+//   }
+//
+//   // either unit in AAB abs 1 and 2 is incorrect
+//   else if (
+//   (correctPretest1 == false && drops >= 6) ||
+//   (correctPretest2 == false && drops >= 6) ||
+//   (correctAABabs1_a == false && drops >= 6) || (correctAABabs1_b == false && drops >= 6) ||
+//   (correctAABabs2_a == false && drops >= 6) || (correctAABabs2_b == false && drops >= 6)) {
+//     // after pretest 1
+//     $("#startPretest2_V, #startPretest2_EG").show();
+//
+//     // after pretest 2
+//     $("#startHousesTraining, #startAABabs1").show();
+//
+//     // after AAB abs 1
+//     $("#startAABabs2").show();
+//     console.log("Incorrect!");
+//     //play video w/ audio feedback for AAB abs
+//   }
+//   //
+//   // // child fails pretest 1, but passes pretest 2 - works if on its own
+//   // if (correctPretest1 == false && drops >= 6) {
+//   //   $("#startPretest2_V, #startPretest2_EG").show();
+//   //     if ((correctPretest2_1 == true && drops >= 6) || (correctPretest2_2 == true && drops >= 6)) {
+//   //       $("#startHousesTraining, #startAABabs1").show();
+//   //       console.log("Failed pretest 1, but passed pretest 2");
+//   //     }
+//   // }
+//   // if child passes pretest 1, but fails pretest 2 - doesn't work (always shows console log on pretest 1 page)
+//     //  if ((correctPretest2 == false && drops >= 6) && ((correctPretest1_1 == true && drops >= 6) || (correctPretest1_2 == true && drops >= 6))) {
+//     //     $("#startHousesTraining, #startAABabs1").show();
+//     //     console.log("Failed pretest 2, but passed pretest 1");
+//     //
+//     // }
+//   }
 
 function validateForm() {
   var x, y, z;
