@@ -75,14 +75,24 @@
   cursor: pointer;
 }
 
-.small_car1, .small_car2 {
+.small_car1 {
   width: 65%;
   height: 65%;
 }
 
-.big_car1, .big_car2 {
-  width: 90%;
-  height: 90%;
+.big_car1 {
+  width: 80%;
+  height: 80%;
+}
+
+.small_car2 {
+  width: 75%;
+  height: 75%;
+}
+
+.big_car2 {
+  width: 100%;
+  height: 100%;
 }
 
 .training_smallhouse {
@@ -101,25 +111,21 @@
 .star1, .star2 {
   width: 80%;
   height: 80%;
-  cursor: pointer;
 }
 
 .red_x1, .red_x2 {
   width: 60%;
   height: 60%;
-  cursor: pointer;
 }
 
 .star1_gen, .star2_gen {
-  width: 30%;
-  height: 30%;
-  cursor: pointer;
+  width: 65%;
+  height: 65%;
 }
 
 .red_x1_gen, .red_x2_gen {
-  width: 25%;
-  height: 25%;
-  cursor: pointer;
+  width: 45%;
+  height: 45%;
 }
 
 .training_star {
@@ -315,4 +321,10 @@
 
 input {
   text-align: center;
+}
+
+#houses_complete {
+  width: 107%;
+  height: 107%;
+  margin-left: -3%;
 }

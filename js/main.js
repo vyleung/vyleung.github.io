@@ -96,18 +96,18 @@ function allowDrop(event) {
       $("#startAABLearning").show();
     }
   });
-  // after 1+ clicks (unconstrained exp), "NEXT" button shows
+  // after 1+ clicks (unconstrained exp), "NEXT" button shows AAB gen
   $(".small_house2, .big_house2").click(function() {
     clicks += 1;
     if (clicks == 1) {
       $("#AABGen3").show();
     }
   });
-  // after 3 clicks/taps (houses task), "NEXT" button shows for AAB abs
+  // after 3 clicks/taps (on cars), "NEXT" button shows for AAB abs
   $(".small_car2, .big_car2").click(function() {
     clicks += 1;
-    if (clicks == 3) {
-      $("#startAABabs1").show();
+    if (clicks == 4) {
+      $("#housesFeedback").show();
       $(".small_car2, .big_car2").off('click');
     }
   });
@@ -156,52 +156,45 @@ function allowDrop(event) {
   function showAABGen() {
     $(".cars, .tokens_gen, .tries_gen").show();
     $("#AABGen1, #AABGen2, #AABGen3, .tries").hide();
+    $(".small_house2, .big_house2").off('click');
   }
 
 // showing tokens/no tokens under cars
   $("#car7").click(function() {
     $("#star3_gen").show();
-    $(".houses_textbox").show().text("Token!");
+    // $(".houses_textbox").show().text("Token!");
   });
 
   $("#car8").click(function() {
     $("#x5_gen").show();
-    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car9").click(function() {
     $("#x6_gen").show();
-    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car10").click(function() {
     $("#star4_gen").show();
-    $(".houses_textbox").show().text("Token!");
   });
 
   $("#car11").click(function() {
     $("#x7_gen").show();
-    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car12").click(function() {
     $("#x8_gen").show();
-    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car13").click(function() {
     $("#star5_gen").show();
-    $(".houses_textbox").show().text("Token!");
   });
 
   $("#car14").click(function() {
     $("#x9_gen").show();
-    $(".houses_textbox").show().text("No Token!");
   });
 
   $("#car15").click(function() {
     $("#x10_gen").show();
-    $(".houses_textbox").show().text("No Token!");
   });
 
   // random assignment of conditions
@@ -234,7 +227,6 @@ $(".small_house2, .big_house2").click(function() {
   else if (number <= 0) {
     $(".number")[0].innerHTML = 0;
     // make houses unclickable after 6 tries
-    $(".small_house2, .big_house2").off('click');
     $("#AABGen2").show();
   }
 });
@@ -249,6 +241,8 @@ $(".small_car2, .big_car2").click(function() {
   number_gen -= 1;
 
   $(".number_gen")[0].innerHTML = number_gen;
+  $(this).off('click');
+  // prevents cars from being clicked on multiple times
 
   console.log(car_number + " is clicked");
 
@@ -305,9 +299,8 @@ function num_drops() {
   drops += 1;
 
   if (drops == 6) {
-        $("#startPretest2_V, #startPretest2_EG").show();
-        $("#startHousesTraining, #startAABabs1").show();
-
+      $("#startPretest2_V, #startPretest2_EG").show();
+      $("#startHousesTraining, #startAABabs1").show();
       $("#startAABabs2").show();
       $("#startAABpost").show();
       $("#end_page").show();
