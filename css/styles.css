@@ -75,22 +75,12 @@
   cursor: pointer;
 }
 
-.small_car1 {
-  width: 65%;
-  height: 65%;
+.small_car1, .small_car2 {
+  width: 85%;
+  height: 85%;
 }
 
-.big_car1 {
-  width: 80%;
-  height: 80%;
-}
-
-.small_car2 {
-  width: 75%;
-  height: 75%;
-}
-
-.big_car2 {
+.big_car1, .big_car2 {
   width: 100%;
   height: 100%;
 }
