@@ -52,10 +52,10 @@ function allowDrop(event) {
   // showing token/no token under training houses
   $("#startHousesIntro").show();
 
-  $("#startHousesIntro").click(function() {
-    $(".training_houses, #houses_demo1").show();
-    $("#startHousesIntro, #houses").hide();
-  });
+  // $("#startHousesIntro").click(function() {
+  //   $(".training_houses, #houses_demo1").show();
+  //   $("#startHousesIntro, #houses").hide();
+  // });
 
   $("#training_house1").click(function() {
     $("#training_x1, #houses_demo2").show();
@@ -94,15 +94,24 @@ function allowDrop(event) {
     clicks += 1;
     if (clicks == 6) {
       $("#startAABLearning").show();
+      $("#startHousesAbsExp").show();
     }
   });
   // after 1+ clicks (unconstrained exp), "NEXT" button shows AAB gen
   $(".small_house2, .big_house2").click(function() {
     clicks += 1;
-    if (clicks == 1) {
+    if (clicks == 9) {
       $("#AABGen3").show();
     }
   });
+
+  // $(".sm_lightbulb, .big_lightbulb").click(function() {
+  //   clicks += 1;
+  //   if (clicks == 9) {
+  //     $("#AABGen3").show();
+  //   }
+  // });
+
   // after 3 clicks/taps (on cars), "NEXT" button shows for AAB abs
   $(".small_car2, .big_car2").click(function() {
     clicks += 1;
@@ -159,43 +168,81 @@ function allowDrop(event) {
     $(".small_house2, .big_house2").off('click');
   }
 
-// showing tokens/no tokens under cars
-  $("#car7").click(function() {
-    $("#star3_gen").show();
-    // $(".houses_textbox").show().text("Token!");
-  });
+// shows stars/no stars under lightbulbs
+$("#lightbulb1").click(function() {
+  $("#star1_gen").show();
+});
 
-  $("#car8").click(function() {
-    $("#x5_gen").show();
-  });
+$("#lightbulb2").click(function() {
+  $("#x1_gen").show();
+});
 
-  $("#car9").click(function() {
-    $("#x6_gen").show();
-  });
+$("#lightbulb3").click(function() {
+  $("#x2_gen").show();
+});
 
-  $("#car10").click(function() {
-    $("#star4_gen").show();
-  });
+$("#lightbulb4").click(function() {
+  $("#star2_gen").show();
+});
 
-  $("#car11").click(function() {
-    $("#x7_gen").show();
-  });
+$("#lightbulb5").click(function() {
+  $("#x3_gen").show();
+});
 
-  $("#car12").click(function() {
-    $("#x8_gen").show();
-  });
+$("#lightbulb6").click(function() {
+  $("#x4_gen").show();
+});
 
-  $("#car13").click(function() {
-    $("#star5_gen").show();
-  });
+$("#lightbulb7").click(function() {
+  $("#star3_gen").show();
+});
 
-  $("#car14").click(function() {
-    $("#x9_gen").show();
-  });
+$("#lightbulb8").click(function() {
+  $("#x5_gen").show();
+});
 
-  $("#car15").click(function() {
-    $("#x10_gen").show();
-  });
+$("#lightbulb9").click(function() {
+  $("#x6_gen").show();
+});
+
+
+// // showing tokens/no tokens under cars
+//   $("#car7").click(function() {
+//     $("#star3_gen").show();
+//     // $(".houses_textbox").show().text("Token!");
+//   });
+//
+//   $("#car8").click(function() {
+//     $("#x5_gen").show();
+//   });
+//
+//   $("#car9").click(function() {
+//     $("#x6_gen").show();
+//   });
+//
+//   $("#car10").click(function() {
+//     $("#star4_gen").show();
+//   });
+//
+//   $("#car11").click(function() {
+//     $("#x7_gen").show();
+//   });
+//
+//   $("#car12").click(function() {
+//     $("#x8_gen").show();
+//   });
+//
+//   $("#car13").click(function() {
+//     $("#star5_gen").show();
+//   });
+//
+//   $("#car14").click(function() {
+//     $("#x9_gen").show();
+//   });
+//
+//   $("#car15").click(function() {
+//     $("#x10_gen").show();
+//   });
 
   // random assignment of conditions
   //
@@ -254,6 +301,25 @@ $(".small_car2, .big_car2").click(function() {
   }
 });
 
+$(".sm_lightbulb, .big_lightbulb").click(function() {
+  var lightbulb_number = $(event.target).attr("id");
+
+  number_gen -= 1;
+
+  $(".number_gen")[0].innerHTML = number_gen;
+  $(this).off('click');
+  // prevents cars from being clicked on multiple times
+
+  console.log(lightbulb_number + " is clicked");
+
+  if (number_gen <= 0) {
+    $(".number_gen")[0].innerHTML = 0;
+    // make cars unclickable after 3 tries
+    $(".sm_lightbulb, .big_lightbulb").off("click");
+    $("#startAABabs2_2").show();
+  }
+});
+
 // AAB cars feedback: after the child clicks on 3 houses, they 'reveal' where all the tokens are
 // after all tokens are shown, show button to start AABabs1
 $('#housesFeedback').on('click', function() {
@@ -288,6 +354,8 @@ function PatternTraining() {
     $("#pattern_demo3").hide();
     $("#startPretest1_EG").show();
     $("#startPretest1_V").show();
+
+    $("#startPretest1_2").show();
   }
 }
 
@@ -303,6 +371,13 @@ function num_drops() {
       $("#startHousesTraining, #startAABabs1").show();
       $("#startAABabs2").show();
       $("#startAABpost").show();
+
+      // study 2
+      $("#startAABabs1_2").show();
+      $("#startABBabs1_2").show();
+      $("#startHousesTraining_2").show();
+      $("#startABBabs2_2").show();
+
       $("#end_page").show();
   }
 }

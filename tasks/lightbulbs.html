@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>PiC Online</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Patterning Games</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--  <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <img src="../images/houses_training.png" alt="houses training" id="houses_training">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <!-- <button type="button" class="buttons" id="AABGen1" onclick="showAABGen()">NEXT</button> -->
+
+        <div class="tries_gen">
+            <span class="number_gen">3</span> more tries
+          <!-- https://stackoverflow.com/questions/46923549/need-to-increment-score-in-jquery-how-do-i-change-the-text user: Obsidian Age -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="lightbulbs">
+      <div class="row align-items-end">
+        <div class="col text-center">
+          <img src="../images/red_lightbulb.png" alt="red lightbulb" class="sm_lightbulb" id="lightbulb1" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_lightbulb.png" alt="red lightbulb" class="sm_lightbulb" id="lightbulb2" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/purple_lightbulb.png" alt="purple car" class="big_lightbulb" id="lightbulb3" draggable="false">
+        </div>
+
+        <div class="col text-center">
+          <img src="../images/red_lightbulb.png" alt="red lightbulb" class="sm_lightbulb" id="lightbulb4" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_lightbulb.png" alt="red lightbulb" class="sm_lightbulb" id="lightbulb5" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/purple_lightbulb.png" alt="purple car" class="big_lightbulb" id="lightbulb6" draggable="false">
+        </div>
+
+        <div class="col text-center">
+          <img src="../images/red_lightbulb.png" alt="red lightbulb" class="sm_lightbulb" id="lightbulb7" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_lightbulb.png" alt="red lightbulb" class="sm_lightbulb" id="lightbulb8" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/purple_lightbulb.png" alt="purple car" class="big_lightbulb" id="lightbulb9" draggable="false">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="tokens_gen">
+      <div class="row">
+        <div class="col text-center">
+          <img src="../images/star.png" alt="star" class="star1_gen" id="star1_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x1_gen" id="x1_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x1_gen" id="x2_gen" draggable="false">
+        </div>
+
+        <div class="col text-center">
+          <img src="../images/star.png" alt="star" class="star1_gen" id="star2_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x1_gen" id="x3_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x1_gen" id="x4_gen" draggable="false">
+        </div>
+
+        <div class="col text-center">
+          <img src="../images/star.png" alt="star" class="star1_gen" id="star3_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x1_gen" id="x5_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x1_gen" id="x6_gen" draggable="false">
+        </div>
+
+        <!-- <div class="col text-center">
+          <img src="../images/star.png" alt="star" class="star2_gen" id="star4_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x2_gen" id="x7_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x2_gen" id="x8_gen" draggable="false">
+        </div>
+
+        <div class="col text-center">
+          <img src="../images/star.png" alt="star" class="star2_gen" id="star5_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x2_gen" id="x9_gen" draggable="false">
+        </div>
+        <div class="col text-center">
+          <img src="../images/red_x.png" alt="red x" class="red_x2_gen" id="x10_gen" draggable="false">
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+      <div class="row">
+        <button type="buttons" class="buttons" id="startAABabs2_2" onclick="location.href='AABabs2_2.html'">NEXT</button>
+      </div>
+  </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../js/jquery.slim.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+body {
+padding: 5%;
+}
+
+.container-fluid {
+  padding: 10px;
+}
+
+.btn {
+  margin: 0.75%;
+  display: none;
+}
+
+/* .col {
+  border: 1px solid;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+} */
+.arrow1 {
+  font-size: 20px;
+  display: none;
+  margin-top: 1%;
+  margin-left: 5%;
+}
+
+.arrow2 {
+  font-size: 20px;
+  margin-left: 10%;
+  margin-top: 1.25%;
+  display: none;
+}
+
+.arrow2a, .arrow2b, .arrow2c, .arrow2d, .arrow2e {
+  font-size: 20px;
+  margin-left: 15%;
+  display: none;
+  margin-top: 1.25%;
+}
+
+.arrow2ai, .arrow2ci, .arrow2di {
+  font-size: 20px;
+  margin-left: 20%;
+  display: none;
+  margin-top: 1.25%;
+}
+
+.arrow2aii {
+  font-size: 20px;
+  margin-left: 25%;
+  display: none;
+  margin-top: 1.25%;
+}
+
+.row {
+  margin: auto;
+}

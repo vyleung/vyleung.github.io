@@ -52,9 +52,9 @@
 
 .box {
   border: 3px solid;
-  width: 14vw;
-  height: 14vw;
-  user-select: none;
+  width: 15vw;
+  height: 15vw;
+  padding: auto;
 }
 
 #houses_demo {
@@ -81,6 +81,16 @@
 }
 
 .big_car1, .big_car2 {
+  width: 100%;
+  height: 100%;
+}
+
+.sm_lightbulb {
+  width: 75%;
+  height: 75%;
+}
+
+.big_lightbulb {
   width: 100%;
   height: 100%;
 }
@@ -130,11 +140,13 @@
   cursor: pointer;
 }
 
-.small_house2, .big_house2, .small_car2, .big_car2 {
+.small_house2, .big_house2, .small_car2, .big_car,
+.sm_lightbulb, .big_lightbulb {
   cursor: pointer;
 }
 
-.small_house2:hover, .big_house2:hover, .small_car2:hover, .big_car2:hover {
+.small_house2:hover, .big_house2:hover, .small_car2:hover, .big_car2:hover,
+.sm_lightbulb:hover, .big_lightbulb:hover {
   opacity: 75%;
 }
 
@@ -142,9 +154,11 @@
   padding-top: 10px;
 }
 
-.cars, .tokens_gen,  .star2_gen, .red_x2_gen,
-.star2, .red_x2,  .training_x, .training_star, #pattern_demo2, #pattern_demo3, .tries_gen, .training_houses, .finger1, .finger2,
-.pretest2 {
+.cars, .star2_gen, .red_x2_gen,
+.star2, .red_x2,  .training_x, .training_star, #pattern_demo2, #pattern_demo3, .finger2,
+.pretest2,
+
+.star1_gen, .red_x1_gen {
   display: none;
 }
 
@@ -165,13 +179,39 @@
   animation: demo2 1.5s linear infinite;
 }
 
-@keyframes demo1 {
+#example_finger {
+  width: 55%;
+  height: 55%;
+  position: relative;
+  animation: example 1.5s linear infinite;
+}
+
+#example {
+  width: 90%;
+}
+
+@keyframes example {
   from {
-    bottom: 8vw;
+    top: -600px;
+    right: 23px;
   }
 
   to {
-    bottom: 10vw;
+    top: -625px;
+    right: 23px;
+
+  }
+}
+
+@keyframes demo1 {
+  from {
+    bottom: 4vw;
+    left: 1vw;
+  }
+
+  to {
+    bottom: 6vw;
+    left: 1vw;
   }
 }
 
@@ -288,6 +328,11 @@
 .images {
   width: 100%;
   height: 100%;
+}
+
+#houses_training {
+  width: 25%;
+  height: 25%;
 }
 
 .textbox {
