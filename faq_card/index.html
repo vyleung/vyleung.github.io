@@ -5,36 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | FAQ Accordion Card</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link href="faq-card.css" rel="stylesheet">
+
 </head>
+
 <body>
-  How many team members can I invite?
-  You can invite up to 2 additional users on the Free plan. There is no limit on 
-  team members for the Premium plan.
 
-  What is the maximum file upload size?
-  No more than 2GB. All files in your account must fit your allotted storage space.
+  <div class="bg">
+    <div class="container">
 
-  How do I reset my password?
-  Click “Forgot password” from the login page or “Change password” from your profile page.
-  A reset link will be emailed to you.
+      <div class="graphic">
+        <div id ="woman"> <img src="images/illustration-woman-online-desktop.svg"> </div>
+        <div id ="shadow"> <img src="images/bg-pattern-desktop.svg"> </div>
+        <div id ="box"> <img src="images/illustration-box-desktop.svg"> </div>
+      </div>
 
-  Can I cancel my subscription?
-  Yes! Send us a message and we’ll process your request no questions asked.
+      <div class="faq-container">FAQ
 
-  Do you provide additional support?
-  Chat and email support is available 24/7. Phone lines are open during normal business hours.
+        <div class="faq-questions-container ">
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+          <div class="faq-questions remove-border" id="Q1">How many team members can I invite?
+            <img class ="arrow" src="images/icon-arrow-down.svg">
+          </div>
+
+          <div class="faq-questions remove-border" id="Q2">What is the maximum upload size?
+            <img class ="arrow" id="arrow2" src="images/icon-arrow-down.svg">
+          </div>
+          <div class="faq-answers " id="A2">No more than 2GB. All files in your account must fit your allotted storage space.</div>
+
+          <div class="faq-questions remove-border" id="Q3"> How do I reset my password?
+            <img class ="arrow" src="images/icon-arrow-down.svg">
+          </div>
+
+          <div class="faq-questions remove-border" id="Q4"> Can I cancel my subscription?
+            <img class ="arrow" src="images/icon-arrow-down.svg">
+          </div>
+
+          <div class="faq-questions remove-border" id="Q5"> Do you provide additional support?
+            <img class ="arrow" src="images/icon-arrow-down.svg">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Vivian</a>.
+      </div> -->
+
+    </div>
+
   </div>
+
+
+  <script src="jquery.slim.min.js"></script>
+  <script src="faq-card.js"></script>
 </body>
+
 </html>

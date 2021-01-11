@@ -1,0 +1,129 @@
+.bg {
+  /* https://www.w3schools.com/colors/colors_gradient.asp
+  https://www.w3schools.com/colors/colors_hsl.asp?color=hsl(195,%201,%200.5)
+  */
+  background: linear-gradient(to bottom, #af67e9 0%, #6565e7 100%);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  /* top: 200px;
+  left: 200px; */
+  background: white;
+  width: 60vw;
+  height: 65vh;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 15px;
+
+}
+
+@font-face {
+  font-family: Kumbh-Sans-Bold;
+  src: url(Kumbh_Sans/KumbhSans-bold.ttf);
+}
+
+@font-face {
+  font-family: Kumbh-Sans-Regular;
+  src: url(Kumbh_Sans/KumbhSans-regular.ttf);
+}
+
+@font-face {
+  font-family: Kumbh-Sans-Light;
+  src: url(Kumbh_Sans/KumbhSans-light.ttf);
+}
+
+.faq-container {
+  font-size: 30px;
+  font-family: Kumbh-Sans-Bold;
+  padding-top: 15%;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  /* border: 1px solid; */
+}
+
+.faq-questions-container {
+  padding-top: 5%;
+}
+
+.faq-questions {
+  font-size: 12px;
+  font-family: Kumbh-Sans-Regular;
+  color: #787887;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.remove-border {
+  border-bottom: 1px solid #e7e7e9;
+}
+
+.add-bold {
+  font-family: Kumbh-Sans-Bold;
+  color: black;
+}
+
+.faq-questions:hover {
+  color: #f47b56;
+}
+
+.faq-answers {
+  font-size: 12px;
+  font-family: Kumbh-Sans-Light;
+  border-bottom: 1px solid #e7e7e9;
+  padding-bottom: 5%;
+  /* border: 1px solid; */
+  display: none;
+}
+
+.arrow {
+  float: right;
+
+  /* border: 1px solid; */
+}
+
+.flip {
+  transform: rotate(-180deg);
+}
+
+.attribution {
+  font-family: Kumbh-Sans-Regular;
+  display: inline-block;
+  font-size: 12px;
+  text-align: right;
+  border: 1px solid;
+
+}
+.graphic {
+  overflow: hidden;
+}
+
+#woman img {
+  width: 100%;
+  height: auto;
+  margin-left: -17%;
+  margin-top: 12%;
+}
+
+#shadow img {
+  z-index: -1;
+  width: 225%;
+  height: auto;
+  margin-left: -141%;
+  margin-top: -170%;
+}
+
+#box img {
+  width: 50%;
+  margin-left: -20%;
+    margin-top: -170%;
+}
