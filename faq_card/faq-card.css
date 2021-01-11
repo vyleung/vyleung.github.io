@@ -93,9 +93,10 @@
   font-family: KumbhSans-Regular;
   display: inline-block;
   font-size: 12px;
+  position: absolute;
   text-align: right;
-  border: 1px solid;
-
+  margin-left: 60%;
+  margin-top: 60%;
 }
 
 .images-container {
