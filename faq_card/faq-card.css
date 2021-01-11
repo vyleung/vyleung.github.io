@@ -25,17 +25,17 @@
 
 @font-face {
   font-family: Kumbh-Sans-Bold;
-  src: url(Kumbh_Sans/KumbhSans-bold.ttf);
+  src: url(Kumbh_Sans/KumbhSans-Bold.ttf);
 }
 
 @font-face {
   font-family: Kumbh-Sans-Regular;
-  src: url(Kumbh_Sans/KumbhSans-regular.ttf);
+  src: url(Kumbh_Sans/KumbhSans-Regular.ttf);
 }
 
 @font-face {
   font-family: Kumbh-Sans-Light;
-  src: url(Kumbh_Sans/KumbhSans-light.ttf);
+  src: url(Kumbh_Sans/KumbhSans-Light.ttf);
 }
 
 .faq-container {
