@@ -5,6 +5,7 @@
 	<title>Vivian Leung</title>
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 	<script src="assets/js/main.js"></script>
 	</script>
 </head>
@@ -21,16 +22,16 @@
 			<div class="page-body">
 					<div class="column-list" id="horizontal-nav">
 						<div id="nav-about" style="width:30%" class="column">
-							<p id="main-nav-about" class="nav-bar"><i class="fas fa-user"></i><a href="#about"><strong> ABOUT</strong></a></p>
+							<p id="main-nav-about" class="nav-bar"><i class="fas fa-user"></i><a href="#about"><strong>ABOUT</strong></a></p>
 						</div>
 						<div id="nav-research-projects" style="width:75%" class="column">
-							<p id="main-nav-research-projects" class="nav-bar"><i class="fas fa-search"></i><a href="#research-projects"><strong> RESEARCH PROJECTS</strong></a></p>
+							<p id="main-nav-research-projects" class="nav-bar"><i class="fas fa-search"></i><a href="#research-projects"><strong>RESEARCH PROJECTS</strong></a></p>
 						</div>
 						<div id="nav-side-projects" style="width:50%" class="column">
-							<p id="main-nav-side-projects" class="nav-bar"><i class="fas fa-bolt"></i><a href="#side-projects"><strong> SIDE PROJECTS</strong></a></p>
+							<p id="main-nav-side-projects" class="nav-bar"><i class="fas fa-bolt"></i><a href="#side-projects"><strong>SIDE PROJECTS</strong></a></p>
 						</div>
 						<div id="nav-contact" style="width:50%" class="column">
-							<p id="main-nav-contact" class="nav-bar"><i class="fas fa-envelope"></i><a href="#contact"><strong> CONTACT</strong></a></p>
+							<p id="main-nav-contact" class="nav-bar"><i class="fas fa-envelope"></i><a href="#contact"><strong>CONTACT</strong></a></p>
 						</div>
 					</div>
 		</nav>
@@ -55,10 +56,12 @@
 						</p>
 					</div>
 					<div id="column-about-me-pic" style="width:50%" class="column">
-						<figure id="about-me-pic" class="image"><a href="images/about-me-pic.png"><img style="width:384px"
+						<figure id="about-me-pic" class="image"><a href="images/about-me-pic.png"><img id="me" style="width:384px"
 									src="images/about-me-pic.png" /></a></figure>
 					</div>
 				</div>
+
+				<div class="spacing"></div>
 			</section>
 
 			<!-- RESEARCH PROJECTS -->
@@ -142,6 +145,8 @@
 						<p id="paper-research-methods" class="">&quot;The Battle of Effective Studying Strategies: Blocked Versus Interleaved&quot;</p>
 					</div>
 				</div>
+
+				<div class="spacing"></div>
 			</section>
 
 			<!-- SIDE PROJECTS -->
@@ -174,18 +179,20 @@
 						</ul>
 					</div>
 				</div>
+
+				<div class="spacing"></div>
 			</section>
 
 			<!-- CONTACT ME -->
 			<section id="contact">
 				<h1 id="header-contact-me" class="">Contact Me</h1>
 
-				<p id="email-contact-me" class="">Email: <a href="mailto:vyleung@ucsd.edu">vyleung@ucsd.edu</a></p>
+				<p id="email-contact-me">Email: <a href="mailto:vyleung@ucsd.edu" class="link">vyleung@ucsd.edu</a></p>
 			</section>
 		</div>
 
 		<footer>
-			<p>Last updated: September 23, 2021</p>
+			<p id="last-updated-date">Last updated: September 23, 2021</p>
 		</footer>
 	</article>
 </body>

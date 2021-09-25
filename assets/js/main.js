@@ -1,19 +1,24 @@
-var scrollBefore = 0;
+$(document).ready(function(){
+  // underlines the nav link that has been clicked
+  $(".nav-bar").click(function() {
+    $(".nav-bar").removeClass('focus');
+    $(this).addClass('focus');
+  });
 
-window.addEventListener('scroll',function(e){
-    const scrolled = window.scrollY;
+  // reference: https://stackoverflow.com/questions/24887258/highlight-navigation-link-as-i-scroll-down-the-page (user: mdesdev)
 
-    if(scrollBefore > scrolled){
-        scrollBefore = scrolled;
-        //Desired action
-        document.getElementById("nav").style.visibility = "visible";
-    }
+  // when the mouse is over a section, the corresponding nav item will be underlined
+  $("section").mouseover(function(){
+      $('nav a[href="#'+$(this).attr('id')+'"]').addClass('focus');
+  });
 
-    else {
-        scrollBefore = scrolled;
-        //Desired action
-        document.getElementById("nav").style.visibility = "hidden";
+  // when the mouse leaves a section, the corresponding nav item will no longer be underlined
+  $("section").mouseleave(function(){
+      $('nav a[href="#'+$(this).attr('id')+'"]').removeClass('focus');
+  });
 
-    }
-
-})
+  // on scroll, remove the nav item's underline
+  $(document).scroll(function() {
+    $(".nav-bar").removeClass('focus');
+  });
+});

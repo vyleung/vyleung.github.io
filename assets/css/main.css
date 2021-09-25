@@ -2,6 +2,8 @@
 /* webkit printing magic: print all background colors */
 html {
   -webkit-print-color-adjust: exact;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5em;
 }
 
 * {
@@ -28,18 +30,9 @@ body {
   white-space: pre-line;
 }
 
-a {
+a, a.visited {
   color: inherit;
   text-decoration: none;
-}
-
-a.visited {
-  color: inherit;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: grey;
 }
 
 .pdf-relative-link-path {
@@ -59,7 +52,7 @@ h3 {
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin: 0.25em auto;
+  margin: auto;
   text-align: center;
 }
 
@@ -208,13 +201,13 @@ th {
 ol,
 ul {
   margin: 0;
-  margin-block-start: 0.6em;
-  margin-block-end: 0.6em;
+  margin-block-start: 0.25em;
+  margin-block-end: 0.25em;
 }
 
 li>ol:first-child,
 li>ul:first-child {
-  margin-block-start: 0.6em;
+  margin-block-start: 0.25em;
 }
 
 ul>li {
@@ -247,7 +240,7 @@ ul>li {
 }
 
 ol {
-  padding-inline-start: 1.6em;
+  padding-inline-start: 1em;
 }
 
 ol>li {
@@ -770,7 +763,15 @@ blockquote {
 }
 
 .nav-bar {
+  margin-bottom: 0.25em;
   text-align: center;
+  opacity: 1;
+}
+
+.nav-bar:hover {
+  opacity: 0.5;
+  text-decoration: underline;
+  text-decoration-thickness: 0.15em;
 }
 
 nav {
@@ -782,9 +783,12 @@ nav {
 
 footer {
   text-align: center;
-  margin-top: 42em;
   font-size: 0.85em;
   opacity: 40%;
+}
+
+#contact {
+  padding-bottom: 30em;
 }
 
 .fa-user {
@@ -801,4 +805,27 @@ footer {
 
 .fa-envelope {
   color: #64b97b;
+}
+
+.fas {
+  padding: 0.25em;
+}
+
+.link {
+  color: #0E629B !important;
+}
+
+.link:hover {
+  color: #1174E8 !important;
+  text-decoration: underline;
+}
+
+.spacing {
+  width: 100%;
+  height: 2em;
+}
+
+.focus {
+  text-decoration: underline;
+  text-decoration-thickness: 0.15em;
 }
