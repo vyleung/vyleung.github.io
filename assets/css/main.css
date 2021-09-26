@@ -50,10 +50,11 @@ h3 {
 }
 
 .page-title {
+  /* position: flex; */
   font-size: 2.5rem;
   font-weight: 700;
   margin: auto;
-  text-align: center;
+  /* text-align: center; */
 }
 
 h1 {
@@ -365,6 +366,7 @@ input[type="checkbox"] {
 p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  font-size: inherit;
 }
 
 .image {
@@ -828,4 +830,46 @@ footer {
 .focus {
   text-decoration: underline;
   text-decoration-thickness: 0.15em;
+}
+
+.hamburger-menu {
+  width: 1.75em;
+  text-align: center;
+  font-size: 1.15em;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 0.15em;
+  border: 2.5px solid black;
+  border-radius: 10%;
+  display: none;
+}
+
+/* media stuff */
+@media screen and (max-width: 737px) {
+  header {
+    margin-bottom: 2.5em;
+  }
+
+  #name {
+    position: absolute;
+    left: 0;
+    font-size: 1.75rem;
+  }
+
+  #menu-bars {
+    position: absolute;
+    right: 0;
+    display: block;
+  }
+
+  #menu-times {
+    position: absolute;
+    right: 0;
+    display: none;
+  }
+
+  .nav-bar {
+    display: none;
+  }
+
 }

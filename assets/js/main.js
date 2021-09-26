@@ -21,4 +21,19 @@ $(document).ready(function(){
   $(document).scroll(function() {
     $(".nav-bar").removeClass('focus');
   });
+
+  // when the menu bars are clicked, show the x
+  $("#menu-bars").click(function() {
+    $("#menu-bars").hide();
+    $("#menu-times").show();
+    $(".nav-bar").show();
+
+  });
+
+  // when the x is clicked, show the menu bars
+  $("#menu-times").click(function() {
+    $("#menu-times").hide();
+    $(".nav-bar").hide();
+    $("#menu-bars").show();
+  });
 });
