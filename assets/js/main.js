@@ -1,39 +1,156 @@
-$(document).ready(function(){
-  // underlines the nav link that has been clicked
-  $(".nav-bar").click(function() {
-    $(".nav-bar").removeClass('focus');
-    $(this).addClass('focus');
-  });
+/*
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
 
-  // reference: https://stackoverflow.com/questions/24887258/highlight-navigation-link-as-i-scroll-down-the-page (user: mdesdev)
+(function($) {
 
-  // when the mouse is over a section, the corresponding nav item will be underlined
-  $("section").mouseover(function(){
-      $('nav a[href="#'+$(this).attr('id')+'"]').addClass('focus');
-  });
+	var	$window = $(window),
+		$body = $('body'),
+		$main = $('#main');
 
-  // when the mouse leaves a section, the corresponding nav item will no longer be underlined
-  $("section").mouseleave(function(){
-      $('nav a[href="#'+$(this).attr('id')+'"]').removeClass('focus');
-  });
+	// Breakpoints.
+		breakpoints({
+			xlarge:   [ '1281px',  '1680px' ],
+			large:    [ '981px',   '1280px' ],
+			medium:   [ '737px',   '980px'  ],
+			small:    [ '481px',   '736px'  ],
+			xsmall:   [ '361px',   '480px'  ],
+			xxsmall:  [ null,      '360px'  ]
+		});
 
-  // on scroll, remove the nav item's underline
-  $(document).scroll(function() {
-    $(".nav-bar").removeClass('focus');
-  });
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
 
-  // when the menu bars are clicked, show the x
-  $("#menu-bars").click(function() {
-    $("#menu-bars").hide();
-    $("#menu-times").show();
-    $(".nav-bar").show();
+	// Nav.
+		var $nav = $('#nav');
 
-  });
+		if ($nav.length > 0) {
 
-  // when the x is clicked, show the menu bars
-  $("#menu-times").click(function() {
-    $("#menu-times").hide();
-    $(".nav-bar").hide();
-    $("#menu-bars").show();
-  });
+			// Shrink effect.
+				$main
+					.scrollex({
+						mode: 'top',
+						enter: function() {
+							$nav.addClass('alt');
+						},
+						leave: function() {
+							$nav.removeClass('alt');
+						},
+					});
+
+			// Links.
+				var $nav_a = $nav.find('a');
+
+				$nav_a
+					.scrolly({
+						speed: 1000,
+						offset: function() { return $nav.height(); }
+					})
+					.on('click', function() {
+
+						var $this = $(this);
+
+						// External link? Bail.
+							if ($this.attr('href').charAt(0) != '#')
+								return;
+
+						// Deactivate all links.
+							$nav_a
+								.removeClass('active')
+								.removeClass('active-locked');
+
+						// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
+							$this
+								.addClass('active')
+								.addClass('active-locked');
+
+					})
+					.each(function() {
+
+						var	$this = $(this),
+							id = $this.attr('href'),
+							$section = $(id);
+
+						// No section for this link? Bail.
+							if ($section.length < 1)
+								return;
+
+						// Scrollex.
+							$section.scrollex({
+								mode: 'middle',
+								initialize: function() {
+
+									// Deactivate section.
+										if (browser.canUse('transition'))
+											$section.addClass('inactive');
+
+								},
+								enter: function() {
+
+									// Activate section.
+										$section.removeClass('inactive');
+
+									// No locked links? Deactivate all links and activate this section's one.
+										if ($nav_a.filter('.active-locked').length == 0) {
+
+											$nav_a.removeClass('active');
+											$this.addClass('active');
+
+										}
+
+									// Otherwise, if this section's link is the one that's locked, unlock it.
+										else if ($this.hasClass('active-locked'))
+											$this.removeClass('active-locked');
+
+								}
+							});
+
+					});
+
+		}
+
+	// Scrolly.
+		$('.scrolly').scrolly({
+			speed: 1000
+		});
+
+})(jQuery);
+
+// reference: https://stackoverflow.com/questions/24887258/highlight-navigation-link-as-i-scroll-down-the-page (user: mdesdev)
+
+// when the mouse is over a section, the corresponding nav item will be underlined
+$("section").mouseover(function(){
+		$('nav a[href="#'+$(this).attr('id')+'"]').addClass('focus');
+});
+
+// when the mouse leaves a section, the corresponding nav item will no longer be underlined
+$("section").mouseleave(function(){
+		$('nav a[href="#'+$(this).attr('id')+'"]').removeClass('focus');
+});
+
+// on scroll, remove the nav item's underline
+$(document).scroll(function() {
+	$(".nav-bar").removeClass('focus');
+});
+
+// when the menu bars are clicked, show the x
+$("#menu-bars").click(function() {
+	$("#menu-bars").hide();
+	$("#menu-times").show();
+	$("#menu-times").css('background-color','black');
+	$("#menu-times").css('color','white');
+	$(".nav-bar").show();
+});
+
+// when the x is clicked, show the menu bars
+$("#menu-times").click(function() {
+	$("#menu-times").hide();
+	$(".nav-bar").hide();
+	$("#menu-bars").show();
 });
