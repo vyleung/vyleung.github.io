@@ -134,18 +134,12 @@ $("section").mouseleave(function(){
 		$('nav a[href="#'+$(this).attr('id')+'"]').removeClass('focus');
 });
 
-// on scroll, remove the nav item's underline
-$(document).scroll(function() {
-	$(".nav-bar").removeClass('focus');
-});
-
 // when the menu bars are clicked, show the x
 $("#menu-bars").click(function() {
 	$("#menu-bars").hide();
 	$("#menu-times").show();
-	$("#menu-times").css('background-color','black');
-	$("#menu-times").css('color','white');
-	$(".nav-bar").show();
+	$("#menu-times").addClass('button-clicked');
+	$(".nav-bar").css('display','inline-block');
 });
 
 // when the x is clicked, show the menu bars

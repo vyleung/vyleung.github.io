@@ -2358,6 +2358,8 @@ input, select, textarea {
 
 		.image img {
 			display: block;
+			object-fit: cover;
+			width: 100%;
 		}
 
 		.image.left, .image.right {
@@ -2993,12 +2995,14 @@ input, select, textarea {
 
 		.spotlight .image {
 			display: inline-block;
-      margin: 0 1em 0 4em;
+      margin: 0 1em 0 3em;
 		}
 
 			.spotlight .image img {
 				display: block;
-				width: 16em;
+				width: 18em;
+				margin-right: -2em;
+				margin-bottom: -2em;
 			}
 
 		@media screen and (max-width: 980px) {
@@ -3179,14 +3183,14 @@ input, select, textarea {
 		background-color: #ffffff;
 		color: #000000;
 		position: absolute;
-		width: 55em;
+		width: 50em;
 		max-width: calc(100% - 4em);
 		padding: 1em;
 		border-top-left-radius: 0.25em;
 		border-top-right-radius: 0.25em;
 		cursor: default;
 		text-align: center;
-		display: block;
+		display: inline-block;
 	}
 
 		#nav input, #nav select, #nav textarea {
@@ -3282,17 +3286,14 @@ input, select, textarea {
 					font-size: 0.9em;
 				}
 
-		@media screen and (max-width: 737px) {
-			.nav-bar {
+		@media screen and (max-width: 736px) {
+			 .nav-bar {
 				display: none;
 			}
 
-			#nav.alt {
-					margin-left: 1em;
-			}
-
 			#name {
-				font-size: 2em !important;
+				font-size: 1.75em !important;
+				float: left;
 			}
 
 			.hamburger-menu {
@@ -3311,7 +3312,6 @@ input, select, textarea {
 				#nav + #main {
 					padding-top: 0;
 				}
-
 		}
 
 /* Main */
@@ -3848,12 +3848,13 @@ input, select, textarea {
 	ul.toggle>li {
 	  list-style: none;
 		cursor: pointer;
+		font-weight: 400;
 	}
 
 	.toggle>li>details>summary {
 	  text-align: left;
 	}
-/*
+
 	figure {
 	  margin: 1.25em 0;
 	  page-break-inside: avoid;
@@ -3861,10 +3862,16 @@ input, select, textarea {
 
 	figcaption {
 	  opacity: 0.5;
-	  font-size: 85%;
+	  font-size: 75%;
 	  margin-top: 0.5em;
-	} */
+		text-align: left;
+	}
 
 	#contact {
 		margin-bottom: 25em;
+	}
+
+	.button-clicked {
+		color: #ffffff;
+		background-color: #000000;
 	}
