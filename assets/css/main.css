@@ -3183,7 +3183,7 @@ input, select, textarea {
 		background-color: #ffffff;
 		color: #000000;
 		position: absolute;
-		width: 50em;
+		width: 55em;
 		max-width: calc(100% - 4em);
 		padding: 1em;
 		border-top-left-radius: 0.25em;
@@ -3691,7 +3691,7 @@ input, select, textarea {
 			margin: 2.5em 0 2em 0;
 			font-size: 0.8em;
 			text-align: center;
-			opacity: 50%;
+			opacity: 25%;
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -3748,7 +3748,7 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper {
-		width: 50em;
+		width: 55em;
 		max-width: calc(100% - 4em);
 		margin: 0 auto;
 	}
@@ -3789,7 +3789,7 @@ input, select, textarea {
 	  color: #64b97b;
 	}
 
-	.fas {
+	.fas, .far {
 	  padding: 0.25em;
 	}
 
@@ -3829,25 +3829,25 @@ input, select, textarea {
 	  padding-right: 0;
 	}
 
-	.date-column {
-		width: 24%;
-	}
-
-	.project-column {
-		width: 76%;
-	}
-
 	.date-column p, .project-column p {
 		line-height: 1.5;
 	}
 
-	.contact-info {
-		font-size: 80%;
+	.date-column {
+		width: 15%;
+	}
+
+	.project-column {
+		width: 85%;
+	}
+
+	.toggle-column {
+		cursor: pointer;
+		width: 50%;
 	}
 
 	ul.toggle>li {
 	  list-style: none;
-		cursor: pointer;
 		font-weight: 400;
 	}
 
@@ -3867,8 +3867,11 @@ input, select, textarea {
 		text-align: left;
 	}
 
-	#contact {
-		margin-bottom: 25em;
+	#contact-form {
+		width: 100%;
+		height: 450px;
+		float: left;
+		margin-bottom: 14em;
 	}
 
 	.button-clicked {
