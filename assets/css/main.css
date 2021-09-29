@@ -3167,7 +3167,7 @@ input, select, textarea {
 		}
 
 		body.is-preload #header.alt > * {
-			opacity: 0;
+			opacity: 1;
 		}
 
 		body.is-preload #header.alt .logo {
@@ -3688,7 +3688,7 @@ input, select, textarea {
 
 		#footer .copyright {
 			width: 100%;
-			margin: 2.5em 0 2em 0;
+			margin: 3em 0 2em 0;
 			font-size: 0.8em;
 			text-align: center;
 			opacity: 25%;
@@ -3707,7 +3707,7 @@ input, select, textarea {
 			#footer {
 				padding: 0;
 				display: block;
-				margin: 0;
+				margin: -1em;
 				width: 100%;
 			}
 
