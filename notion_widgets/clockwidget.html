@@ -49,28 +49,27 @@
     minute: "2-digit"
   });
 
-  var date_time = document.getElementById("date-time");
   var greet = document.getElementById("greeting");
 
   if (hrs >= 0 && hrs <= 5) {
       greet.innerHTML = 'Late Night Block';
-      date_time.style.backgroundColor = "#b2b2b2";
+      document.body.style.backgroundColor = "#C2C2C2";
   }
   else if (hrs >= 6 && hrs <= 11) {
       greet.innerHTML = '(Morning Block)';
-      date_time.style.backgroundColor = "#FFE25A";
+      document.body.style.backgroundColor = "#FFE25A";
   }
   else if (hrs >= 12 && hrs <= 16) {
       greet.innerHTML = 'Early Afternoon Block';
-      date_time.style.backgroundColor = "#cabdbf";
+      document.body.style.backgroundColor = "#cabdbf";
   }
   else if (hrs >= 17 && hrs <= 20) {
       greet.innerHTML = 'Late Afternoon Block';
-      date_time.style.backgroundColor = "#b0c0d1";
+      document.body.style.backgroundColor = "#b0c0d1";
   }
   else {
       greet.innerHTML = 'Night Block';
-      date_time.style.backgroundColor = "#b2b2b2";
+      document.body.style.backgroundColor = "#C2C2C2";
   }
 
 </script>
