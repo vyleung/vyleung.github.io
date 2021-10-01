@@ -1,0 +1,77 @@
+<html>
+<meta charset="UTF-8">
+<head>
+  <title>Notion Clock Widget</title>
+  <style>
+    .current {
+      display: block;
+      font-family: sans-serif;
+      font-size: 1em;
+      color: #000000;
+      line-height: 1.5;
+      width: 100%;
+      text-align: center;
+    }
+
+    body {
+      background-color: #ffffff;
+    }
+
+    #time {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    #greeting {
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="current" id="date-time">
+    <div id="date"></div>
+    <div id="time"></div>
+    <div id="greeting"></div>
+  </div>
+</body>
+
+<script>
+  var today = new Date();
+  var hrs = today.getHours();
+
+  // shows current date
+  document.getElementById("date").innerHTML = today.toDateString();
+
+  // shows current time
+  document.getElementById("time").innerHTML = today.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  var date_time = document.getElementById("date-time");
+  var greet = document.getElementById("greeting");
+
+  if (hrs >= 0 && hrs <= 5) {
+      greet.innerHTML = 'Late Night Block';
+      date_time.style.backgroundColor = "#b2b2b2";
+  }
+  else if (hrs >= 6 && hrs <= 11) {
+      greet.innerHTML = '(Morning Block)';
+      date_time.style.backgroundColor = "#FFE25A";
+  }
+  else if (hrs >= 12 && hrs <= 16) {
+      greet.innerHTML = 'Early Afternoon Block';
+      date_time.style.backgroundColor = "#cabdbf";
+  }
+  else if (hrs >= 17 && hrs <= 20) {
+      greet.innerHTML = 'Late Afternoon Block';
+      date_time.style.backgroundColor = "#b0c0d1";
+  }
+  else {
+      greet.innerHTML = 'Night Block';
+      date_time.style.backgroundColor = "#b2b2b2";
+  }
+
+</script>
+</html>
