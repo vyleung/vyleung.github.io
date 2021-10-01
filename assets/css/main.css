@@ -3846,6 +3846,10 @@ input, select, textarea {
 		width: 50%;
 	}
 
+	.toggle {
+		cursor: pointer;
+	}
+
 	ul.toggle>li {
 	  list-style: none;
 		font-weight: 400;
