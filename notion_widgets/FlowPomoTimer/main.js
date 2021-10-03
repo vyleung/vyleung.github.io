@@ -49,6 +49,14 @@ $(document).ready(function() {
       $(".notif").css("opacity", "1");
       event.preventDefault();
     }
+
+    // numbers = edits the duration
+    else if (event.which >= 48 && event.which <= 57) {
+      $("#duration").trigger("focus");
+      $("#start-button").css("opacity", "1");
+      $(".notif").css("opacity", "1");
+      event.preventDefault();
+    }
   });
 
   $("#pause-button").click(function(e) {
