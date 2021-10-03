@@ -5,6 +5,7 @@
     <title>FlowPomoTimer</title>
   </head>
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <body>
     <div class="stopwatch">
       <div class="current-time">
@@ -13,7 +14,7 @@
 
       <div class="notif">
         <form id="userInput">
-          <label for="duration">Notify me every<input type="text" onfocus="this.value=''" id="duration" placeholder="00"></input>minutes</label>
+          <label for="duration">Notify me every<input type="number" onfocus="this.value=''" id="duration" placeholder="00"></input>minutes</label>
         </form>
       </div>
 
@@ -35,7 +36,5 @@
   </body>
 
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="main.js">
-
-  </script>
+  <script type="text/javascript" src="main.js"></script>
 </html>

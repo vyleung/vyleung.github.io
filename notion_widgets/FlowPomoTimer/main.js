@@ -21,38 +21,28 @@ $(document).ready(function() {
     pause = false;
     getSeconds();
     event.disabled = true;
-    $("#start-button").css("opacity", "0.5");
-    $(".notif").css("opacity", "0.5");
+    $("#time").css("opacity", "0.25");
+    $("#start-button").css("opacity", "0.25");
+    $(".notif").css("opacity", "0.25");
   });
 
   $(window).keydown(function(event) {
     // spacebar = pauses the timer
     if (event.which === 32) {
       $("#pause-button").click();
-      $("#start-button").css("opacity", "1");
-      $(".notif").css("opacity", "1");
       event.preventDefault();
     }
 
     // escape = resets the timer
     else if (event.which === 27) {
       $("#reset-button").click();
-      $("#start-button").css("opacity", "1");
-      $(".notif").css("opacity", "1");
       event.preventDefault();
     }
 
     // backspace = edits the duration
     else if (event.which === 8) {
       $("#duration").trigger("focus");
-      $("#start-button").css("opacity", "1");
-      $(".notif").css("opacity", "1");
-      event.preventDefault();
-    }
-
-    // numbers = edits the duration
-    else if (event.which >= 48 && event.which <= 57) {
-      $("#duration").trigger("focus");
+      $("#time").css("opacity", "1");
       $("#start-button").css("opacity", "1");
       $(".notif").css("opacity", "1");
       event.preventDefault();
@@ -61,13 +51,12 @@ $(document).ready(function() {
 
   $("#pause-button").click(function(e) {
     pause = true;
-    $("#start-button").css("opacity", "1");
-    $(".notif").css("opacity", "1");
   });
 
   $("#reset-button").click(function(e) {
     pause = true;
     resetTimer();
+    $("#time").css("opacity", "1");
     $("#start-button").css("opacity", "1");
     $(".notif").css("opacity", "1");
   });
@@ -145,12 +134,34 @@ $(document).ready(function() {
     hour_count++;
   }
 
-  // shows current time
-  var dt = new Date();
-  document.getElementById("time").innerHTML = dt.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit"
-  });
+  // shows current time - refrence: https://flexiple.com/javascript-clock/#section2
+  function currentTime() {
+    let date = new Date();
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let session = "AM";
+
+    if (hh == 0) {
+      hh = 12;
+    }
+
+    if (hh > 12) {
+      hh = hh - 12;
+      session = "PM";
+     }
+
+    hh = (hh < 10) ? "0" + hh : hh;
+    mm = (mm < 10) ? "0" + mm : mm;
+
+    let time = hh + ":" + mm + " " + session;
+
+    document.getElementById("time").innerText = time;
+    let t = setTimeout(function(){
+      currentTime()
+      }, 1000);
+  }
+  currentTime();
+
 
   function playSound() {
     $("#alert-sound")[0].play();
