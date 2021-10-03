@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: white;
+  font-family: calibri;
+  font-weight: 500;
+}
+
+.stopwatch {
+  background: #ffffff;
+  width: 30rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-time {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+}
+
+#time {
+  color: #1B79DF;
+}
+
+.notif {
+  font-size: 1.75rem;
+  display: flex;
+  text-align: center;
+}
+
+#duration {
+  width: 3.25rem;
+  height: 2.5rem;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 0.5;
+}
+
+input[type=text] {
+  color: #DF1F1B;
+  font-weight: 600;
+  border: 3px solid #fff;
+  margin: 0.25rem;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+.stopwatch-timer {
+  font-size: 4rem;
+  display: flex;
+  color: #000000;
+}
+
+.no {
+  padding: 0 0.85rem;
+  position: relative;
+  line-height: 1;
+}
+
+.no::after {
+  content: ':';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.no:last-child::after {
+  display: none;
+}
+
+.stopwatch-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.cta {
+  border: 1px solid #ffffff;
+  margin: 0 0.75rem 0 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-size: cover;
+}
+
+form {
+  padding: 0.5em;
+}
+
+.start {
+  background-image: url('images/start.png');
+}
+
+.pause {
+  background-image: url('images/pause.png');
+}
+
+.reset {
+  background-image: url('images/reset.png');
+}

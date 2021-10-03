@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FlowPomoTimer</title>
+  </head>
+  <link rel="stylesheet" href="main.css">
+  <body>
+    <div class="stopwatch">
+      <div class="current-time">
+        <div id="time"></div>
+      </div>
+
+      <div class="notif">
+        <form id="userInput">
+          <label for="duration">Notify me every<input type="text" onfocus="this.value=''" id="duration" placeholder="00"></input>minutes</label>
+        </form>
+      </div>
+
+      <div class="stopwatch-timer">
+        <div class="no hours">00</div>
+        <div class="no minutes">00</div>
+        <div class="no seconds">00</div>
+      </div>
+
+      <div class="stopwatch-controls">
+        <button class="cta start" type="button" value="start" id="start-button"></button>
+        <button class="cta pause" type="button" value="pause" id="pause-button"></button>
+        <button class="cta reset" type="button" value="reset" id="reset-button"></button>
+      </div>
+
+      <audio id="alert-sound" src="ding.mp3" type="audio/mp3"></audio>
+    </div>
+
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="main.js">
+
+  </script>
+</html>
