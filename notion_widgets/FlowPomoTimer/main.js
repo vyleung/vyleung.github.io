@@ -21,9 +21,9 @@ $(document).ready(function() {
     pause = false;
     getSeconds();
     event.disabled = true;
-    $("#time").css("opacity", "0.25");
-    $("#start-button").css("opacity", "0.25");
-    $(".notif").css("opacity", "0.25");
+    $("#time").css("opacity", "0.5");
+    $("#start-button").css("opacity", "0.5");
+    $(".notif").css("opacity", "0.5");
   });
 
   $(window).keydown(function(event) {
@@ -111,6 +111,14 @@ $(document).ready(function() {
 
       } else {
         min.textContent = min_count;
+
+        if (user_duration_time == min_count) {
+          playSound();
+
+          setInterval(function() {
+            playSound();
+          }, user_duration_time_mil);
+        }
       }
       min_count++;
     } else {
