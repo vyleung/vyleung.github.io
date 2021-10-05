@@ -3,6 +3,7 @@ $(document).ready(function() {
   let min = document.querySelector(".minutes");
   let sec = document.querySelector(".seconds");
   let swHolder = document.querySelector(".stopwatch");
+  let note = document.querySelector(".message");
 
   let sec_count = 0;
   let min_count = 1;
@@ -13,6 +14,7 @@ $(document).ready(function() {
   $("#duration").keydown(function(event) {
     if (event.which === 13) {
       $("#start-button").click();
+      $("#duration").trigger("blur");
       event.preventDefault();
     }
   });
@@ -51,14 +53,16 @@ $(document).ready(function() {
 
   $("#pause-button").click(function(e) {
     pause = true;
+    $("#start-button").css("opacity", "1");
+    stopSound();
   });
 
   $("#reset-button").click(function(e) {
     pause = true;
-    resetTimer();
-    $("#time").css("opacity", "1");
-    $("#start-button").css("opacity", "1");
-    $(".notif").css("opacity", "1");
+    $("#duration").trigger("focus");
+    setTimeout(() => {
+      location.reload();
+    }, 100);
   });
 
   function resetTimer() {
@@ -104,11 +108,11 @@ $(document).ready(function() {
         if (user_duration_time == min_count) {
           playSound();
 
+
           setInterval(function() {
             playSound();
           }, user_duration_time_mil);
         }
-
       } else {
         min.textContent = min_count;
 
@@ -172,6 +176,10 @@ $(document).ready(function() {
 
 
   function playSound() {
-    $("#alert-sound")[0].play();
+    $('#alert-sound').trigger("play");
+  }
+
+  function stopSound() {
+    $('#alert-sound').trigger("pause");
   }
 });
