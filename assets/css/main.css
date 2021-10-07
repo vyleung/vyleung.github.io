@@ -3790,7 +3790,11 @@ input, select, textarea {
 	}
 
 	.fas, .far {
-	  padding: 0.25em;
+	  padding-right: 0.5em;
+	}
+
+	.far {
+		color: #000000;
 	}
 
 	.hamburger-menu {
@@ -3838,16 +3842,15 @@ input, select, textarea {
 	}
 
 	.project-column {
-		width: 85%;
-	}
-
-	.toggle-column {
-		cursor: pointer;
-		width: 50%;
+		width: 83%;
 	}
 
 	.toggle {
 		cursor: pointer;
+	}
+
+	.toggle-2col {
+		width: 50%;
 	}
 
 	ul.toggle>li {
@@ -3857,6 +3860,14 @@ input, select, textarea {
 
 	.toggle>li>details>summary {
 	  text-align: left;
+	}
+
+	.toggle>li>details>summary:hover {
+	  color: grey;
+	}
+
+	::marker {
+		color: #000000;
 	}
 
 	figure {
