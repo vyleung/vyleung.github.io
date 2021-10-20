@@ -3,6 +3,26 @@
 <head>
   <title>Notion Clock Widget</title>
   <style>
+    @media (prefers-color-scheme: light) {
+      body {
+        background: #ffffff;
+      }
+
+      #refresh-button {
+        color: #000000;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #000000;
+      }
+
+      #refresh-button {
+        color: #ffffff;
+      }
+    }
+
     .current {
       display: block;
       font-family: sans-serif;
@@ -13,10 +33,6 @@
       text-align: center;
       padding: 0.25em 0 0.25em 0;
       top: 0;
-    }
-
-    body {
-      background-color: #ffffff;
     }
 
     hr {
