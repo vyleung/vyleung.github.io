@@ -153,7 +153,7 @@ $(document).ready(function() {
     let mm = date.getMinutes();
     let session = "AM";
 
-    if (hh == 0) {
+    if (hh == 24) {
       hh = 12;
     }
 
