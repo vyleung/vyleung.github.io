@@ -157,10 +157,15 @@ $(document).ready(function() {
       hh = 12;
     }
 
-    if (hh > 12) {
+    else if (hh == 12) {
+      hh = 12;
+      session = "PM";
+    }
+
+    else if (hh > 12) {
       hh = hh - 12;
       session = "PM";
-     }
+    }
 
     hh = (hh < 10) ? "0" + hh : hh;
     mm = (mm < 10) ? "0" + mm : mm;
