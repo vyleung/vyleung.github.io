@@ -169,6 +169,7 @@ input, select, textarea {
 		font-weight: 400;
 		margin: 0 0 1em 0;
 		text-align: left;
+		font-size: 1.1em;
 	}
 
 		p.content {
@@ -1056,6 +1057,14 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 980px) {
+			.column-list {
+				flex-direction: column;
+			}
+
+			.column {
+				padding: 0 !important;
+				width: 100% !important;
+			}
 
 			.row {
 				display: flex;
@@ -2413,11 +2422,12 @@ input, select, textarea {
 
 		ol li {
 			padding-left: 0.25em;
+			font-size: 1.1em;
 		}
 
 	ul {
 		list-style: disc;
-		margin: 0 0 2em 0;
+		margin: 0 0 1em 0;
 		padding-left: 1em;
 	}
 
@@ -2974,7 +2984,6 @@ input, select, textarea {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		margin: 0 0 2em 0;
 	}
 
 		.spotlight .content {
@@ -2990,19 +2999,17 @@ input, select, textarea {
 			}
 
 			.spotlight .content header.major {
-				margin: 0 0 2em 0;
+				margin: 0;
 			}
 
 		.spotlight .image {
 			display: inline-block;
-      margin: 0 1em 0 2em;
 		}
 
 			.spotlight .image img {
 				display: block;
 				width: 18em;
-				margin-right: -2em;
-				margin-bottom: -2em;
+				margin: -1em 0;
 			}
 
 		@media screen and (max-width: 980px) {
@@ -3677,21 +3684,23 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		padding: 0;
-		width: calc(100% + 2em);
+		width: 100%;
 		margin: 0;
 	}
 
 		#footer > * {
-			width: calc(50% - 2em);
-			margin-left: 2em;
+			width: 50%;
 		}
 
 		#footer .copyright {
 			width: 100%;
-			margin: 3em 0 2em 0;
+			display: block;
 			font-size: 0.8em;
-			text-align: center;
 			opacity: 25%;
+		}
+
+		#footer .copyright p {
+			text-align: center;
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -3715,16 +3724,12 @@ input, select, textarea {
 					width: 100%;
 				}
 
-				#footer .copyright {
-					text-align: center;
-				}
-
 		}
 
 		@media screen and (max-width: 736px) {
 
 			#footer {
-				padding: 0;
+				display: 0;
 			}
 
 		}
@@ -3773,7 +3778,7 @@ input, select, textarea {
 		text-align: center;
 	}
 
-	.fa-user {
+	/* .fa-user {
 	  color: #e60100;
 	}
 
@@ -3787,10 +3792,18 @@ input, select, textarea {
 
 	.fa-envelope {
 	  color: #64b97b;
+	} */
+
+	.far, .fas-nav, .fas-main {
+		padding-right: 0.5em;
 	}
 
-	.fas, .far {
-	  padding-right: 0.5em;
+	.fas-nav {
+		color: #00A06F;
+	}
+
+	.fas-main {
+		font-size: 0.85em;
 	}
 
 	.far {
@@ -3815,13 +3828,15 @@ input, select, textarea {
 	  background-color: #000000;
 	  color: #ffffff;
 	}
+
 	.column-list {
 	  display: flex;
 	  justify-content: space-between;
+		width: 100%;
 	}
 
 	.column {
-	  padding: 0 1em;
+	  padding: 0 0.5em;
 		text-align: left;
 	}
 
@@ -3845,11 +3860,7 @@ input, select, textarea {
 		width: 83%;
 	}
 
-	.toggle {
-		cursor: pointer;
-	}
-
-	.toggle-2col {
+	.toggle-multi-col {
 		width: 50%;
 	}
 
@@ -3858,16 +3869,29 @@ input, select, textarea {
 		font-weight: 400;
 	}
 
+	li.external-link {
+		text-align: left;
+	}
+
+	ul.caption-list {
+		margin-left: 1em;
+	}
+
+	summary {
+		cursor: pointer;
+	}
+
 	.toggle>li>details>summary {
 	  text-align: left;
+		font-size: 1.1em;
+	}
+
+	details[open] summary {
+  	padding-bottom: 0.35em;
 	}
 
 	.toggle>li>details>summary:hover {
 	  color: grey;
-	}
-
-	::marker {
-		color: #000000;
 	}
 
 	figure {
@@ -3877,9 +3901,20 @@ input, select, textarea {
 
 	figcaption {
 	  opacity: 0.5;
-	  font-size: 75%;
+	  font-size: 85%;
 	  margin-top: 0.5em;
 		text-align: left;
+	}
+
+	#website {
+		margin-top: 3em;
+	}
+
+	.video {
+		height: 15em;
+		width: 25em;
+		display: flex;
+		justify-content: center;
 	}
 
 	#contact-form {
@@ -3897,5 +3932,13 @@ input, select, textarea {
 	.empty {
 		width: 100%;
 		height: 2em;
-		border: 1px solid black;
+		border: 1px solid white;
+	}
+
+	.container {
+		padding-bottom: 2em;
+	}
+
+	.centered-text {
+		text-align: center;
 	}
