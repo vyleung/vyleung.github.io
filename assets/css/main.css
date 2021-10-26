@@ -2992,6 +2992,7 @@ input, select, textarea {
 			-ms-flex: 1;
 			flex: 1;
 			text-align: left;
+			padding: 0 1em;
 		}
 
 			.spotlight .content > :last-child {
@@ -3004,6 +3005,7 @@ input, select, textarea {
 
 		.spotlight .image {
 			display: inline-block;
+
 		}
 
 			.spotlight .image img {
@@ -3795,7 +3797,7 @@ input, select, textarea {
 	} */
 
 	.far, .fas-nav, .fas-main {
-		padding-right: 0.5em;
+		padding-right: 0.25em;
 	}
 
 	.fas-nav {
@@ -3902,12 +3904,8 @@ input, select, textarea {
 	figcaption {
 	  opacity: 0.5;
 	  font-size: 85%;
-	  margin-top: 0.5em;
+	  margin-bottom: 0.75em;
 		text-align: left;
-	}
-
-	#website {
-		margin-top: 3em;
 	}
 
 	.video {
@@ -3939,6 +3937,6 @@ input, select, textarea {
 		padding-bottom: 2em;
 	}
 
-	.centered-text {
-		text-align: center;
+	.short-stories:hover {
+		opacity: 0.75;
 	}
