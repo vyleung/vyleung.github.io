@@ -2992,7 +2992,7 @@ input, select, textarea {
 			-ms-flex: 1;
 			flex: 1;
 			text-align: left;
-			padding: 0 1em;
+			padding-right: 2.75em;
 		}
 
 			.spotlight .content > :last-child {
@@ -3005,13 +3005,13 @@ input, select, textarea {
 
 		.spotlight .image {
 			display: inline-block;
-
 		}
 
 			.spotlight .image img {
 				display: block;
 				width: 18em;
 				margin: -1em 0;
+				/* border-radius: 50%; */
 			}
 
 		@media screen and (max-width: 980px) {
