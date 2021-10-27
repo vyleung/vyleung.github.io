@@ -23,6 +23,10 @@
     background: #ffffff;
     border: 1px solid #ffffff;
   }
+
+  #copy-time-alert {
+    color: #000000;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,6 +53,10 @@
   input[type=number] {
     background: #000000;
     border: 1px solid #000000;
+  }
+
+  #copy-time-alert {
+    color: #ffffff;
   }
 }
 
@@ -141,6 +149,7 @@ input[type=number]:focus {
   display: flex;
   align-items: center;
   margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .cta {
@@ -168,4 +177,12 @@ form {
 
 .reset {
   background-image: url('images/reset.png');
+}
+
+.copy {
+  background-image: url('images/copy.png');
+}
+
+#copy-time-alert {
+  height: 1em;
 }

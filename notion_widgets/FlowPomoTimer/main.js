@@ -9,6 +9,7 @@ $(document).ready(function() {
   let min_count = 1;
   let hour_count = 1;
   let pause = false;
+  var reminderAlert;
 
   // enter = starts the timer
   $("#duration").keydown(function(event) {
@@ -25,7 +26,10 @@ $(document).ready(function() {
     event.disabled = true;
     $("#time").css("opacity", "0.5");
     $("#start-button").css("opacity", "0.5");
+    $("#copy-time-button").css("opacity", "0.5");
     $(".notif").css("opacity", "0.5");
+    // min_count = 0;
+    notifyMe();
   });
 
   $(window).keydown(function(event) {
@@ -53,16 +57,28 @@ $(document).ready(function() {
 
   $("#pause-button").click(function(e) {
     pause = true;
-    $("#start-button").css("opacity", "1");
-    stopSound();
+    $("#start-button").css("opacity", "1")
+    $("#copy-time-button").css("opacity", "1")
+    clearInterval(reminderAlert);
+
+    var stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
+    navigator.clipboard.writeText(stopwatch_time);
+    document.getElementById("copy-time-alert").innerText = "Copied stopwatch time!"
   });
 
   $("#reset-button").click(function(e) {
-    pause = true;
-    $("#duration").trigger("focus");
-    setTimeout(() => {
-      location.reload();
-    }, 100);
+    // $("#duration").trigger("focus");
+    location.reload();
+
+    var stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
+    navigator.clipboard.writeText(stopwatch_time);
+  });
+
+  $("#copy-time-button").click(function(e) {
+    var stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
+
+    navigator.clipboard.writeText(stopwatch_time);
+    document.getElementById("copy-time-alert").innerText = "Copied stopwatch time!"
   });
 
   function resetTimer() {
@@ -72,6 +88,19 @@ $(document).ready(function() {
     sec.textContent = "00";
     min.textContent = "00";
     hour.textContent = "00";
+  }
+
+  function notifyMe() {
+    let user_duration_min = parseInt(document.querySelector("#duration").value);
+    let user_duration_ms = parseInt(document.querySelector("#duration").value) * 60000;
+    reminderAlert = setInterval(function() {
+                      playSound();
+                    }, user_duration_ms);
+    if (min.textContent == "00") {
+      if (sec.textContent == "00") {
+        min_count = 1;
+      }
+    }
   }
 
   function getSeconds() {
@@ -98,31 +127,11 @@ $(document).ready(function() {
   }
 
   function getMinutes() {
-    var user_duration_time = parseInt(document.querySelector("#duration").value);
-    var user_duration_time_mil = parseInt(document.querySelector("#duration").value) * 60000;
-
     if (min_count <= 59) {
       if (min_count.toString().length == 1) {
         min.textContent = `0${min_count}`;
-
-        if (user_duration_time == min_count) {
-          playSound();
-
-
-          setInterval(function() {
-            playSound();
-          }, user_duration_time_mil);
-        }
       } else {
         min.textContent = min_count;
-
-        if (user_duration_time == min_count) {
-          playSound();
-
-          setInterval(function() {
-            playSound();
-          }, user_duration_time_mil);
-        }
       }
       min_count++;
     } else {
@@ -153,7 +162,7 @@ $(document).ready(function() {
     let mm = date.getMinutes();
     let session = "AM";
 
-    if (hh == 24) {
+    if (hh == 0) {
       hh = 12;
     }
 
@@ -179,12 +188,8 @@ $(document).ready(function() {
   }
   currentTime();
 
-
   function playSound() {
     $('#alert-sound').trigger("play");
   }
 
-  function stopSound() {
-    $('#alert-sound').trigger("pause");
-  }
 });

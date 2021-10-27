@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous"
 		referrerpolicy="no-referrer" />
+	<link href="assets/css/lightbox.css" rel="stylesheet" />
 </head>
 
 <body class="is-preload">
@@ -46,6 +47,7 @@
 
 			<!-- Introduction -->
 			<div class="empty"></div>
+
 			<section id="about" class="main">
 				<div class="spotlight">
 					<div class="content">
@@ -69,7 +71,7 @@
 							</ol>
 						</p>
 					</div>
-					<span class="image"><img src="content/about-me-pic.jpg" alt="Vivian Leung" /></span>
+					<a href="content/about-me-pic.jpg" data-lightbox="about-me"><span class="image"><img src="content/about-me-pic.jpg" alt="Vivian Leung" /></span></a>
 				</div>
 
 				<a href="#research-projects"></a>
@@ -108,7 +110,7 @@
 											<details>
 												<summary class="level2-summary">Design of the study </summary>
 												<li>
-													<span class="image"><img src="content/PiC_overview.gif" alt="" />
+														<a href="content/PiC_overview.gif" data-lightbox="pic" class="lb-next"><span class="image"><img src="content/PiC_overview.gif" alt="PiC Overview" /></a>
 														<figcaption>Overview of the study on Google slides
 															<ul class="caption-list">
 																<li>
@@ -142,22 +144,19 @@
 
 															<hr>
 															</figcaption>
-														</span>
 
-														<span class="image"><img src="content/duplication_task_reveal.png" alt="" />
-															<span class="image"><img src="content/houses_reveal.png" alt="" /></span>
+														<a href="content/duplication_task_reveal.png" data-lightbox="pic"><span class="image"><img src="content/duplication_task_reveal.png" alt="PiC duplication task reveal" /></span></a>
+														<a href="content/houses_reveal.png" data-lightbox="pic"><span class="image"><img src="content/houses_reveal.png" alt="PiC houses task reveal" /></span></a>
 															<figcaption>All slides were revealed incrementally along with verbal instructions to help draw children's attention to each aspect of the slide.
 																<hr>
 															</figcaption>
-														</span>
 
-														<span class="image"><img src="content/shape_examples.png" alt="" />
+														<a href="content/shape_examples.png" data-lightbox="pic"><span class="image"><img src="content/shape_examples.png" alt="PiC shapes reveal" /></span></a>
 															<figcaption> To move a shape, children had to 1) click on the shape and 2) press down and drag their finger. We put a black dot in the middle of the shapes to guide children to where to click/tap and put extra padding around the
 																shapes
 																so that children didn't have to be precise with where they clicked/tapped.
 																<hr>
 															</figcaption>
-														</span>
 													</li>
 												</li>
 
@@ -258,7 +257,7 @@
 									<details open>
 										<summary>Battle Tank</summary>
 										<ul>
-											<span class="image" id="figure-tank"><img src="content/tank.gif" alt="battle tank" /></a></span>
+											<a href="content/tank.gif" data-lightbox="blender"><span class="image"><img src="content/tank.gif" alt="Battle Tank" /></span></a>
 										</ul>
 									</details>
 								</li>
@@ -272,7 +271,7 @@
 									<details open>
 										<summary>Box of Donuts</summary>
 										<ul>
-											<span class="image" id="figure-donuts"><img src="content/donuts.gif" alt="box of donuts" /></a></span>
+											<a href="content/donuts.gif" data-lightbox="blender"><span class="image"><img src="content/donuts.gif" alt="Box of Donuts" /></span></a>
 										</ul>
 									</details>
 								</li>
@@ -286,7 +285,7 @@
 									<details open>
 										<summary>Diorama</summary>
 										<ul>
-											<span class="image" id="figure-diorama"><img src="content/diorama.gif" alt="diorama" /></a></span>
+											<a href="content/diorama.gif" data-lightbox="blender"><span class="image"><img src="content/diorama.gif" alt="Diorama" /></span></a>
 										</ul>
 									</details>
 								</li>
@@ -356,11 +355,11 @@
 
 											<div id="container-website" class="column-list">
 												<div id="html5up-template" class="column toggle-multi-col">
-													<span class="image" id="figure-html5up"><img src="content/html5up-template.png" alt=""/></span>
+													<a href="content/html5up-template.png" data-lightbox="web-dev"><span class="image"><img src="content/html5up-template.png" alt="HTML5UP Stellar Template"/></span></a>
 												</div>
 
 												<div id="website" class="column toggle-multi-col">
-													<span class="image" id="figure-website"><img src="content/website.png" alt=""/></span>
+													<a href="content/website.png" data-lightbox="web-dev"><span class="image"><img src="content/website.png" alt="Website"/></span></a>
 												</div>
 											</div>
 										</ul>
@@ -408,7 +407,9 @@
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
+	<script src="assets/js/lightbox.js"></script>
 	<script src="assets/js/main.js"></script>
+
 
 </body>
 

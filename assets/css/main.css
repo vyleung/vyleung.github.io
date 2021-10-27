@@ -2365,6 +2365,10 @@ input, select, textarea {
 		position: relative;
 	}
 
+	.image:hover {
+		opacity: 0.75;
+	}
+
 		.image img {
 			display: block;
 			object-fit: cover;
@@ -3935,8 +3939,4 @@ input, select, textarea {
 
 	.container {
 		padding-bottom: 2em;
-	}
-
-	.short-stories:hover {
-		opacity: 0.75;
 	}
