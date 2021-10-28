@@ -3,7 +3,9 @@ $(document).ready(function() {
   let min = document.querySelector(".minutes");
   let sec = document.querySelector(".seconds");
   let swHolder = document.querySelector(".stopwatch");
+  let start_date_time = document.querySelector("#start-date-time");
   let copy_time = document.querySelector("#copy-time-alert");
+  let current_time = document.querySelector("#time");
 
   let sec_count = 0;
   let min_count = 1;
@@ -11,6 +13,7 @@ $(document).ready(function() {
   let pause = false;
   var stopwatch_time;
   var reminderAlert;
+  var today = new Date(Date.now());
 
   // enter = starts the timer
   $("#duration").keydown(function(event) {
@@ -26,11 +29,12 @@ $(document).ready(function() {
     getSeconds();
     event.disabled = true;
     $("#time").css("opacity", "0.5");
-    $("#start-button").css("opacity", "0.5");
-    $("#pause-button").css("opacity", "1");
-    $("#reset-button").css("opacity", "1");
     $(".notif").css("opacity", "0.5");
+    $("#start-button").hide();
+    $("#pause-button").show();
+    $(".messages").show();
     notifyMe();
+    currentDateTime();
   });
 
   $(window).keydown(function(event) {
@@ -49,21 +53,20 @@ $(document).ready(function() {
     // backspace = edits the duration
     else if (event.which === 8) {
       $("#duration").trigger("focus");
-      $("#time").css("opacity", "1");
-      $("#start-button").css("opacity", "1");
-      $(".notif").css("opacity", "1");
       event.preventDefault();
     }
   });
 
   $("#pause-button").click(function(e) {
     pause = true;
-    $("#start-button").css("opacity", "1")
+    $("#pause-button").css("opacity", "0.5");
+    $("#start-button").show();
+    $("#reset-button").show();
     clearInterval(reminderAlert);
 
     stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
     navigator.clipboard.writeText(stopwatch_time);
-    copy_time.textContent = "Copied stopwatch time!"
+    copy_time.textContent = "Copied time tracked!"
   });
 
   $("#reset-button").click(function(e) {
@@ -85,9 +88,12 @@ $(document).ready(function() {
   function notifyMe() {
     let user_duration_min = parseInt(document.querySelector("#duration").value);
     let user_duration_ms = parseInt(document.querySelector("#duration").value) * 60000;
-    reminderAlert = setInterval(function() {
-                      playSound();
-                    }, user_duration_ms);
+    if (Number.isInteger(user_duration_min)) {
+      reminderAlert = setInterval(function() {
+                        playSound();
+                      }, user_duration_ms);
+    }
+
     if (min.textContent == "00") {
       if (sec.textContent == "00") {
         min_count = 1;
@@ -147,41 +153,35 @@ $(document).ready(function() {
     hour_count++;
   }
 
-  // shows current time - refrence: https://flexiple.com/javascript-clock/#section2
+  // shows current time
   function currentTime() {
-    let date = new Date();
-    let hh = date.getHours();
-    let mm = date.getMinutes();
-    let session = "AM";
-
-    if (hh == 0) {
-      hh = 12;
-    }
-
-    else if (hh == 12) {
-      hh = 12;
-      session = "PM";
-    }
-
-    else if (hh > 12) {
-      hh = hh - 12;
-      session = "PM";
-    }
-
-    hh = (hh < 10) ? "0" + hh : hh;
-    mm = (mm < 10) ? "0" + mm : mm;
-
-    let time = hh + ":" + mm + " " + session;
-
-    document.getElementById("time").innerText = time;
-    let t = setTimeout(function(){
-      currentTime()
-      }, 1000);
+    current_time.textContent = today.toLocaleTimeString("en-US",
+      {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
   }
   currentTime();
+
+  // shows the current date and time
+  function currentDateTime() {
+    start_date_time.textContent = today.toLocaleDateString("en-US",
+      {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+  }
 
   function playSound() {
     $('#alert-sound').trigger("play");
   }
+
+  $("#start-date-time").click(function(event) {
+    navigator.clipboard.writeText(start_date_time.textContent);
+    copy_time.textContent = "Copied start time!"
+  });
 
 });

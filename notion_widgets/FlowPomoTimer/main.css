@@ -24,7 +24,7 @@
     border: 1px solid #ffffff;
   }
 
-  #copy-time-alert {
+  .messages {
     color: #000000;
   }
 }
@@ -55,7 +55,7 @@
     border: 1px solid #000000;
   }
 
-  #copy-time-alert {
+  .messages {
     color: #ffffff;
   }
 }
@@ -180,9 +180,25 @@ form {
 }
 
 #pause-button, #reset-button {
-  opacity: 0.5;
+  display: none;
 }
 
-#copy-time-alert {
+.messages {
   height: 1em;
+  text-align: center;
+  opacity: 0.5;
+  display: none;
+}
+
+#start-time-container {
+  margin-bottom: 0.25em;
+}
+
+#start-date-time {
+  margin-bottom: 0.5em;
+}
+
+#start-date-time:hover {
+  color: #1B79DF;
+  cursor: pointer;
 }
