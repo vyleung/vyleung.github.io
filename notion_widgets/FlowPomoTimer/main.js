@@ -3,12 +3,13 @@ $(document).ready(function() {
   let min = document.querySelector(".minutes");
   let sec = document.querySelector(".seconds");
   let swHolder = document.querySelector(".stopwatch");
-  let note = document.querySelector(".message");
+  let copy_time = document.querySelector("#copy-time-alert");
 
   let sec_count = 0;
   let min_count = 1;
   let hour_count = 1;
   let pause = false;
+  var stopwatch_time;
   var reminderAlert;
 
   // enter = starts the timer
@@ -26,9 +27,9 @@ $(document).ready(function() {
     event.disabled = true;
     $("#time").css("opacity", "0.5");
     $("#start-button").css("opacity", "0.5");
-    $("#copy-time-button").css("opacity", "0.5");
+    $("#pause-button").css("opacity", "1");
+    $("#reset-button").css("opacity", "1");
     $(".notif").css("opacity", "0.5");
-    // min_count = 0;
     notifyMe();
   });
 
@@ -58,27 +59,18 @@ $(document).ready(function() {
   $("#pause-button").click(function(e) {
     pause = true;
     $("#start-button").css("opacity", "1")
-    $("#copy-time-button").css("opacity", "1")
     clearInterval(reminderAlert);
 
-    var stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
+    stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
     navigator.clipboard.writeText(stopwatch_time);
-    document.getElementById("copy-time-alert").innerText = "Copied stopwatch time!"
+    copy_time.textContent = "Copied stopwatch time!"
   });
 
   $("#reset-button").click(function(e) {
-    // $("#duration").trigger("focus");
     location.reload();
 
-    var stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
+    stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
     navigator.clipboard.writeText(stopwatch_time);
-  });
-
-  $("#copy-time-button").click(function(e) {
-    var stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
-
-    navigator.clipboard.writeText(stopwatch_time);
-    document.getElementById("copy-time-alert").innerText = "Copied stopwatch time!"
   });
 
   function resetTimer() {

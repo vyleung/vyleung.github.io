@@ -179,8 +179,8 @@ form {
   background-image: url('images/reset.png');
 }
 
-.copy {
-  background-image: url('images/copy.png');
+#pause-button, #reset-button {
+  opacity: 0.5;
 }
 
 #copy-time-alert {
