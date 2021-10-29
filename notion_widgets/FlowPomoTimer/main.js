@@ -32,6 +32,8 @@ $(document).ready(function() {
     $(".notif").css("opacity", "0.5");
     $("#start-button").hide();
     $("#pause-button").show();
+    $("#pause-button").css("opacity", "1");
+    $("#reset-button").hide();
     $(".messages").show();
     notifyMe();
     currentDateTime();
@@ -155,11 +157,34 @@ $(document).ready(function() {
 
   // shows current time
   function currentTime() {
-    current_time.textContent = today.toLocaleTimeString("en-US",
-      {
-        hour: '2-digit',
-        minute: '2-digit'
-      });
+    let date = new Date();
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let session = "AM";
+
+    if (hh == 0) {
+      hh = 12;
+    }
+
+    else if (hh == 12) {
+      hh = 12;
+      session = "PM";
+    }
+
+    else if (hh > 12) {
+      hh = hh - 12;
+      session = "PM";
+    }
+
+    mm = (mm < 10) ? "0" + mm : mm;
+
+    let time = hh + ":" + mm + " " + session;
+
+    current_time.textContent = time;
+
+    let t = setTimeout(function(){
+      currentTime()
+      }, 1000);
   }
   currentTime();
 
@@ -170,7 +195,8 @@ $(document).ready(function() {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-        hour: '2-digit',
+        hour: 'numeric',
+        hour12: true,
         minute: '2-digit'
       });
   }
