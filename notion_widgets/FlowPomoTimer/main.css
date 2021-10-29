@@ -70,10 +70,14 @@ body {
   font-weight: 500;
 }
 
+.container {
+  position: absolute;
+  top: 0;
+}
+
 .stopwatch {
   width: 30rem;
   padding: 2rem;
-  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
