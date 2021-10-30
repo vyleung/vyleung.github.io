@@ -51,7 +51,7 @@ body {
 .container {
   top: -1.75em;
   position: absolute;
-  left: 0;
+  left: -1em;
 }
 
 .menu-container {
