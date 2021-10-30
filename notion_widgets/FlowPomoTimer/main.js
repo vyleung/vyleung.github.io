@@ -95,12 +95,6 @@ $(document).ready(function() {
                         playSound();
                       }, user_duration_ms);
     }
-
-    if (min.textContent == "00") {
-      if (sec.textContent == "00") {
-        min_count = 1;
-      }
-    }
   }
 
   function getSeconds() {
@@ -114,6 +108,7 @@ $(document).ready(function() {
       setTimeout(() => {
         getSeconds();
       }, 1000);
+
     } else if (pause == false) {
       sec_count = 0;
       if (sec_count.toString().length == 1) {
@@ -208,6 +203,27 @@ $(document).ready(function() {
   $("#start-date-time").click(function(event) {
     navigator.clipboard.writeText(start_date_time.textContent);
     copy_time.textContent = "Copied start time!"
+  });
+
+  $("#menu-bars").click(function(event) {
+    $("#menu-bars").hide();
+    $("#menu-times").show();
+    $(".menu-container").show();
+  });
+
+  $("#menu-times").click(function(event) {
+    $("#menu-times").hide();
+    $("#menu-bars").show();
+    $(".menu-container").hide();
+  });
+
+  $("#toggle-notify").click(function(event) {
+     $("#userInput").toggle();
+  });
+
+  $("#toggle-messages").click(function(event) {
+    $("#start-date-time").toggle();
+    $("#copy-time-alert").toggle();
   });
 
 });

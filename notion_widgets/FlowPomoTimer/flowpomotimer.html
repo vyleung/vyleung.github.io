@@ -7,6 +7,9 @@
   <link rel="icon" href="images/stopwatch.png" type="image/x-icon">
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous"
+		referrerpolicy="no-referrer" />
+
   <body>
     <div class="container">
       <div class="stopwatch">
@@ -33,7 +36,6 @@
         </div>
 
         <div class="messages">
-          <div id="start-time-container">Start time</div>
           <div id="start-date-time"></div>
           <div id="copy-time-alert"></div>
         </div>
@@ -41,6 +43,28 @@
         <audio id="alert-sound" src="ding.mp3" type="audio/mp3"></audio>
       </div>
     </div>
+
+    <div class="hamburger-menu">
+      <div id="menu-bars"><i class="fas fa-bars"></i></div>
+      <div id="menu-times"><i class="fas fa-times"></i></div>
+    </div>
+
+    <div class="menu-container">
+      <div class="toggles">
+        <p class="toggle-messages" id="toggle-notify-text">Toggle "Notify Me"</p>
+        <label class="switch">
+          <input type="checkbox" id="toggle-notify" checked>
+          <span class="slider round"></span>
+        </label>
+
+        <p class="toggle-messages" id="toggle-messages-text">Toggle "Messages"</p>
+        <label class="switch">
+          <input type="checkbox" id="toggle-messages" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+
   </body>
 
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
