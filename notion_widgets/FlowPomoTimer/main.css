@@ -64,7 +64,7 @@ body {
 
 .hamburger-menu {
   top: -0.175em;
-  right: 0;
+  left: 0;
   padding: 0.5em;
   font-size: 1.15em;
   cursor: pointer;
