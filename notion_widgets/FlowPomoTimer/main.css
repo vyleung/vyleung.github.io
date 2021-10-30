@@ -54,7 +54,7 @@ body {
 
 .menu-container {
   top: 0;
-  right: 0;
+  left: 0;
   width: 12em;
   height: 10em;
   padding-top: 1em;
@@ -151,6 +151,7 @@ input[type=number]:focus {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  padding: 0em 0em 0.2em 0.1em;
 }
 
 .no:last-child::after {

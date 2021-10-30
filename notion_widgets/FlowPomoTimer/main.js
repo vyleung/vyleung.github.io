@@ -32,6 +32,7 @@ $(document).ready(function() {
     $(".notif").css("opacity", "0.5");
     $("#start-button").hide();
     $("#pause-button").show();
+    $("#copy-time-alert").hide();
     $("#pause-button").css("opacity", "1");
     $("#reset-button").hide();
     $(".messages").show();
@@ -64,6 +65,7 @@ $(document).ready(function() {
     $("#pause-button").css("opacity", "0.5");
     $("#start-button").show();
     $("#reset-button").show();
+    $("#copy-time-alert").show();
     clearInterval(reminderAlert);
 
     stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
