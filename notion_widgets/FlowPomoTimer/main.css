@@ -49,9 +49,10 @@ body {
 }
 
 .container {
-  top: -1.75em;
+  top: -2.25em;
   position: absolute;
-  left: -1em;
+  left: -4.15em;
+  transform: scale(0.9);
 }
 
 .menu-container {
