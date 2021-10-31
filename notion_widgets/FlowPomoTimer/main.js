@@ -34,7 +34,7 @@ $(document).ready(function() {
     $("#pause-button").show();
     $("#copy-time-alert").hide();
     $("#pause-button").css("opacity", "1");
-    $("#reset-button").hide();
+    $("#reset-button").show();
     $(".messages").show();
     notifyMe();
     currentDateTime();
@@ -64,7 +64,6 @@ $(document).ready(function() {
     pause = true;
     $("#pause-button").css("opacity", "0.5");
     $("#start-button").show();
-    $("#reset-button").show();
     $("#copy-time-alert").show();
     clearInterval(reminderAlert);
 
@@ -74,10 +73,23 @@ $(document).ready(function() {
   });
 
   $("#reset-button").click(function(e) {
-    location.reload();
+    $("#time").css("opacity", "1");
+    $(".notif").css("opacity", "1");
+    $("#start-button").show();
+    $("#pause-button").hide();
+    $("#reset-button").hide();
+
+    clearInterval(reminderAlert);
+
+    $("#start-date-time").hide();
 
     stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
     navigator.clipboard.writeText(stopwatch_time);
+
+    setTimeout(() => {
+      pause = true;
+      resetTimer();
+    }, 75);
   });
 
   function resetTimer() {

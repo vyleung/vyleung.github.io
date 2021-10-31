@@ -48,11 +48,19 @@ body {
   position: absolute;
 }
 
-.container {
+.stopwatch-container {
   top: -0.45em;
   position: absolute;
-  left: -4.35em;
+  left: -1.75em;
   transform: scale(0.9);
+}
+
+.stopwatch {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-container {
@@ -80,14 +88,6 @@ body {
 
 #menu-times {
   display: none;
-}
-
-.stopwatch {
-  width: 30rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .current-time {
