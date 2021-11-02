@@ -35,9 +35,13 @@ $(document).ready(function() {
     $("#copy-time-alert").hide();
     $("#pause-button").css("opacity", "1");
     $("#reset-button").show();
-    $(".messages").show();
+
     notifyMe();
     currentDateTime();
+
+    setTimeout(() => {
+      $("#start-date-time").click();
+    }, 75);
   });
 
   $(window).keydown(function(event) {
@@ -69,7 +73,6 @@ $(document).ready(function() {
 
     stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
     navigator.clipboard.writeText(stopwatch_time);
-    copy_time.textContent = "Copied time tracked!"
   });
 
   $("#reset-button").click(function(e) {
@@ -80,8 +83,6 @@ $(document).ready(function() {
     $("#reset-button").hide();
 
     clearInterval(reminderAlert);
-
-    $("#start-date-time").hide();
 
     stopwatch_time = hour.textContent + ":" + min.textContent + ":" + sec.textContent;
     navigator.clipboard.writeText(stopwatch_time);
@@ -216,7 +217,6 @@ $(document).ready(function() {
 
   $("#start-date-time").click(function(event) {
     navigator.clipboard.writeText(start_date_time.textContent);
-    copy_time.textContent = "Copied start time!"
   });
 
   $("#menu-bars").click(function(event) {
@@ -234,10 +234,4 @@ $(document).ready(function() {
   $("#toggle-notify").click(function(event) {
      $("#userInput").toggle();
   });
-
-  $("#toggle-messages").click(function(event) {
-    $("#start-date-time").toggle();
-    $("#copy-time-alert").toggle();
-  });
-
 });
