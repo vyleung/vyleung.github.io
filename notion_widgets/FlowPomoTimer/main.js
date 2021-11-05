@@ -166,7 +166,7 @@ $(document).ready(function() {
   }
 
   // shows current time
-  function currentTime() {
+  function currentDateTime() {
     let date = new Date();
     let hh = date.getHours();
     let mm = date.getMinutes();
@@ -192,24 +192,18 @@ $(document).ready(function() {
 
     current_time.textContent = time;
 
-    let t = setTimeout(function(){
-      currentTime()
-      }, 1000);
-  }
-  currentTime();
-
-  // shows the current date and time
-  function currentDateTime() {
-    start_date_time.textContent = today.toLocaleDateString("en-US",
+    start_date_time.textContent = date.toLocaleDateString("en-US",
       {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-        hour: 'numeric',
-        hour12: true,
-        minute: '2-digit'
-      });
+      }) + " " + time;
+
+    let t = setTimeout(function(){
+      currentDateTime()
+      }, 1000);
   }
+  currentDateTime();
 
   function playSound() {
     $('#alert-sound').trigger("play");
