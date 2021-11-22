@@ -3,26 +3,6 @@
 <head>
   <title>Notion Clock Widget</title>
   <style>
-    @media (prefers-color-scheme: light) {
-      body {
-        background: #ffffff;
-      }
-
-      #refresh-button {
-        color: #000000;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #000000;
-      }
-
-      #refresh-button {
-        color: #ffffff;
-      }
-    }
-
     .current {
       display: block;
       font-family: sans-serif;
@@ -32,54 +12,28 @@
       width: 100%;
       text-align: center;
       padding: 0.25em 0 0.25em 0;
-      top: 0;
     }
 
-    hr {
-      background-color: #f1f1f0;
-      height: 1px;
-      border: none;
-    }
-
-    .date-time {
-      font-weight: bold;
-      color: #084FC3;
-    }
-
-    #date {
-      font-size: 1.25em;
+    body {
+      background-color: #ffffff;
     }
 
     #time {
       font-size: 1.5em;
+      font-weight: bold;
     }
 
-    #agenda-add {
-      width: 30em;
-      height: 20.25em;
-      transform: scale(0.9);
-    }
-
-    #refresh-button {
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-
-    #refresh-button:hover {
-      color: grey;
+    #greeting {
+      font-style: italic;
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-  <div class="current">
-    <div class="date-time" id="date"></div>
-    <div class="date-time" id="time"></div>
-    <hr>
-    <div id="refresh-button" onclick="window.location.reload();"><i class="fas fa-sync-alt"></i></div>
-
-    <embed type="text/html" id="agenda-add"src="https://notionforms.io/forms/add-an-agenda-item">
+  <div class="current" id="date-time">
+    <div id="date"></div>
+    <div id="time"></div>
+    <div id="greeting"></div>
   </div>
 </body>
 
@@ -88,7 +42,13 @@
   var hrs = today.getHours();
 
   // shows current date
-  document.getElementById("date").innerHTML = today.toDateString();
+  document.getElementById("date").innerHTML = today.toLocaleDateString("en-US",
+    {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long'
+    });
 
   // shows current time
   // shows current time - refrence: https://flexiple.com/javascript-clock/#section2
@@ -102,15 +62,10 @@
       hh = 12;
     }
 
-    else if (hh == 12) {
-      hh = 12;
-      session = "PM";
-    }
-
-    else if (hh > 12) {
+    if (hh > 12) {
       hh = hh - 12;
       session = "PM";
-    }
+     }
 
     hh = (hh < 10) ? "0" + hh : hh;
     mm = (mm < 10) ? "0" + mm : mm;
@@ -123,5 +78,29 @@
       }, 1000);
   }
   currentTime();
+
+  var greet = document.getElementById("greeting");
+
+  if (hrs >= 0 && hrs <= 5) {
+      greet.innerHTML = 'Late Night Block';
+      document.body.style.backgroundColor = "#C2C2C2";
+  }
+  else if (hrs >= 6 && hrs <= 11) {
+      greet.innerHTML = '(Morning Block)';
+      document.body.style.backgroundColor = "#FFE25A";
+  }
+  else if (hrs >= 12 && hrs <= 16) {
+      greet.innerHTML = 'Early Afternoon Block';
+      document.body.style.backgroundColor = "#cabdbf";
+  }
+  else if (hrs >= 17 && hrs <= 20) {
+      greet.innerHTML = 'Late Afternoon Block';
+      document.body.style.backgroundColor = "#b0c0d1";
+  }
+  else {
+      greet.innerHTML = 'Night Block';
+      document.body.style.backgroundColor = "#C2C2C2";
+  }
+
 </script>
 </html>
