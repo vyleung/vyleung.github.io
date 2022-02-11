@@ -1,7 +1,7 @@
 <html>
 <meta charset="UTF-8">
 <head>
-  <title>Notion Clock Widget</title>
+  <title>Clock Widget</title>
   <style>
     .current {
       display: block;
@@ -42,16 +42,16 @@
   var hrs = today.getHours();
 
   // shows current date
-  document.getElementById("date").innerHTML = today.toLocaleDateString("en-US",
-    {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      weekday: 'long'
-    });
+  // document.getElementById("date").innerHTML = today.toLocaleDateString("en-US",
+  //   {
+  //     year: 'numeric',
+  //     month: 'long',
+  //     day: 'numeric',
+  //     weekday: 'long'
+  //   });
 
   // shows current time
-  // shows current time - refrence: https://flexiple.com/javascript-clock/#section2
+  // reference: https://flexiple.com/javascript-clock/#section2
   function currentTime() {
     let date = new Date();
     let hh = date.getHours();
@@ -72,7 +72,7 @@
 
     let time = hh + ":" + mm + " " + session;
 
-    document.getElementById("time").innerText = time;
+    document.getElementById("time").textContent = time;
     let t = setTimeout(function(){
       currentTime()
       }, 1000);
