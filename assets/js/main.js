@@ -137,6 +137,6 @@ $("#menu-times").click(function() {
 	$("#menu-bars").show();
 });
 
-$("#nav-item-blog").click(function() {
+$("#blog").click(function() {
 	window.open("https://tinyurl.com/vyleung-blog", "_blank");
 });
