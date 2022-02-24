@@ -136,3 +136,7 @@ $("#menu-times").click(function() {
 	$(".nav-bar").hide();
 	$("#menu-bars").show();
 });
+
+$("#nav-item-blog").click(function() {
+	window.open("https://tinyurl.com/vyleung-blog", "_blank");
+});

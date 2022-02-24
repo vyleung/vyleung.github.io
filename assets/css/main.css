@@ -3335,7 +3335,7 @@ input, select, textarea {
 
 		@media screen and (max-width: 480px) {
 			#nav {
-				width: 20em;
+				width: 20.5em;
 			}
 
 			 .nav-bar {
