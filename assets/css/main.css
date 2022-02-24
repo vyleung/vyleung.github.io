@@ -1,4 +1,3 @@
-
 /*
 	Stellar by HTML5 UP
 	html5up.net | @ajlkn
@@ -167,7 +166,7 @@ input, select, textarea {
 
 	p {
 		font-weight: 400;
-		margin: 0 0 1em 0;
+		margin: 0 0 0.25em 0;
 		text-align: left;
 		font-size: 1.1em;
 	}
@@ -187,7 +186,7 @@ input, select, textarea {
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 600;
 		line-height: 1.5;
-		margin: 0 0 0.7em 0;
+		margin: 0 0 0.5em 0;
 		letter-spacing: -0.025em;
 		text-align: left;
 	}
@@ -198,7 +197,7 @@ input, select, textarea {
 		}
 
 	h1 {
-		font-size: 2.5em;
+		font-size: 1.75em;
 		line-height: 1.2;
 	}
 
@@ -211,15 +210,15 @@ input, select, textarea {
 	}
 
 	h4 {
-		font-size: 1.1em;
+		font-size: 1.15em;
 	}
 
 	h5 {
-		font-size: 0.9em;
+		font-size: 1.15em;
 	}
 
 	h6 {
-		font-size: 0.7em;
+		font-size: 1em;
 	}
 
 	@media screen and (max-width: 736px) {
@@ -3097,7 +3096,7 @@ input, select, textarea {
 		}
 
 			#header.alt h1 {
-				font-size: 2.5em;
+				font-size: 2em;
 			}
 
 				#header.alt .logo img {
@@ -3195,9 +3194,7 @@ input, select, textarea {
 	#nav {
 		background-color: #ffffff;
 		color: #000000;
-		position: absolute;
-		width: 55em;
-		max-width: calc(100% - 4em);
+		position: fixed;
 		padding: 1em;
 		border-top-left-radius: 0.25em;
 		border-top-right-radius: 0.25em;
@@ -3269,16 +3266,17 @@ input, select, textarea {
 					border-radius: 8px;
 					box-shadow: inset 0 0 0 1px transparent;
 					text-decoration: none;
+					opacity: 0.4;
 				}
 
 					#nav ul li a:hover {
+						opacity: 1;
 						text-decoration: underline;
 						text-decoration-thickness: 0.15em;
 					}
 
 					#nav ul li a.active {
-						text-decoration: underline;
-						text-decoration-thickness: 0.15em;
+						opacity: 1;
 					}
 
 		#nav.alt {
@@ -3298,8 +3296,17 @@ input, select, textarea {
 				#nav.alt ul li a {
 					font-size: 0.9em;
 				}
+		@media screen and (max-width: 1680px) {
+			#nav {
+				width: 55em;
+			}
+		}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 980px) {
+			#nav {
+				width: 42em;
+			}
+
 			 .nav-bar {
 				display: none;
 			}
@@ -3311,7 +3318,6 @@ input, select, textarea {
 
 			.hamburger-menu {
 				float: right;
-				margin-right: -1em;
 			}
 
 			#menu-bars {
@@ -3322,9 +3328,40 @@ input, select, textarea {
 				display: none;
 			}
 
-				#nav + #main {
-					padding-top: 0;
-				}
+			#nav + #main {
+				padding-top: 0;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			#nav {
+				width: 20em;
+			}
+
+			 .nav-bar {
+				display: none;
+			}
+
+			#name {
+				font-size: 1.75em !important;
+				float: left;
+			}
+
+			.hamburger-menu {
+				float: right;
+			}
+
+			#menu-bars {
+				display: block;
+			}
+
+			#menu-times {
+				display: none;
+			}
+
+			#nav + #main {
+				padding-top: 0;
+			}
 		}
 
 /* Main */
@@ -3544,13 +3581,13 @@ input, select, textarea {
 			color: #636363;
 		}
 
-		#main header.major h2:after {
+		/* #main header.major h2:after { */
 			/* background-color: #dddddd;
 			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -ms-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0); */
-		}
+		/* } */
 
 		#main table tbody tr {
 			border-color: #dddddd;
@@ -3784,28 +3821,13 @@ input, select, textarea {
 		text-align: center;
 	}
 
-	/* .fa-user {
-	  color: #e60100;
-	}
-
-	.fa-search {
-	  color: #ff9200;
-	}
-
-	.fa-bolt {
-	  color: #FFCD00;
-	}
-
-	.fa-envelope {
-	  color: #64b97b;
-	} */
-
-	.far, .fas-nav, .fas-main {
+	.fa, .far, .fas-nav, .fas-main {
 		padding-right: 0.25em;
 	}
 
+	/* color of nav icons */
 	.fas-nav {
-		color: #00A06F;
+		color: #F4BD0B;
 	}
 
 	.fas-main {
@@ -3906,15 +3928,16 @@ input, select, textarea {
 	}
 
 	figcaption {
-	  opacity: 0.5;
+	  opacity: 0.65;
 	  font-size: 85%;
 	  margin-bottom: 0.75em;
-		text-align: left;
+	  text-align: left;
+	  font-weight: normal;
 	}
 
 	.video {
-		height: 15em;
-		width: 25em;
+		height: auto;
+		width: 18em;
 		display: flex;
 		justify-content: center;
 	}
@@ -3926,11 +3949,6 @@ input, select, textarea {
 		margin-bottom: 14em;
 	}
 
-	.button-clicked {
-		color: #ffffff;
-		background-color: #000000;
-	}
-
 	.empty {
 		width: 100%;
 		height: 2em;
@@ -3939,4 +3957,13 @@ input, select, textarea {
 
 	.container {
 		padding-bottom: 2em;
+	}
+
+	br {
+		content: "";
+		margin-bottom: 1em;
+	}
+
+	.nav-bar-item {
+		font-weight: bold;
 	}
