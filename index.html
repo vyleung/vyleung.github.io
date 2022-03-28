@@ -14,7 +14,7 @@
 	<title>Vivian Leung</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/main.css" id="css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="assets/css/lightbox.css" rel="stylesheet" />
 </head>
@@ -37,7 +37,7 @@
 				<li><a href="#about" class="nav-bar-item"><i class="fas fas-nav fa-user"></i>ABOUT</a></li>
 				<li><a href="#research-projects" class="nav-bar-item"><i class="fas fas-nav fa-search"></i>RESEARCH PROJECTS</a></li>
 				<li><a href="#personal-projects" class="nav-bar-item"><i class="fas fas-nav fa-bolt"></i>PERSONAL PROJECTS</a></li>
-				<li id="blog"><a href="#blog" class="nav-bar-item"><i class="fas-nav fa-solid fa-feather-pointed"></i>BLOG</a></li>
+				<li><a href="blog.html" class="nav-bar-item"><i class="fas-nav fa-solid fa-feather-pointed"></i>BLOG</a></li>
 				<li><a href="#contact" class="nav-bar-item"><i class="fas fas-nav fa-envelope"></i>CONTACT</a></li>
 			</ul>
 		</nav>
@@ -45,7 +45,7 @@
 		<!-- Main -->
 		<div id="main">
 			<!-- About -->
-			<div class="empty"></div>
+			<div class="empty" id="about-section"></div>
 
 			<section id="about" class="main">
 				<div class="spotlight">
@@ -67,12 +67,12 @@
 							</ol>
 						</p>
 
-						<p><a href="https://tinyurl.com/vyleung-cv" target="_blank"><i class="fa fa-regular fa-file-lines"></i>CV</a></p>
+						<p><a href="https://tinyurl.com/vyleung-cv" target="_blank">↗ CV</a></p>
 					</div>
 					<a href="content/about-me-pic.jpg" data-lightbox="about-me"><span class="image"><img src="content/about-me-pic.jpg" alt="Vivian Leung" /></span></a>
 				</div>
 
-				<div>
+				<div id="research-projects-section">
 					<hr style="background-color: #FFFFFF; height: 1px; border:0;">
 				</div>
 			</section>
@@ -195,7 +195,7 @@
 					</div>
 				</div>
 
-				<div>
+				<div id="personal-projects-section">
 					<hr style="background-color: #FFFFFF; height: 1px; border:0;">
 				</div>
 			</section>
@@ -203,7 +203,7 @@
 			<!-- Personal Projects -->
 			<section id="personal-projects" class="main special">
 				<header class="major">
-					<h2>Perrsonal Projects</h2>
+					<h2>Personal Projects</h2>
 				</header>
 
 				<div class="container">
@@ -268,7 +268,7 @@
 						</div>
 					</div>
 
-				<div>
+				<div id="contact-section">
 					<hr style="background-color: #FFFFFF; height: 1px; border:0;">
 				</div>
 			</section>

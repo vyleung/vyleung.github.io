@@ -120,23 +120,19 @@
 			speed: 1000
 		});
 
+	// when the menu bars are clicked, show the x
+	$("#menu-bars").click(function() {
+		$("#menu-bars").hide();
+		$("#menu-times").show();
+		$("#menu-times").addClass('button-clicked');
+		$(".nav-bar").css('display','inline-block');
+	});
+
+	// when the x is clicked, show the menu bars
+	$("#menu-times").click(function() {
+		$("#menu-times").hide();
+		$(".nav-bar").hide();
+		$("#menu-bars").show();
+	});
+
 })(jQuery);
-
-// when the menu bars are clicked, show the x
-$("#menu-bars").click(function() {
-	$("#menu-bars").hide();
-	$("#menu-times").show();
-	$("#menu-times").addClass('button-clicked');
-	$(".nav-bar").css('display','inline-block');
-});
-
-// when the x is clicked, show the menu bars
-$("#menu-times").click(function() {
-	$("#menu-times").hide();
-	$(".nav-bar").hide();
-	$("#menu-bars").show();
-});
-
-$("#blog").click(function() {
-	window.open("https://tinyurl.com/vyleung-blog", "_blank");
-});
