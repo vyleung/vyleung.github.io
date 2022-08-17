@@ -1,10 +1,12 @@
+
+
 <!DOCTYPE html>
 <html
   lang="en"
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="light"
-  data-auto-appearance="false"
+  data-auto-appearance="true"
 ><head>
   <meta charset="utf-8" />
   
@@ -37,8 +39,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.597ca1b91c3640cd0cd121bd812a00e01e090b0373eb46d6af4f2d83a00e77012ad7ea4577f1c17a9dd554e50b143bef4bac6f924847053ff59cfdab0e7443c8.css"
-    integrity="sha512-WXyhuRw2QM0M0SG9gSoA4B4JCwNz60bWr08tg6AOdwEq1&#43;pFd/HBep3VVOULFDvvS6xvkkhHBT/1nP2rDnRDyA=="
+    href="/css/main.bundle.min.c1a648edf1157e47c0a501b2dcdc1cb2d0a552ac5df0bc5abcf4e2b53424998300fd23099529393f47e8a97748d215b918c724e71b305b0b79efdddda1ce1dd8.css"
+    integrity="sha512-waZI7fEVfkfApQGy3NwcstClUqxd8LxavPTitTQkmYMA/SMJlSk5P0foqXdI0hW5GMck5xswWwt5793doc4d2A=="
   />
   
   
@@ -55,7 +57,7 @@
   
   
     
-    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.9d0d5b008527e0f2fa1600ae6c524aa347c4fbedf352dce49867c9d75b2abb3f374316f4711baedb0d0814a22fb8e27c8d273ac64f92db28fabe96454e64edf4.js" integrity="sha512-nQ1bAIUn4PL6FgCubFJKo0fE&#43;&#43;3zUtzkmGfJ11squz83Qxb0cRuu2w0IFKIvuOJ8jSc6xk&#43;S2yj6vpZFTmTt9A==" data-copy="Copy" data-copied="Copied"></script>
+    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.aa5ffa2b2773eb272da72cfa6ef7776579c988f2765b6699f998066df73d50454252fdf6fdab78c9ea80c6fd26955cc45c9f8350b6fc42fe8b51436f83bba7db.js" integrity="sha512-ql/6Kydz6yctpyz6bvd3ZXnJiPJ2W2aZ&#43;ZgGbfc9UEVCUv32/at4yeqAxv0mlVzEXJ&#43;DULb8Qv6LUUNvg7un2w==" data-copy="Copy" data-copied="Copied"></script>
   
   
   
@@ -156,80 +158,85 @@
           >&darr;</span
         >Skip to main content</a
       >
-    </div><header
-  class="flex justify-between py-6 font-semibold sm:items-center sm:py-10 text-neutral-900 dark:text-neutral print:hidden"
->
-  
-  <div>
+    </div>
     
-      <a
-        class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-        rel="me"
-        href="/"
-        >Vivian Leung</a
-      >
     
+      <header class="py-6 font-semibold sm:py-10 text-neutral-900 dark:text-neutral print:hidden">
+  <nav class="flex justify-between">
+    
+    <div class="z-40">
+      
+        <a
+          class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+          rel="me"
+          href="/"
+          >Vivian Leung</a
+        >
+      
 
-  </div>
-  
-  
-    <nav>
-      <ul class="flex flex-col list-none sm:flex-row">
-        
-          <li
-            class="mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
+    </div>
+    
+    
+      <label id="menu-button" for="menu-controller" class="block">
+        <input type="checkbox" id="menu-controller" class="hidden" />
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-auto overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50"
+        >
+          <ul
+            class="flex flex-col w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl sm:px-14 md:px-24 lg:px-32 sm:py-10 sm:pt-10"
           >
-            <a
-              class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-              href="/"
-              title="About"
-              >  About</a
-            >
-          </li>
-        
-          <li
-            class="mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
-          >
-            <a
-              class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-              href="/research/"
-              title="Research"
-              >  Research</a
-            >
-          </li>
-        
-          <li
-            class="mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
-          >
-            <a
-              class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-              href="/projects/"
-              title="Projects"
-              >  Projects</a
-            >
-          </li>
-        
-          <li
-            class="mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
-          >
-            <a
-              class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-              href="/blog/"
-              title="Blog"
-              >  Blog</a
-            >
-          </li>
-        
-        
-          <li
-            class="ltr:text-right rtl:text-left ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0"
-          >
-            <button
-              id="search-button"
-              class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-              title="Search (/)"
-            >
+            <li class="mb-1">
+              <span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"
+                >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span
+              >
+            </li>
+            
               
+                <li class="mb-1">
+                  <a
+                    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                    href="/"
+                    title="About"
+                    >  About</a
+                  >
+                </li>
+              
+                <li class="mb-1">
+                  <a
+                    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                    href="/projects/"
+                    title="Projects"
+                    >  Projects</a
+                  >
+                </li>
+              
+            
+            
+              <li>
+                <button
+                  id="search-button"
+                  class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                  title="Search (/)"
+                >
+                  
 
   <span class="relative inline-block align-text-bottom icon">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
@@ -237,15 +244,20 @@
   </span>
 
 
-            </button>
-          </li>
-        
-      </ul>
-    </nav>
-  
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </label>
+    
+  </nav>
 </header>
-<div class="relative">
+
+    
+    <div class="relative flex flex-col grow">
       <main id="main-content" class="grow">
+        
   <header>
     
       <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
