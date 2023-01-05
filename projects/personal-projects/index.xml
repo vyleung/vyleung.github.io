@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Personal Projects on Vivian Leung</title>
-    <link>https://vyleung.github.io/projects/personal-projects/</link>
-    <description>Recent content in Personal Projects on Vivian Leung</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>If you&#39;re using Safari and the page isn&#39;t properly spaced, please use another browser such as Chrome or Firefox</copyright><atom:link href="https://vyleung.github.io/projects/personal-projects/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal Projects on Vivian Leung</title><link>https://vyleung.github.io/projects/personal-projects/</link><description>Recent content in Personal Projects on Vivian Leung</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>If you're using Safari and the page isn't properly spaced, please use another browser such as Chrome or Firefox</copyright><atom:link href="https://vyleung.github.io/projects/personal-projects/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
